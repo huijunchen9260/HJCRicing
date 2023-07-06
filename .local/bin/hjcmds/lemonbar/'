@@ -1,0 +1,206 @@
+#!/bin/sh
+
+delim='┋'
+
+panel_name=hjcbar
+
+calc () { awk "BEGIN { print int($*) }"; }
+
+toggle () { [ $toggle -eq 1 ] && toggle= || toggle=1; }
+
+time () { time="%{A1:$TERMINAL -e calcurse &:}$(date '+%b-%d %H:%M:%S')%{A1}"; }
+
+volume () { volume="%{A1:pulsemixer --toggle-mute; pkill -1 hjcbar.sh:}%{A3:$TERMINAL -e pulsemixer &:}%{A5:pulsemixer --change-volume +1; pkill -1 hjcbar.sh:}%{A4:pulsemixer --change-volume -1; pkill -1 hjcbar.sh:}$(amixer get Master | grep -o "[0-9]*%\|\[on\]\|\[off\]" | sed "s/\[on\]//;s/\[off\]//")%{A4}%{A5}%{A3}%{A1}"; }
+
+network () { network="%{A1:$TERMINAL -e nmtui &:}$(printf '%s ' "$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) "%" }')" "$(sed "s/down/❌/;s/up//;s/unknown//" /sys/class/net/e*/operstate)")%{A1}"; }
+
+# memory () { memory=" $(free -h | sed -n '2{p;q}' | cut -d ' ' -f 19)"; }
+# memory () {
+    # case "$toggle" in
+	# '') memory="%{A1:pkill -3 hjcbar.sh:}%{A1}";;
+	# 1) memory="%{A1:pkill -3 hjcbar.sh:}" $(free -h | sed -n '2{p;q}' | cut -d ' ' -f 19)"%{A1}" ;;
+    # esac
+    # case $sig in
+    #     6)
+	    # case "$toggle" in
+		# '') toggle=1; memory="%{A1:pkill -6 hjcbar.sh:}$([ "$toggle" = "1" ] && printf '%s' " $(free -h | sed -n '2{p;q}' | cut -d ' ' -f 19)" || printf '%s' "")%{A1}" ;;
+		# 1) toggle=;  memory="%{A1:pkill -6 hjcbar.sh:}%{A1}";;
+	    # esac
+	    # ;;
+	# '')
+    # esac
+    # memory="%{A1:pkill -6 hjcbar.sh:}$([ "$toggle" = "1" ] && printf '%s' " $(free -h | sed -n '2{p;q}' | cut -d ' ' -f 19)" || printf '%s' "")%{A1}"
+    # memory="%{A1:pkill -6 hjcbar.sh:} $(free -h | sed -n '2{p;q}' | cut -d ' ' -f 19)%{A1}"
+# }
+
+# cpu () {
+#     total=$(($(cat -u /proc/stat | head -n 1 | cut -b 6- | tr ' ' '+')))
+#     idle=$(($(cat -u /proc/stat | head -n 1 | cut -b 6- | cut -d ' ' -f 4,6 | tr ' ' '+')))
+#     [ -z $pretotal ] && pretotal=$((total-1))
+#     [ -z $preidle ] && preidle=$((idle-1))
+#     cpu=" $(calc "(($total-$pretotal)-($idle-$preidle))/($total-$pretotal)*100")%"
+#     pretotal=$total
+#     preidle=$idle
+# }
+
+system () {
+    total=$(($(cat -u /proc/stat | head -n 1 | cut -b 6- | tr ' ' '+')))
+    idle=$(($(cat -u /proc/stat | head -n 1 | cut -b 6- | cut -d ' ' -f 4,6 | tr ' ' '+')))
+    [ -z $pretotal ] && pretotal=$((total-1))
+    [ -z $preidle ] && preidle=$((idle-1))
+    cpu=" $(calc "(($total-$pretotal)-($idle-$preidle))/($total-$pretotal)*100")%"
+    pretotal=$total
+    preidle=$idle
+    memory=" $(free -h | sed -n '2{p;q}' | cut -d ' ' -f 19)"
+    system="%{A1:$TERMINAL -e htop:}$memory $cpu%{A1}"
+}
+
+weather () {
+        [ "$(stat -c %y "$HOME/.local/share/weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]
+	case $? in
+	    0) weather="%{A1:$TERMINAL -e less $HOME/.local/share/weatherreport &:}$(sed '16q;d' "$HOME/.local/share/weatherreport" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/ /g" | tr -d '\n' &&
+		sed '13q;d' "$HOME/.local/share/weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ",$1 "°","",$2 "°"}')%{A}" ;;
+	    *) ping -q -c 1 1.1.1.1 >/dev/null &&
+		curl -s "wttr.in/$location" > "$HOME/.local/share/weatherreport" &&
+		weather="%{A1:$TERMINAL -e less $HOME/.local/share/weatherreport &:}$(sed '16q;d' "$HOME/.local/share/weatherreport" | grep -wo "[0-9]*%" | sort -n | sed -e '$!d' | sed -e "s/^/ /g" | tr -d '\n' &&
+		sed '13q;d' "$HOME/.local/share/weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " ",$1 "°","",$2 "°"}')%{A}" ;;
+    	esac
+}
+
+battery () {
+    for x in /sys/class/power_supply/BAT?; do
+	num="${x##*BAT}"
+	AC="$(cat $x/status)"
+	CAP="$(cat $x/capacity)"
+	case $AC in
+	    "Charging") battery="$(printf '%s' "$battery" " $num: $CAP%")" ;;
+	    *)
+		case "$CAP" in
+		    100|9[0-9])	battery="$(printf '%s' "$battery" " $num: $CAP%")" ;;
+		    8[0-9]|7[0-9]) battery="$(printf '%s' "$battery" " $num: $CAP%")" ;;
+		    6[0-9]|5[0-9]) battery="$(printf '%s' "$battery" " $num: $CAP%")" ;;
+		    4[0-9]|3[0-9]) battery="$(printf '%s' "$battery" " $num: $CAP%")" ;;
+		    *) battery="$(printf '%s' "$battery" " $num: $CAP%")" ;;
+		esac
+	esac
+    done
+}
+
+groups() {
+    cur=$(xprop -root _NET_CURRENT_DESKTOP)
+    cur=${cur##* }
+    tot=$(xprop -root _NET_NUMBER_OF_DESKTOPS)
+    tot=${tot##* }
+    wincount=$(xdotool search --all --onlyvisible --desktop $cur "" 2>/dev/null | wc -l)
+    monitorcount=$(xrandr --listactivemonitors | tail -n +2 | wc -l)
+
+    # idle='-'
+    # active='|✝'
+    # active='☥'
+    idle='-'
+    active='†'
+    occupy='o'
+    # for w in $(seq 0 $((tot-1))); do
+	# case $w in
+	    # $cur) ws="$ws$active";;
+	    # *) wcount=$(xdotool search --all --desktop $w "" 2>/dev/null | wc -l)
+		# case $wcount in
+		    # 0) ws="$ws$idle" ;;
+		    # *) ws="$ws$occupy" ;;
+		# esac
+		# ;;
+	# esac
+    # done
+
+    case "$monitorcount" in
+	'1') ws=$(printf '%*s ' "$((tot-1))" | tr ' ' "$idle" | sed "s/^\(.\{$cur\}\)./\1$active/") ;;
+	'2') sep=$(calc "$tot/$monitorcount")
+	    if [ $cur -lt $sep ]; then
+		ws=$(printf '%*s ' "$tot" | tr ' ' "$idle" | sed "s/^\(.\{$cur\}\)./\1$active/; s/\(.\{$sep\}\)./\1 /")
+	    else
+		cur=$(calc "$cur+1")
+		ws=$(printf '%*s ' "$tot" | tr ' ' "$idle" | sed "s/^\(.\{$cur\}\)./\1$active/; s/\(.\{$sep\}\)./\1 /")
+	    fi
+	    ;;
+    esac
+	    # [ $cur -lt $sep ] &&
+		# ws=$(printf '%*s ' "$tot" | tr ' ' "$idle" | sed "s/^\(.\{$cur\}\)./\1$active/; s/\(.\{$sep\}\)./\1 /") || {
+		# cur=$(calc "$cur+1")
+			    # ws=$(printf '%*s ' "$tot" | tr ' ' "$idle" | sed "s/^\(.\{$cur\}\)./\1$active/; s/\(.\{$sep\}\)./\1 /")
+		# }
+}
+
+music () {
+    playicon=""
+    pauseicon=""
+    format=$(mpc -f "[%title%]|[%file%]" 2>/dev/null)
+    name=$(printf '%s' "$format" | head -n 1)
+    name="${name##*/}" status="$(printf '%s' "$format" | grep -o "\[playing\]\|\[paused\]" | tr '\n' ' ' | sed "s/\[playing\]/$playicon/; s/\[paused\]/$pauseicon/")"
+
+    music="%{A1:mpc toggle > /dev/null; pkill -15 hjcbar.sh:}%{A3:$TERMINAL -e ncmpcpp &:}$([ ${#name} -ge 40 ] && printf '%s' "$(printf '%s' "$name" | cut -b 1-40)... $status" || printf '%s' "$name $status")%{A3}%{A1}"
+}
+
+musictime () { musictime=$(mpc status 2>/dev/null | grep -o "[0-9]*:[0-9]*/[0-9]*:[0-9]*"); }
+
+# This loop will fill a buffer with our infos, and output it to stdout.
+update () {
+    left="${ws} ${wincount}"
+    # right="${musictime} ${music} ${volume} $delim ${weather} $delim ${memory} ${cpu} $delim ${network} $delim ${battery} $delim ${time}"
+    right="${musictime} ${music} ${volume} $delim ${weather} $delim ${system} $delim ${network} $delim ${battery} $delim ${time}"
+    monitorlist=$(xrandr --listactivemonitors | tail -n +2 | cut -d ' ' -f 6)
+    tmp=0
+    for m in $monitorlist; do
+	BAR="$BAR%{S${tmp}} %{l}$m $delim ${left}%{r}${right}"
+	tmp=$((tmp+1))
+    done
+    # printf '%s\n' "$(echo "$BAR" | tr '\n' ' ')"
+    echo "$BAR" | tr '\n' ' '
+    unset tmp BAR
+
+    # Hide bar in full screen
+    wid=$(xdo id -a "hjcbar")
+    for w in $(echo $wid); do
+	xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$w"
+    done
+}
+
+refresh () {
+    case "$sig" in
+	1) volume ;;
+	6) musictime ;;
+	14) groups ;;
+	15) music; musictime ;;
+	# 44) musictime ;;
+	'') unset network battery time system; time; system; battery; network; musictime ;;
+    esac
+    unset sig
+}
+
+recursive () {
+    # [ $status = $playicon ] && {
+	# sleep 1 &
+	# wait
+	# pkill -6 hjcbar.sh
+    # }
+    if [ $status = $playicon ]; then
+	sleep 1
+	kill "$PID" 2>/dev/null
+	sig=44
+    fi
+}
+
+trap 'sig=1;' 1
+trap 'sig=6;' 6
+trap 'sig=14;' 14
+trap 'sig=15;' 15
+
+time; volume; system; weather; battery; network; groups; music; musictime
+while :; do
+    refresh; update;
+    # refresh; update &
+    sleep 1m &
+    PID=$!
+    recursive &
+    wait $PID
+    [ $status = $playicon ] && sig=44
+done

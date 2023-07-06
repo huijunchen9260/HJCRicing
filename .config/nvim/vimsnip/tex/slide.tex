@@ -1,0 +1,83 @@
+\documentclass[12pt]{extarticle}
+\usepackage[%
+  papersize={16cm,9cm},
+  hmargin=1cm,%
+  vmargin=1cm,%
+  head=0cm,% might be changed later
+  headsep=0.6cm,%
+  foot=0cm,% might be changed later
+  footskip=0.6cm,
+  ignoreheadfoot
+  ]{geometry}% http://ctan.org/pkg/geometry
+
+% header and footer
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{#1}{}}
+\renewcommand{\subsubsectionmark}[1]{\markright{#1}{}}
+\makeatletter
+\renewcommand{\@evenhead}{\tiny \hfill \textcolor{gray}{\rightmark}}
+\renewcommand{\@oddhead}{\@evenhead}
+\renewcommand{\@evenfoot}{\hfill \thepage{}/\pageref*{lastpage}}
+\renewcommand{\@oddfoot}{\@evenfoot}
+\makeatother
+
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+\newcommand{\subsectionbreak}{\clearpage}
+\newcommand{\subsubsectionbreak}{\clearpage}
+
+% \documentclass[17pt]{extarticle}
+% \usepackage[left=.8in, right=.8in, top = .8in, bottom = 1in]{geometry}
+% \usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false,backend=biber,doi=false,url=false]{biblatex}
+% \addbibresource{$BIB} % bibtex location
+% \renewcommand*{\nameyeardelim}{\addcomma\space} % have comma in parencite
+\usepackage{natbib}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{xcolor}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\hyphenpenalty=1000
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\allowdisplaybreaks % let derivations break across pages
+
+% \usepackage{titlesec}
+% \newcommand{\sectionbreak}{\clearpage}
+% \newcommand{\subsectionbreak}{\clearpage}
+
+%%% beamer style beamerbutton for section reference
+\usepackage[most]{tcolorbox}
+\definecolor{beamerblue}{RGB}{153,153,217}
+\newtcbox{\inlinebox}[1][]{beamer,
+                           box align=base,
+                           nobeforeafter,
+                           colback=beamerblue,
+                           size=small,
+                           boxrule=0pt,
+                           left=2pt, right=2pt,
+                           boxsep=4pt,
+                           arc=5pt,
+                           fontupper=\color{white},
+                           #1}
+\newcommand{\jump}[3]{\inlinebox{\hypersetup{hidelinks}\hyperref[#1]{#2}\label{#3}}}
+
+\title{<++>}
+\author{<+Hui-Jun Chen+>}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+<++>
+
+
+\label{lastpage}
+
+\bibliographystyle{$BIB_STYLE}
+\bibliography{$BIBFILE}
+
+\end{document}
+
+

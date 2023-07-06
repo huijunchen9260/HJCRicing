@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+% Absolutely necessary packages
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Math packages
+\usepackage{amsmath,amsfonts,amssymb,amsthm,amsthm}
+
+% Others: Tables, figures, formating, and bibliography
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{booktabs}\renewcommand{\arraystretch}{1.6}
+\usepackage[flushleft]{threeparttable}
+\usepackage{xcolor}
+\usepackage{makecell}
+\usepackage[capposition=top]{floatrow}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,allcolors=blue}
+
+% \usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false,backend=biber,doi=false,url=false]{biblatex}
+% \addbibresource{$BIB} % bibtex location
+% \renewcommand*{\nameyeardelim}{\addcomma\space} % have comma in parencite
+\usepackage{natbib}
+
+\allowdisplaybreaks % let derivations break across pages
+\hyphenpenalty=1000
+
+\title{<++>}
+\author{
+    <++>%
+    \thanks{<++>}
+}
+\date{<+\today+>}
+
+\begin{document}
+\onehalfspacing
+
+\begin{titlepage}
+	\maketitle
+	\thispagestyle{empty}
+	\abstract{<++>}\\
+	\\
+	\noindent\textbf{Keywords:} <++>\\
+\\
+	\noindent\textbf{JEL Codes:} <++>
+\end{titlepage}
+\setcounter{page}{2}
+\newpage
+
+<++>
+
+% \printbibliography
+\bibliographystyle{$BIB_STYLE}
+\bibliography{$BIBFILE}
+
+\end{document}

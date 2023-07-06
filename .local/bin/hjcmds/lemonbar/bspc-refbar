@@ -1,0 +1,6 @@
+#!/bin/sh
+
+bspc subscribe report |
+    while read line; do
+	pkill -14 hjcbar.sh
+    done

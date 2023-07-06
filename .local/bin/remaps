@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# This script is called on startup to remap keys.
+# Increase key speed via a rate change
+xset r rate 300 50
+# Map
+# 1. capslock to control
+# 2. swap alt and windows key
+# 3. Shift_L + Shift_R = CapsLock
+# 4. When CapsLock is on, press any shift to cancel CapsLock
+# setxkbmap -option ''
+# setxkbmap -option 'ctrl:nocaps,altwin:swap_alt_win,shift:both_capslock_cancel'
+# setxkbmap -option 'caps:ctrl_modifier,altwin:swap_alt_win,shift:both_capslock_cancel'
+setxkbmap -option 'caps:ctrl_modifier,ctrl:rctrl_ralt,altwin:swap_alt_win,shift:both_capslock_cancel'
+
+
+xmodmap -e 'keycode 135 = Control_L' # menu button -> Control_L
+xmodmap -e 'keycode 166 = Page_Up' # XF86Backward -> Page Up
+xmodmap -e 'keycode 167 = Page_Down' # XF86Forward -> Page Down
+# But when it is pressed only once, treat it as escape.
+killall xcape 2>/dev/null
+xcape -e 'Super_L=Escape'
+xcape -e 'Control_L=Escape'
+xcape -e 'Caps_Lock=Escape'
+# Turn off the caps lock if on since there is no longer a key for it.
+xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+
+notify-send "⌨️ Keyboard and trackpoint remapping..." "Re-running keyboard defaults for any newly plugged-in keyboards."

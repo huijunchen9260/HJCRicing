@@ -1,0 +1,29 @@
+snippet while "while loop"
+while ($1) {
+    $0
+}
+endsnippet
+
+snippet if "if statement"
+if ($1) {
+    $0
+}
+endsnippet
+
+snippet forarr "for loop - array"
+for (${1:key} in ${2:arr}) {
+    $0
+}
+endsnippet
+
+snippet for "for loop - standard"
+for (${1:i = 1}; ${2:i <= 10}; ${3:i++}) {
+    $0
+}
+endsnippet
+
+snippet func "function"
+function $1($2) {
+    $0
+}
+endsnippet

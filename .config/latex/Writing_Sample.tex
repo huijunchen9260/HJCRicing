@@ -1,0 +1,484 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}  %加這個就可以設定字體 
+\usepackage{xeCJK}  %讓中英文字體分開設置
+    \setmainfont[Scale=1.2]{Times New Roman}
+    \setCJKmainfont[Scale=1.2]{Kaiti TC}    %設定中文為系統上的字型，而英文不去更動，使用原TeX字型
+    \CJKsetecglue{} %設定中英混雜時不會讓英文後面多空一格
+    \XeTeXlinebreaklocale "zh"  
+    \XeTeXlinebreakskip = 0pt plus 1pt %這兩行一定要加，中文才能自動換行
+\usepackage{ruby}
+    \renewcommand{\baselinestretch}{1.1} 
+    \renewcommand{\rubysep}{0.1ex}
+\usepackage{hyperref} %讓latex可以超連結
+\usepackage[a4paper, margin=.8in]{geometry} %設定紙張大小與邊界
+\usepackage{enumitem} 
+%讓列舉可以使用英文字列舉，在\begin{enumerate}後面加上[label = (\Alph*)]
+\usepackage[style=apa,maxbibnames=9,mincitenames=1,maxcitenames=2,uniquelist=false,url=false,isbn=false,doi=false,alldates=year,backend=biber]{biblatex}    %讓latex可以使用bibtex    
+    \addbibresource{/Users/ShelbyChen/Desktop/MyLibrary.bib}
+\usepackage{parskip}
+    \setlength{\parindent}{0in} %讓開頭不擡頭
+    \setlength{\parskip}{1em} %讓空一行就等於分段
+\usepackage{color, soul} %可使用highlight指令：\hl
+    \sethlcolor{yellow} %讓中文可以highlight的方法：\hl{\mbox{你想要highlight的部分}}
+\usepackage[pagestyles]{titlesec} %讓我可以利用下方的程式碼來自訂section等等的格式
+
+    %%%%%%%%下方的程式碼可以自定
+\titleformat{\section}{\large\bfseries}{\thesection.}{1em}{}
+\titlespacing{\section}{0pt}{0pt}{0pt}
+\titleformat{\subsection}{\itshape}{\thesubsection.}{1em}{}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}
+    %%%%%%%%上方的程式碼可以自定
+
+% math part
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\renewcommand{\arraystretch}{1.5}
+
+\title{
+        \vspace{-3ex}
+        \textbf{\huge{Writing Sample}}\\
+        \vspace{1ex}
+        \Large{Product R\&D Portfolio with R\&D Spillover\\ on the Multi-product Duopoly}
+        \vspace{-3ex}
+    } % Title
+\author{\textit{Shelby Hui-Jun Chen} | \textit{Applying for Economics Ph.D}}
+\date{\vspace{-6ex}}
+
+\newcommand{\school}{<++>}
+
+\begin{document}
+\maketitle
+\hrulefill
+\section{Introduction} \label{sec:intro}
+
+The investigation of the R\&D portfolio and R\&D spillover effects from multi-product firm has been a question that requires explanation. 
+\textcite{lin_effects_2013} might be one of the first theoretical paper to discuss the R\&D portfolio of multi-product firm under process R\&D, the R\&D for decreasing marginal cost.
+It concludes that firms will always specialize its R\&D investment on the product with higher level of equilibrium R\&D investment.
+However, the adoption of process R\&D is not realistic.
+According to \textcite{scherer1990economic}, it is the product R\&D that accounts for over three quarters of the total R\&D investment in the United States.
+Besides the assumption of product R\&D, we also include the effects of R\&D spillover because of the urgent need for theoretical explanation from the existence of many empirical literatures.
+\textcite{levin_cost-reducing_1989} discovers that both the investment of product R\&D and process R\&D will be affected by the technological innovation and R\&D spillover effects.
+\textcite{chin_patent_2006-1} utilize the Tobin's Q as the index of the profitability of the semi-conductor firms in Taiwan, and realize that R\&D spillover effect are highly correlated with the degree of Tobin's Q.
+Therefore, it is crucial for researchers to develop theoretical model of product R\&D portfolio of multi-product firm with R\&D spillover.
+
+This paper expand the quality-augmented utility function from \textcite{symeonidis_comparing_2003} into multi-product version, and add the degree of product differentiation from \textcite{singh1984price} and \textcite{vives_efficiency_1985} into the utility function.
+Referring to the \textcite{lin_product_2002-1} and \textcite{lin_effects_2013}, we develop a two-stage model. 
+In the first stage, firms decide its R\&D investment on both products.
+These product R\&D do not increase the degree of product differentiation \parencite{lin_product_2002-1}, but directly increase the quality of the product \parencite{symeonidis_cartel_1999}.
+Both firms manufacture one core product with higher initial quality, and one non-core product with lower initial quality.
+Besides, the R\&D spillover this paper discusses is inter-firm R\&D spillover.
+In the second stage, both firms compete Cournot fashion.
+
+To separate the effects of product R\&D and inter-firm R\&D spillover,we divide our model into three scenarios: (1)Benchmark scenario: firms cannot invest in product R\&D, (2)R\&D scenario: firms can invest in product R\&D, and (3)Spillover scenario: firms can invest in product R\&D with inter-firm R\&D spillover. 
+We discover that under product R\&D, firms may invest more on non-core product, unlike conclusion in \textcite{lin_effects_2013} that firms will always invest more on core product under process R\&D. 
+We also ascertain that inter-firm R\&D spillover will change the relationship of products.
+When spillover effects is less than 0.5, products in the same market are substitutes, while that in the different market are complements.
+This relationship is the same as \textcite{lin_effects_2013}.
+However, when the spillover effects is larger than 0.5, product in the same market are complements, while that in the different market are substitutes.
+
+This paper is organized as follows. 
+Section \ref{sec:model} constructs our basic model.
+Section \ref{sec:benchmark} presents our benchmark scenario that firms cannot invest R\&D.
+Section \ref{sec:rd} shows the scenario which firms invest product R\&D on its core and non-core product.
+Section \ref{sec:spillover} demonstrate the scenario which firms invest product R\&D with R\&D spillover on its core and non-core product.
+Section \ref{sec:conclusion} concludes.
+
+\section{Model} \label{sec:model}
+
+Consider a duopoly competition within two symmetric firms, $1$ and $2$, each firms produce two products, $A$ and $B$.
+We use the subscript $i=\left\{ 1,2 \right\}$ to represent firms, and superscript $K=\left\{ A,B \right\}$ to represent products.
+
+In the first stage, both firms decide their own R\&D investment to increase quality $\vec{u}=((u_1^A,u_1^B),(u_2^A,u_2^B))$, and in the second stage, both firms compete with quantity $\vec{q}=((q_1^A,q_1^B),(q_2^A,q_2^B))$.
+
+We expand the utility from \textcite{symeonidis_comparing_2003} to multi-product version, and get
+\begin{equation}
+    \begin{aligned}
+        U (\mathbf{q}, \mathbf{u}) & = \left( (q_1^A) -\frac{(q_1^A)^2}{(u_1^A)^2} \right) + \left( (q_1^B) -\frac{(q_1^B)^2}{(u_1^B)^2} \right) + \left( (q_2^A) -\frac{(q_2^A)^2}{(u_2^A)^2} \right) + \left( (q_2^B) -\frac{(q_2^B)^2}{(u_2^B)^2} \right)\\
+        &  \quad - 2 \left( \frac{(q_1^A)}{(u_1^A)} \frac{(q_2^A)}{(u_2^A)} + \frac{(q_1^B)}{(u_1^B)}  \frac{(q_2^B)}{(u_2^B)}\right)\\
+        &  \quad - \sigma \left( \frac{(q_1^B)}{(u_1^B)} \frac{(q_2^A)}{(u_2^A)} + \frac{(q_1^A)}{(u_1^A)}  \frac{(q_2^B)}{(u_2^B)} + \frac{(q_2^A)}{(u_2^A)}  \frac{(q_2^B)}{(u_2^B)} + \frac{(q_1^A)}{(u_1^A)} \frac{(q_1^B)}{(u_1^B)} \right) + M
+    \end{aligned},
+\end{equation}
+we denote $M$ for numeraire goods, and $\sigma \in (0,2)$ for the degree of product differentiation between product $A$ and $B$: when $\sigma \rightarrow 0$, two products will become perfect complement; when $\sigma \rightarrow 2$, two products will become perfect substitute when $u_1^A=u_1^B=u_2^A=u_2^B$. Since the utility function is quasi-linear, we get the inverse demand function by deriving marginal utilities equal to products prices.
+
+In the second stage, firms maximize their profit by choosing the quantity of both products, $q_i^A$ and $q_i^B$.
+By assuming firms' marginal costs as $c \in [0,1]$, firms' profit is defined as
+\begin{equation}
+    \begin{aligned}
+        \pi (\vec{q}, \vec{u}) = \left( \left(p_i^A(\vec{q}, \vec{u})-c\right)q_i^A +  \left(p_i^B(\vec{q}, \vec{u})-c\right)q_i^B \right),i \in {1,2}
+    \end{aligned}.
+\end{equation}
+
+Since the profit function satisfy second order condition, it is concave function of $(q_i^A,q_i^B)$.
+From the first order condition, we maximize firms' profit, and gain the reaction function for firm $i$ producing product $K$:
+\begin{equation}
+    \begin{aligned}
+    q_i^K & = \frac{(u_i^K)^2}{4}  \left( 1 - \frac{2 q_j^K}{u_i^K u_j^K} - \left( \frac{2 q_i^L}{u_i^K u_i^L} + \frac{q_j^L}{u_i^K u_j^L} \right) \sigma - c \right),\\
+    &  i, j \in \{ 1, 2 \}, K, L \in \{ A, B \}, i \neq j, K \neq L.
+    \end{aligned}.
+\end{equation}
+Solving for all reaction function, we get the equilibrium quantity produced as 
+\begin{equation}
+  \begin{aligned}
+    (q_i^A (\mathbf{u}; \sigma, c))^{\ast} & = \frac{u_i^A  (1 - c)  (4u_i^A + u_j^B \sigma - 2 u_i^B \sigma - 2 u_j^A)}{3 (2 - \sigma)  (\sigma + 2)},\\
+    (q_i^B (\mathbf{u}; \sigma, c))^{\ast} & = \frac{u_i^B  (1 - c)  (4 u_i^B + u_j^A \sigma - 2 u_i^A \sigma - 2 u_j^B)}{3 (2 - \sigma)  (\sigma + 2)}\\
+    &  i, j \in \{ 1, 2 \}, K \in \{ A, B \}, i \neq j.
+\end{aligned}. 
+\end{equation}
+Substituting the equilibrium quantity into the inverse demand and profit function, we get the equilibrium price and profit are
+\begin{equation}
+    \begin{aligned}
+    (p_i^K ((u_i^K, u_j^K) ; c))^{\ast} & = \frac{c + 2}{3} - \frac{u_j^K (1 - c)}{3 u_i^K},\\
+    (\pi_i (\mathbf{u}; \sigma, c))^{\ast} & = \frac{2 (1 - c)^2  \left( (2u_i^L - u_j^L)^2 + (2 u_i^K - u_j^K)^2 - (2 u_i^K - u_j^K)  (2 u_i^L - u_j^L) \sigma \right)}{9 (2 - \sigma)  (\sigma + 2)}\\
+    &  i, j \in \{ 1, 2 \}, K, L \in \{ A, B \}, i \neq j, K \neq L.
+    \end{aligned}.
+\end{equation}
+
+We separate the first stage into three scenarios:
+\begin{enumerate}
+    \item Benchmark scenario: both firms cannot invest product R\&D.
+    \item R\&D scenario: both firms can invest product R\&D.
+    \item Spillover scenario: both firms can invest product R\&D, which contains intrinsic inter-firm R\&D spillover effects.
+\end{enumerate}
+
+\section{Benchmark scenario: firms cannot invest R\&D} \label{sec:benchmark}
+We denote the initial quality as $a_i^K$, where $a_1^A=a_2^B=a_H, a_1^B=a_2^A=a_L$.
+Since firms cannot R\&D, we know the quality of products equal to its initial quality, $u_1^A=u_2^B=a_H,u_1^B=u_2^A=a_L$, we can rewrite the equilibrium quantity and profit as
+\begin{equation}
+    \begin{aligned}
+        &q_1^A (a_H, a_L ; \sigma, c) = q_2^B (.,.; .,.) = q_H (.,.; .,.) = \frac{a_H  (1 - c)  (4 a_H - 2 a_L - 2 a_L \sigma + a_H \sigma)}{3 (2 - \sigma)  (\sigma + 2)}\\
+        &q_1^B (a_H, a_L ; \sigma, c) = q_2^A (.,.;.,.) = q_L (.,.; .,.) = \frac{a_L  (1 - c)  (4 a_L - 2 a_H - 2 a_H \sigma + a_L \sigma)}{3 (2 - \sigma)  (\sigma + 2)}\\
+        &\pi_1^A (a_H, a_L ; \sigma, c) = \pi_2^B (.,.; .,.) = \pi_H (.,.; .,.) = \frac{(2 a_H - a_L)  (1 - c)^2  (- 2 a_L \sigma + a_H \sigma - 2 a_L + 4 a_H)}{9 (2 - \sigma)  (\sigma + 2)}\\
+        &\pi_1^B (a_H, a_L ; \sigma, c) = \pi_2^A (.,.; .,.) = \pi_L (.,.; .,.) = \frac{(2 a_L - a_H)  (1 - c)^2  (a_L \sigma - 2 a_H \sigma + 4 a_L - 2 a_H)}{9 (2 - \sigma)  (\sigma + 2)}
+    \end{aligned}.
+\end{equation}
+
+To guarantee the equilibrium quantity is positive, we require the following condition:
+\begin{equation}
+  \frac{(\sigma + 4)}{2 (\sigma + 1)} a_L \equiv \overline{a_H} > a_H > a_L.
+    \tag{C1}
+    \label{eq:nord_q_pos}
+\end{equation}
+We require the following scenarios to guarantee \eqref{eq:nord_q_pos}.
+
+Also, with simple calculation, it is clear that $\frac{\partial \pi_H}{\partial a_H}>0$ and $\frac{\partial \pi_L}{\partial a_H}<0$.
+That is to say, the increase in the initial quality of core product will increase the profit from core product and decrease that from non-core product.
+The first property is straightforward.
+The second, which is called coordination effect, can be understood from the cannibalization of core product on non-core product, forcing firms to reduce the production of the non-core product.
+
+
+
+\section{R\&D scenario: firms can invest R\&D} \label{sec:rd}
+\subsection{Three effects: R\&D scenario} \label{sec:3_effect}
+
+Denoting $\vec{x}=(x_1^A,x_1^B;x_2^A,x_2^B)$ as R\&D investment, we know the quality of product is denoted as $u_i^K=a_i^K+x_i^K$, for $i \in {1,2}$, for $K \in {A,B}$.
+Since firms can choose $(x_i^A, x_i^B)$ to maximize the profit function $\Pi_i=\pi_i^A+\pi_i^B-(x_i^A)^2-(x_i^B)^2$, we rewrite the first order condition $\frac{d \pi_i}{d x_i^K} = 2 x_i^K $ as $x_i^K = \frac{1}{2}  \frac{d \pi_i}{d x_i^K}$.
+Therefore, applying envelope theorem, we divide the $\frac{d \pi_i}{d x_i^K}$ into three effects:
+\begin{equation}
+    \frac{d \pi_i}{d x_i^K} = 
+    \underset{\text{direct effect}}{\underbrace{\underset{(+)}{\frac{\partial \pi_i}{\partial x_i^K}}}} + 
+    \underset{\text{business-steeling effect}}{\underbrace{\underset{(-)}{\frac{\partial \pi_i}{\partial q_j^K}}  \underset{(-)}{\frac{\partial q_j^K}{\partial x_i^K}}}} +
+    \underset{\text{cross-market effect}}{\underbrace{\underset{(-)}{\frac{\partial \pi_i}{\partial q_j^L}}  \underset{(+)}{\frac{\partial q_j^L}{\partial x_i^K}}}}.
+\end{equation}
+When firm $i$'s quality of product $K$ increases, the effect of product R\&D can be separated in three ways.
+First of all, the regular direct effects shows the direct response from firm $i$'s increase in product R\&D. 
+\begin{equation}
+    \frac{\partial \pi_i}{\partial x_i^K} = \left( \frac{(1 -c)}{u_i^K} q_1^K \right) > 0.
+\end{equation}
+The second and third effects are the indirect effects from the response of rival firm, one through output decision of the same product, and the other regarding that of substituting product.
+The former is called business-stealing effect, while the latter is called cross-market effect.
+The business-stealing effect measures how much the rival will retreat in response of firm $i$'s decision on product R\&D, and eventually how such retreat benefits firm $i$:
+\begin{equation}
+    \frac{\partial \pi_i}{\partial q_j^K}  \frac{\partial q_j^K}{\partial x_i^K} = \frac{4 (1 - c)}{3 u_i^K  (2 - \sigma) (\sigma + 2)} q_i^K > 0.
+\end{equation}
+The cross-market effect is the one present only in multi-product firms.
+When firm $i$ increase the R\&D in product $K$, the rival will fight back in the substitute market by raising the quantity produced, and cause damage in firm $i$'s profit: 
+\begin{equation}
+    \frac{\partial \pi_i}{\partial q_j^L}  \frac{\partial q_j^L}{\partial x_i^K} = - \frac{(1 - c) \sigma^2}{3 u_i^K  (2 - \sigma)  (\sigma + 2)} q_i^K < 0.
+\end{equation}
+Thus, the enhancing in product quality from one firm will affects its profit through three channels: the direct and business-stealing effect are beneficial, while the cross-market effect is damaging.
+Since the business-stealing effect affects the product in the same market, while the cross-market effect comes from the substitute market, the former dominates the latter.
+Therefore, the total effect is definitely positive, and can be represented as
+\begin{equation}
+    \frac{d \pi_i}{d x_i^K} = \frac{4 (1 - c)}{3 u_1^A} q_1^A.
+\end{equation}
+
+
+\subsection{Reaction function and Equilibrium level of R\&D}
+After the analysis of the first order condition, we derive the reaction function as
+\begin{equation}
+    \begin{aligned}
+    x_i^K (-x_i^K) &= \frac{2 (1 - c)^2  (4 a_i^K + u_j^L \sigma - 2 u_i^L \sigma - 2 u_j^K)}{- 9 \sigma^2 - 8 c^2 + 16 c + 28}\\
+    & \text{for } i, j \in \{ 1,2 \}, K,L \in \{A,B\}, a_i^K \in \{a_H, a_L\}, i \neq j, K \neq L.
+    \end{aligned}
+\end{equation}
+We know $\frac{\partial x_i^K}{\partial x_j^K} < 0$ and $\frac{\partial x_i^K}{\partial x_j^B} > 0$, which means R\&D investments in the same market $K$ are substitute, while that in the different market $L$ are complement.
+That is, the rival firm will retreat in the same market when firm $i$ increases it R\&D investment, and fight back in the substitute market $L$.
+This conclusion is the same as what we got from section \ref{sec:3_effect}.
+
+After finding the second order condition for local maximum is $\sigma < - \frac{4 c^2 - 8 c - 14}{9}$, we solve all reaction functions simultaneously, and get the equilibrium R\&D investment is
+\begin{equation}
+    \begin{aligned}
+        &x_1^A = x_2^B = x_H^{RD} (a_H, a_L ; \sigma, c) = \frac{(a_L + a_H) (1 - c)^2}{9 \sigma - 2 c^2 + 4 c + 16} + \frac{(a_H - a_L)  (1 - c)^2}{- 3 \sigma - 2 c^2 + 4 c + 4}\\
+        &x_1^B = x_2^A = x_L^{RD} (a_H, a_L ; \sigma, c) = \frac{(a_L + a_H) (1 - c)^2}{9 \sigma - 2 c^2 + 4 c + 16} - \frac{(a_H - a_L)  (1 - c)^2}{- 3 \sigma - 2 c^2 + 4 c + 4}
+    \end{aligned}
+\end{equation}
+The magnitude of both equilibrium R\&D depends on whether the denominator term $- 3 \sigma - 2 c^2 + 4 c + 4$ is positive.
+Rearrange the denominator term, we get
+\begin{equation}
+    -3 \sigma - 2c^2 + 4c + 4 > 0 \iff \sigma < -\frac{2c^2 - 4c -4}{3}.
+    \tag{C2}
+    \label{eq:rd_denom}
+\end{equation}
+Comparing the SOC and \eqref{eq:rd_denom}, we know that SOC cannot guarantee \eqref{eq:rd_denom}.
+In other words, unlike \textcite{lin_effects_2013}, it is possible for the equilibrium level of non-core product to be greater than core product under product R\&D.
+Therefore, we separate the R\&D scenario into two cases: R\&D scenario-1: \eqref{eq:rd_denom} guaranteed, $x_H^{RD}>x_L^{RD}$, and R\&D scenario-2: \eqref{eq:rd_denom} violated, $x_H^{RD}<x_L^{RD}$.
+
+\subsection{R\&D Scenario-1}
+\label{sec:rd_1}
+
+To avoid the corner solution, we need to guarantee $x_L^{RD}>0$.
+Solve for $x_L^{RD}>0$, we get
+\begin{equation}
+  \overline{a_H} > \frac{(3 \sigma - 2 c^2 + 4 c + 10)}{6 (\sigma + 1)} a_L \equiv \overline{a_H^{RD-1}} > a_H > a_L.
+    \label{eq:xLRD_pos}
+    \tag{C3}
+\end{equation}
+When $c=1$, \eqref{eq:xLRD_pos}will go back to \eqref{eq:nord_q_pos}, which means R\&D scenario will return to Benchmark scenario.
+
+Moreover, the results of comparative statics on $x_H^{RD}$ and $x_L^{RD}$ are summarized below:
+\begin{table}[h]
+    \caption{\textbf{R\&D scenario-1: comparative statics on equilibrium R\&D input}}
+    \label{tab:rd_com}
+    \begin{center}
+    \begin{tabular}{ll}
+        $\frac{\partial x_H^{RD}}{\partial a_H} = \frac{\partial x_L^{RD}}{\partial a_L} > 0$ & $\frac{\partial x_L^{RD}}{\partial a_H} = \frac{\partial x_H^{RD}}{\partial a_L} < 0$ \\
+        $\frac{\partial x_H^{RD}}{\partial c} < 0$ & $\frac{\partial x_L^{RD}}{\partial c} \gtrless 0$ \\
+        $\frac{\partial x_H^{RD}}{\partial \sigma} \gtrless 0$ & $\frac{\partial x_L^{RD}}{\partial \sigma} < 0$ \\
+    \end{tabular}
+    \end{center}
+\end{table}
+
+From the first row, we conclude the increase of the initial quality in the same market facilitates the R\&D input in that product, but damage the R\&D input in substitute product.
+For the effects of marginal costs and horizontal product differentiation, we will discuss its effects with the following index: the degree of R\&D specialization.
+
+The degree of R\&D specialization, which originally defined as $\frac{x_H^{RD}}{x_L^{RD}}$, measures whether firms will specialize its R\&D on one product under changes of each parameter. 
+If the comparative statics of this index are greater than zero, firms specialize on core-product; if not, firms distribute its R\&D evenly. 
+To simplify the calculation, we alternatively define it as follows:
+\begin{equation}
+    s^{RD} \equiv \frac{|x_H^{RD} - x_L^{RD}|}{x_H^{RD} - x_L^{RD}}.
+    \label{eq:rd_special}
+\end{equation}
+\begin{proof}
+  Since $\frac{\partial}{\partial x_H} \left( \frac{x_H^{RD}}{x_L^{RD}} \right) > 0 \iff \frac{\partial}{\partial x_H^{RD}} (s^{RD}) > 0$, and $\frac{\partial}{\partial x_L^{RD}} \left( \frac{x_H^{RD}}{x_L^{RD}} \right) < 0 \iff \frac{\partial}{\partial x_L^{RD}} (s^{RD}) < 0$, the comparative statics of $\frac{x_H^{RD}}{x_L^{RD}}$ is the same as $x$.
+\end{proof}
+The comparative statics of the degree of R\&D specialization are
+\begin{table}[h]
+    \centering
+    \caption{\textbf{R\&D scenario-1: comparative statics on R\&D specialization}}
+    \label{tab:rd_special}
+    \begin{tabular}{ll}
+      $\frac{\partial s^{RD}}{\partial a_H} > 0$ & $\frac{\partial s^{RD}}{\partial a_L} < 0$ \\
+      $\frac{\partial s^{RD}}{\partial c} < 0$ & $\frac{\partial s^{RD}}{\partial \sigma} > 0$ \\
+    \end{tabular}
+\end{table}
+
+The effects on initial equality is trivial.
+Although the effects of marginal cost on $x_L^{RD}$ is not clear, it is obvious that its negative effects harm the core product more than non-core product, since $\frac{\partial s^{RD}}{\partial c}$ is negative.
+Same interpretation is applicable to the degree of product differentiation.
+Because firms will always specialize on core product when products become similar ($\frac{\partial s^{RD}}{\partial \sigma} > 0$), the negative effects on non-core product ($\frac{\partial x_L^{RD}}{\partial \sigma}$) are more severe than core product ($\frac{\partial x_H^{RD}}{\partial \sigma}$).
+
+
+\subsection{R\&D scenario-2}
+\label{sec:rd_2}
+
+Same as section \ref{sec:rd_1}, we solve for $x_H^{RD} > 0$, and get
+\begin{equation}
+    \overline{a_H} > a_H > \overline{a_H^{RD-2}} \equiv \frac{6 (\sigma + 1)}{3 \sigma - 2 c^2 + 4 c + 10} a_L.
+    \label{eq:xH_pos}
+    \tag{C4}
+\end{equation}
+The results of comparative statics on equilibrium R\&D input and the degree of R\&D specialization are the same as in R\&D scenario-1 except for
+\begin{table}[h]
+    \centering
+    \caption{R\&D scenario-2:comparative statics}
+    \label{tab:rd_2_com}
+    \begin{tabular}{ll}
+        $\frac{\partial x_H^{RD}}{\partial a_H} = \frac{\partial x_L^{RD}}{\partial a_L} < 0$ & $\frac{\partial x_L^{RD}}{\partial a_H} = \frac{\partial x_H^{RD}}{\partial a_L} > 0$ \\
+        $\frac{\partial s^{RD}}{\partial a_H} < 0$ & $\frac{\partial s^{RD}}{\partial a_L} > 0$ \\
+    \end{tabular}
+\end{table}
+
+Note that since the equilibrium R\&D input of non-core product is greater than that of core product, $s^{RD} > 0$ means firms specialize on non-core product.
+
+Since the effect of initial quality on equilibrium R\&D input is the exactly opposite to R\&D scenario-1, it is no surprise that its effects on the degree of R\&D specialization is also the exactly opposite.
+
+\section{Spillover scenario: firm can R\&D with inter-firm Spillover} \label{sec:spillover}
+\subsection{Three effects: Spillover scenario}
+\label{ssec:spillover_3_effects}
+
+The quality of product in spillover scenario is denoted as $u_i^K = a_i^K + x_i^K + \rho x_j^K$, for $i \in \left\{ 1, 2 \right\}$, $K \in \left\{ A, B \right\}$.
+Following the same procedure in section \ref{sec:rd}, we divide the effect of first order condition as 
+\begin{equation}
+    \begin{aligned}
+        \frac{d \pi_i}{d x_i^K} & = \underset{\text{direct effect}}{\underbrace{\frac{\partial \pi_i}{\partial u_i^K}}} + \underset{\text{business-stealing effect}}{\underbrace{\frac{\partial \pi_i}{\partial q_j^K}  \frac{\partial q_j^K}{\partial u_i^K}}} + \underset{\text{cross-market effect}}{\underbrace{\frac{\partial \pi_i}{\partial q_j^L}  \frac{\partial q_j^L}{\partial u_i^K}}}\\
+        & \quad + \underset{\text{direct effect from spillover}}{\underbrace{\frac{\partial \pi_i}{\partial u_j^K} \rho}} + \underset{\text{business-stealing effect from spillover}}{\underbrace{\frac{\partial \pi_i}{\partial q_j^K}  \frac{\partial q_j^K}{\partial u_j^K} \rho}} + \underset{\text{cross-market effect from spillover}}{\underbrace{\frac{\partial \pi_i}{\partial q_j^L}  \frac{\partial q_j^L}{\partial u_j^L} \rho}}
+    \end{aligned}.
+    \label{eq:spillover_3_effects}
+\end{equation} 
+
+Since the only thing we care is the sign of each effect, we match the sign of each effect respectively, and get 
+\begin{equation}
+    \begin{aligned}
+        \frac{d \pi_i}{d x_i^K} & = (+ \text{ve}) + (+ \text{ve}) + (- \text{ve})\\
+        & \text{\qquad} + (+ \text{ve}) + (- \text{ve}) + (+ \text{ve})
+    \end{aligned}
+    \label{eq:spillover_3_effects_sign}
+\end{equation}
+  
+Compared with R\&D scenario, the direct effect is strengthened, but the business-stealing and cross-market effects are enervated.
+
+\subsection{Reaction function and Equilibrium level of R\&D}
+\label{ssec:spillover_equi}
+The reaction functions are
+\begin{equation}
+    \begin{aligned}
+        x_i^K \left( -x_i^K \right)& = \frac{(1 - c)^2  (2 - \rho)  ((u_j^L \rho - 2 (u_i^L \rho)) \sigma + 4 x_j^L \rho - 2 a_i^L + 4 a_i^K - 2 x_j^L)}{- 9 \sigma^2 + 2 (1 - c)^2  (4 - \rho) \rho + 4 (- 2 c^2 + 4 c + 7)} \\
+        & \text{for } i, j \in \left\{ 1, 2 \right\}, K, L \in \left\{ A, B \right\}, i \neq j, K \neq L
+    \end{aligned}
+    \label{eq:spillover_reaction}
+\end{equation}
+Notice that for $\rho < 0.5$, products in the same market are substitute, while those in the substitute market are complement.
+However, these relationships change to the exactly opposite when $\rho > 0.5$.
+In such condition, products in the same market become complement, while those in the substitute market transform to substitute.
+In other words, unlike the R\&D scenario, firms with R\&D spillover will fight back in the same market while retreat from the substitute market when $\rho > 0.5$.
+This change of relationship between products enlightened the function of R\&D spillover effect, and we will elaborate more in the following analysis.
+
+Following the same process as section \ref{sec:rd}, the second order condition for local maximum is $\sigma < \frac{(1 - c)^2  (4 - \rho) \rho + 2 (- 2 c^2 + 4 c + 7)}{9}$, and the equilibrium level of R\&D inputs are
+\begin{equation}
+    \begin{aligned} 
+        x_1^A = x_2^B = x_H^{SP} (a_H, a_L ; \sigma, \rho, c) & = \frac{(a_L + a_H)  (c - 1)^2  (2 - \rho)}{2 M} + \frac{(a_H - a_L)  (1 - c)^2  (2 - \rho)}{2 N}\\
+        x_1^B = x_2^A = x_L^{SP} (a_H, a_L ; \sigma, \rho, c) & = \frac{(a_L + a_H)  (c - 1)^2  (2 - \rho)}{2 M} - \frac{(a_H - a_L)  (1 - c)^2  (2 - \rho)}{2 N}\\
+        & M = (9 \sigma - (1 - c)^2  (1 - \rho) \rho + 2 (4 - c)  (c + 2))\\
+        & N = (- 3 \sigma + (1 - c)^2  (3 - \rho) \rho + 2 (- c^2 + 2 c + 2))
+    \end{aligned}
+    \label{eq:spillover_equi_rd}
+\end{equation}
+The magnitude of both equilibrium R\&D also depends on the sign of denominator $N$.
+
+Solve $N$ with respect to $\sigma$, we get 
+\begin{equation}
+  x_H^{SP} > x_L^{SP} \iff \sigma < \frac{(1 - c)^2  (3 - \rho) \rho + 2 (- c^2 + 2 c + 2)}{3}. 
+    \label{eq:spillover_condition}
+    \tag{C5}
+\end{equation}
+Comparing \eqref{eq:spillover_condition} with SOC, we discover another essential effect of the degree of R\&D spillover.
+When the spillover effect is weak ($\rho < 0.5$), the story is exactly the same as section \ref{sec:rd}.
+That is, since SOC cannot guarantee \eqref{eq:spillover_condition} when $\rho < 0.5$, we separate the spillover scenario into two cases: spillover scenario-1: \eqref{eq:spillover_condition} guaranteed, $x_H^{SP} > x_L^{SP}$, and spillover scenario-2: \eqref{eq:spillover_condition} violated, $x_H^{SP} < x_L^{SP}$.
+However, when the spillover effect is strong enough ($\rho > 0.5$), the SOC indeed guarantee \eqref{eq:spillover_condition}, and thus $x_H^{SP}$ is always greater than $x_L^{SP}$ as long as the equilibrium R\&D inputs are local maximum.
+
+\subsection{Spillover scenario-1}
+\label{sec:spillover_1}
+
+Solving for $x_L^{SP} > 0$, we get
+\begin{equation}
+  \overline{a_H} > \left( \frac{3 \sigma + 2 (- c^2 + 2 c + 5) + (1 - c)^2 \rho}{6 \sigma + 6 - (1 - c)^2  (2 - \rho) \rho} \right) a_L \equiv \overline{a_H^{SP-1}} > a_H > a_L.
+    \label{eq:xLSP_pos}
+    \tag{C6}
+\end{equation}
+When $\rho = 0$, \eqref{eq:xLSP_pos} will go back to \eqref{eq:xLRD_pos}, which means spillover scenario will return to R\&D scenario.
+
+Furthermore, the results of comparative statics on $x_H^{SP}$ and $x_L^{SP}$ are summarized as follows:
+\begin{table}[h]
+    \caption{\textbf{Spillover scenario-1: comparative statics on equilibrium R\&D input}}
+    \label{tab:spillover_com}
+    \begin{center}
+    \begin{tabular}{ll}
+        $\frac{\partial x_H^{SP}}{\partial a_H} = \frac{\partial x_L^{SP}}{\partial a_L} > 0$ & $\frac{\partial x_L^{SP}}{\partial a_H} = \frac{\partial x_H^{SP}}{\partial a_L} < 0$ \\
+        $\frac{\partial x_H^{SP}}{\partial c} < 0$ & $\frac{\partial x_L^{SP}}{\partial c} \gtrless 0$ \\
+        $\frac{\partial x_H^{SP}}{\partial \sigma} \gtrless 0$ & $\frac{\partial x_L^{SP}}{\partial \sigma} < 0$ \\
+        $\frac{\partial x_H^{SP}}{\partial \rho} < 0$ & $\frac{\partial x_L^{SP}}{\partial \rho} \gtrless 0$ \\
+    \end{tabular}.
+    \end{center}
+\end{table}
+
+All economic intuitions to table \ref{tab:spillover_com} are the same as section \ref{sec:rd_1} except $\frac{\partial x_H^{SP}}{\partial \rho} < 0$ and $\frac{\partial x_L^{SP}}{\partial \rho} \gtrless 0$.
+We will discuss the effects of R\&D spillover on equilibrium R\&D inputs with the index of R\&D specialization.
+
+Following the same definition as \eqref{eq:rd_special} and denoting the degree of R\&D specialization in spillover scenario as $s^{SP}$, we summarize the results of comparative statics on R\&D specialization in the following table:
+\begin{table}[h]
+    \centering
+    \caption{\textbf{Spillover scenario-1: comparative statics on R\&D specialization}}
+    \label{tab:spillover_special}
+    \begin{tabular}{ll}
+      $\frac{\partial s^{SP}}{\partial a_H} > 0$ & $\frac{\partial s^{SP}}{\partial a_L} < 0$ \\
+      $\frac{\partial s^{SP}}{\partial c} \gtrless 0$ & $\frac{\partial s^{SP}}{\partial \sigma} > 0$ \\
+      $\frac{\partial s^{SP}}{\partial \rho} < 0$ & 
+    \end{tabular}
+\end{table}
+
+The interpretation of table \ref{tab:spillover_special} is exactly same except for the effects from marginal cost and R\&D spillover.
+With further investigation, we gain the condition to guarantee $\frac{\partial s^{SP}}{\partial c} > 0$ is $\rho > \frac{2 (\sigma + 1)}{(\sigma + 4)}$.
+That is, when the degree of R\&D spillover is low, the explanation is similar to that in section \ref{sec:rd_1}.
+However, when the degree of R\&D spillover is high enough, firms will specialize its R\&D inputs on core product when the marginal cost increase.
+As a result, the degree of R\&D specialization become even stronger than before.
+Meanwhile, the negative effect from the degree of R\&D spillover on core product is greater than that on non-core product ($\frac{\partial x_H^{SP}}{\partial \rho} < \frac{\partial x_L^{SP}}{\partial \rho} < 0$), causing firms to distribute its R\&D inputs evenly.
+This dispersion of R\&D investments is straightforward when $\frac{\partial x_L^{SP}}{\partial \rho} > 0$.
+
+
+\subsection{Spillover scenario-2}
+\label{sec:spillover-2}
+Same as section \ref{sec:spillover_1}, we solve for $x_H^{SP} > 0$, and get
+\begin{equation}
+  \begin{aligned}
+  \overline{a_H} > a_H > \overline{a_H^{SP-2}} & \equiv \frac{(M - N)}{(M + N)} \\
+  & M = (9 \sigma - (1 - c)^2  (1 - \rho) \rho + 2 (4 - c)  (c + 2))\\
+  & N = (- 3 \sigma + (1 - c)^2  (3 - \rho) \rho + 2 (- c^2 + 2 c + 2)) 
+    \end{aligned}
+  \label{eq:xHSP_pos}
+  \tag{C7}
+\end{equation}
+Since the interpretation for comparative statics on equilibrium R\&D input and R\&D specialization is exactly the same as section \ref{sec:rd_2}, we omit the discussion.
+
+\section{Conclusion} \label{sec:conclusion}
+
+This paper discusses the effects of product R\&D and inter-firm R\&D spillover on multi-product firms.
+We develop a two-stage model based on Cournot competition: firms decide the level of R\&D investment in the first stage, and compete in quantity in the second stage.
+In order to investigate the R\&D portfolio on core and non-core product, we separate our model into three scenarios: benchmark scenario, which firms cannot conduct R\&D; R\&D scenario, which firms can conduct R\&D; and spillover scenario, which firms conduct R\&D with spillover effect.
+
+From the research on reaction function, we know the relationship between products will be affected by the degree of R\&D spillover.
+In R\&D scenario, products in the same market are substitutes, while those in the other market are complements.
+Although the above relationship hold when the degree of R\&D spillover is less than $0.5$ in spillover scenario, the relationship become the exact opposite when the degree of R\&D spillover excess $0.5$: products in the same market become complements, but those in the other market transform to substitute.
+
+In addition, our results about equilibrium R\&D input differ from literature.
+\textcite{lin_effects_2013} claims that the firms' equilibrium R\&D input on core product is always higher than that on non-core product.
+However, we discover under product R\&D, firms' equilibrium R\&D investment will be higher if the marginal cost is low enough and the degree of product differentiation is high enough.
+Furthermore, this finding directly cause the difference in the effects of initial quality on both equilibrium R\&D investment and R\&D specialization.
+Under the case which firms invest more R\&D on core product, initial qualities benefit the equilibrium R\&D input in the same market, while harm that in the substitute market.
+However, under the case which firms invest more on non-core product, the outcomes are the exact opposite.
+Initial qualities cause detrimental effect on products in the same market, but results in beneficial influence on products in the substitute market.
+
+Moreover, to explain the role of each parameter in our model, we dress this issue by investigating the degree of R\&D specialization.
+When the products become close substitute, i.e., the degree of product differentiation approaches to $2$, firms tend to concentrate its R\&D investment on core product.
+Although it may harm the core product, we conclude that the detrimental effects on non-core product are even higher, causing the specialization of R\&D input.
+Alternatively, the increase in marginal cost forces firms to distribute its R\&D investment evenly between core and non-core.
+We can then determine the deleterious effects from the increase of marginal cost on core product is much higher than that on non-core product.
+Finally, comparing the R\&D scenario and spillover scenario, we discover that the effects from R\&D spillover is sophisticated.
+Not only it affects the relationship between products, but the degree of R\&D spillover change the effects of other parameters.
+The effect of marginal costs mentioned before is affected by the value of R\&D spillover.
+When the spillover effect is low, the effect are exactly the same.
+However, when the spillover is high enough, the increase of marginal costs benefits the degree of R\&D specialization, concentrating more R\&D input on core products.
+Also, R\&D spillover itself do have impacts on comparative statics.
+Firms will distribute their R\&D input evenly when the degree of R\&D spillover increases.
+The intuition behind this result is straightforward: firms tend to wait its rival to invest R\&D in the same market and gain the spillover effect from rival's action.
+
+In the future, I envision to go beyond the assumption of oligopoly and add the model of monopolistic competition into my research.
+\textcite{feenstra_optimal_2007} and \textcite{ushchev_multi-product_2017} provide solid proof to the idea of combining the multi-product firms, product R\&D and R\&D spillover.
+Also, this monopolistic competition model could be verified using empirical technique, like \textcite{bloom_identifying_2013} investigate the effects on R\&D spillover, and \textcite{bernard_multiple-product_2010} shows one possible empirical approach to multi-product firms.
+
+\printbibliography
+
+\end{document}

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Toolbox by dmenu. Tools no need to open terminal.
+
+IFS='
+'
+TMP="$(which toolbox)"
+toolpath="$(printf '%s' "${TMP%%/${TMP##*/}}")"
+tools=$( printf '%s\n' $toolpath/* | awk -F '/' '{print $NF}' | grep -v toolbox | dmenu -i -p "Toolbox")
+unset IFS
+
+$tools
+
+
+

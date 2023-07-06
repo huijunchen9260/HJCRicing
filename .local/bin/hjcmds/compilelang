@@ -1,0 +1,102 @@
+#!/bin/sh
+
+# ------------------------------------------------------ #
+# shell script for compiling language, currently fortran #
+# first argument is extension                            #
+# second argument is debug options for compiling         #
+# third argument is execute the compiled program         #
+# ------------------------------------------------------ #
+
+rm *.o *.mod 2>/dev/null
+
+ext="$1"
+debug="$2"
+execute="$3"
+nl='
+'
+tab='   '
+
+# --------------------------------------------------------------------------------------- #
+# Loop over all files in current and sub- directory                                       #
+# --------------------------------------------------------------------------------------- #
+for file in $(find . -name "*.$ext"); do
+    file=$(printf '%s' "$file" | sed 's|^./||')
+    libcount="$(grep '^[[:blank:]]*use ' "$file" | wc -l)"
+    libuse="$(grep '^[[:blank:]]*use ' "$file" | sed "s|^[[:blank:]]*|${file}${tab}|")"
+    compilerank="${compilerank}${nl}${libcount}${tab}${file}"
+    compilelibs="${compilelibs}${nl}${libuse}"
+done
+# --------------------------------------------------------------------------------------- #
+
+# ------------------------------------------------------ #
+# Rank for dependency                                    #
+# ------------------------------------------------------ #
+compilerank=$(printf '%s' "${compilerank#$nl}" | sort)
+# ------------------------------------------------------ #
+
+# ---------------------------------------------------------------------------- #
+# Dependency used                                                              #
+# ---------------------------------------------------------------------------- #
+compilelibs="$(printf '%s' "${compilelibs#$nl}" | sed '/^[[:blank:]]*$/ d')"
+# ---------------------------------------------------------------------------- #
+
+minlibcount=$(printf '%s' "$compilerank" | head -n 1)
+minlibcount=${minlibcount%%${tab}*}
+maxlibcount=$(printf '%s' "$compilerank" | tail -n 1)
+maxlibcount=${maxlibcount%%${tab}*}
+
+echo "dependency rank: "
+echo "$compilerank"
+echo "dependency list"
+echo "$compilelibs"
+
+IFS="$nl"
+for file in $(printf '%s' "$compilerank"); do
+    libcount="${file%%${tab}*}"
+    filename="${file##*${tab}}"
+    case "$libcount" in
+        $maxlibcount)
+            case "$maxlibcount" in
+                0)
+                    case "$debug" in
+                        1) gfortran -g -Wall -Wextra -Warray-temporaries -Wconversion -fimplicit-none -fbacktrace -ffree-line-length-0 -fcheck=all -ffpe-trap=invalid,zero,overflow,underflow -finit-real=nan -o "${filename%.*}_db" "$filename" ;;
+                        0) gfortran -o ${filename%.*} -O3 "$filename" ;;
+                    esac
+                    ;;
+                *)
+                    case "$debug" in
+                        1) gfortran -g -Wall -Wextra -Warray-temporaries -Wconversion -fimplicit-none -fbacktrace -ffree-line-length-0 -fcheck=all -ffpe-trap=invalid,zero,overflow,underflow -finit-real=nan -o "${filename%.*}_db" *.o "$filename" ;;
+                        0) gfortran -o ${filename%.*} *.o -O3 "$filename" ;;
+
+                    esac
+                    ;;
+            esac
+            if [ $? -eq 0 ] && [ $execute -eq 1 ]; then
+                [ $debug -eq 1 ] && ./"${filename%.*}_db" || ./"${filename%.*}"
+            fi
+            ;;
+        $minlibcount)
+            case "$debug" in
+                1) gfortran -g -c "$filename" ;;
+                0) gfortran -c "$filename" ;;
+            esac
+            ;;
+        *)
+            for lib in $(printf '%s' "$compilelibs" | grep "$filename"); do
+                lib="$(echo $lib | awk '{print $1}')"
+                if [ ! -f "$lib.o" ]; then
+                    case "$debug" in
+                        1) gfortran -g -c "$filename" ;;
+                        0) gfortran -c "$filename" ;;
+                    esac
+                fi
+            done
+            case "$debug" in
+                1) gfortran -g -c "$filename" ;;
+                0) gfortran -c "$filename" ;;
+            esac
+            ;;
+    esac
+done
+unset IFS
+rm *.o *.mod 2>/dev/null

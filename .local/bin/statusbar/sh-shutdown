@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# The clickable help menu. Middle click to restart wm.
+
+# If dwm is running, use dwm's readme and restart.
+
+case "$(readlink -f /sbin/init)" in
+	*systemd*) ctl='systemctl' ;;
+	*) ctl='loginctl' ;;
+esac
+
+case $BLOCK_BUTTON in
+	1) $ctl powerof ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac; echo "🖥️"

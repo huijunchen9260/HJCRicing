@@ -1,0 +1,62 @@
+# Simple X hotkey daemon configuration
+*/15 * * * * rsync $HOME/.config/sxhkd/sxhkdrc $HOME/HJCRicing/.config/sxhkd/sxhkdrc
+
+# Bspwm configuration
+*/15 * * * * rsync $HOME/.config/bspwm/bspwmrc $HOME/HJCRicing/.config/bspwm/bspwmrc
+
+# lxqt configuration
+*/15 * * * * rsync -rl $HOME/.config/lxqt/ $HOME/HJCRicing/.config/lxqt
+
+# Polybar configuration
+# */15 * * * * rsync -r $HOME/.config/polybar/ $HOME/HJCRicing/.config/polybar/
+
+# vim configuration
+*/15 * * * * rsync -rl $HOME/.config/nvim/ $HOME/HJCRicing/.config/nvim/
+
+# Other configurtion
+*/15 * * * * rsync -rl $HOME/.config/zathura/ $HOME/HJCRicing/.config/zathura/
+*/15 * * * * rsync -rl $HOME/.config/mpd/ $HOME/HJCRicing/.config/mpd/
+*/15 * * * * rsync -rl $HOME/.config/mpv/ $HOME/HJCRicing/.config/mpv/
+*/15 * * * * rsync -rl $HOME/.config/ncmpcpp/ $HOME/HJCRicing/.config/ncmpcpp/
+*/15 * * * * rsync -rl $HOME/.config/dmenufm/ $HOME/HJCRicing/.config/dmenufm/
+*/15 * * * * rsync -rl $HOME/.config/fcitx/ $HOME/HJCRicing/.config/fcitx/
+*/15 * * * * rsync -rl $HOME/.config/alacritty/ $HOME/HJCRicing/.config/alacritty/
+
+# Backup scripts
+*/15 * * * * rsync -rl $HOME/.local/bin/ $HOME/HJCRicing/.local/bin/
+
+# Export pacman and AUR program lists
+*/15 * * * * pacman -Qqem > $HOME/HJCRicing/applist/aurlist
+*/15 * * * * pacman -Qqen > $HOME/HJCRicing/applist/pacmanlist
+
+# Backup my dotfiles
+*/15 * * * * rsync $HOME/.profile $HOME/HJCRicing/.profile
+*/15 * * * * rsync $HOME/.bashrc $HOME/HJCRicing/.bashrc
+*/15 * * * * rsync $HOME/.zshrc $HOME/HJCRicing/.zshrc
+*/15 * * * * rsync $HOME/.tmux.conf $HOME/HJCRicing/.tmux.conf
+*/15 * * * * rsync $HOME/.pam_environment $HOME/HJCRicing/.pam_environment
+*/15 * * * * rsync $HOME/.xinitrc $HOME/HJCRicing/.xinitrc
+*/15 * * * * rsync $HOME/.xprofile $HOME/HJCRicing/.xprofile
+*/15 * * * * rsync $HOME/.Xresources $HOME/HJCRicing/.Xresources
+
+*/15 * * * * rsync $HOME/.config/emoji $HOME/HJCRicing/.config/emoji
+*/15 * * * * rsync $HOME/.config/bmdirs $HOME/HJCRicing/.config/bmdirs
+*/15 * * * * rsync $HOME/.config/bmfiles $HOME/HJCRicing/.config/bmfiles
+*/15 * * * * rsync $HOME/.config/greek $HOME/HJCRicing/.config/greek
+*/15 * * * * rsync $HOME/.config/locale.conf $HOME/HJCRicing/.config/locale.conf
+*/15 * * * * rsync $HOME/.config/aliasrc $HOME/HJCRicing/.config/aliasrc
+*/15 * * * * rsync $HOME/.config/shortcutrc $HOME/HJCRicing/.config/shortcutrc
+*/15 * * * * rsync $HOME/.config/mimeapps.list $HOME/HJCRicing/.config/mimeapps.list
+
+*/15 * * * * rsync --links $HOME/.bash_profile $HOME/HJCRicing/.bash_profile
+*/15 * * * * rsync --links $HOME/.vimrc $HOME/HJCRicing/.vimrc
+*/15 * * * * rsync --links $HOME/.vim $HOME/HJCRicing/
+*/15 * * * * rsync --links $HOME/.Xdefaults $HOME/HJCRicing/.Xdefaults
+*/15 * * * * rsync --links $HOME/.zprofile $HOME/HJCRicing/.zprofile
+
+
+# Automatically push my rice to github
+# */15 * * * * cd $HOME/HJCRicing/ && autogit "auto commit"
+
+# Export the cronjob list
+*/15 * * * * crontab -l > $HOME/HJCRicing/cronjob

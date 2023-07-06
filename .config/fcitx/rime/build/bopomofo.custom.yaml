@@ -1,0 +1,4 @@
+patch:
+  menu:
+    alternative_select_keys: ASDFZXCV
+    page_size: 8

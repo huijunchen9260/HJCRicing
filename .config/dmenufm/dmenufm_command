@@ -1,0 +1,2 @@
+sxiv -ft * - Open all images in current directory in sxiv
+toall pad - preappend zeros to file names

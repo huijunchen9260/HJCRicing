@@ -1,0 +1,62 @@
+#!/bin/sh
+
+list="$(xinput --list | grep "slave  pointer" | grep -E "ThinkPad|Barcode Reader  Mouse|Logitech USB Trackball|TPPS/2 IBM TrackPoint|Kensington|Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse|Elan TrackPoint|Lenovo TrackPoint Keyboard II Mouse")"
+
+IFS='
+'
+for item in $list; do
+    id=$(printf '%s' "$item" | cut -f 2 | cut -d '=' -f 2)
+    name=$(printf '%s' "$item" | cut -f 1 | cut -d ' ' -f 5-)
+    name=${name%${name##*[![:space:]]}}
+    case $name in
+        "Elan TrackPoint")
+            xinput --set-prop "pointer:Elan TrackPoint" "libinput Accel Speed" -0.3
+            ;;
+        "Lenovo TrackPoint Keyboard II Mouse")
+            xinput --set-prop "pointer:Lenovo TrackPoint Keyboard II Mouse" "libinput Accel Speed" -0.5
+            ## disable middle click but remain scrolling
+            xinput set-button-map "$name" 1 0 3 4 5 6 7
+            ;;
+        "Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint")
+            xinput --set-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint" "libinput Accel Speed" -0.5
+            xinput --set-prop "pointer:Lite-On Technology Corp. ThinkPad USB Keyboard with TrackPoint" "libinput Natural Scrolling Enabled" 0
+            ;;
+        "Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse")
+            xinput --set-prop "pointer:Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse" "libinput Accel Speed" -0.5
+            xinput --set-prop "pointer:Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse" "libinput Natural Scrolling Enabled" 0
+            ;;
+        "Lenovo ThinkPad Compact USB Keyboard with TrackPoint")
+            xinput --set-prop "pointer:Lenovo ThinkPad Compact USB Keyboard with TrackPoint" "libinput Accel Speed" -0.3
+            ;;
+        "Barcode Reader  Mouse") # IBM Trackpoint Keyboard
+            xinput --set-prop "pointer:Barcode Reader  Mouse" "libinput Accel Speed" 1.0
+            xinput --set-prop "pointer:Barcode Reader  Mouse" "libinput Button Scrolling Button" 3
+            xinput --set-prop "pointer:Barcode Reader  Mouse" "libinput Scroll Method Enabled" 0 0 1
+            ;;
+        "Logitech USB Trackball")
+            xinput --set-prop "Logitech USB Trackball" "libinput Scroll Method Enabled" 0 0 1
+            xinput --set-prop "Logitech USB Trackball" "libinput Button Scrolling Button" 8
+            # Remap back/forward to button 6 / 7
+            xinput --set-button-map "Logitech USB Trackball" 1 2 3 4 5 6 7 6 7
+            ;;
+        "Kensington Kensington Slimblade Trackball")
+            # xinput --set-prop "Kensington Kensington Slimblade Trackball"
+            xinput --set-prop "Kensington Kensington Slimblade Trackball" "libinput Natural Scrolling Enabled" 1
+            xinput --set-prop "Kensington Kensington Slimblade Trackball" "libinput Accel Speed" -0.5
+            xinput --set-button-map "Kensington Kensington Slimblade Trackball" 1 8 3 4 5 6 7 2 2
+            # xinput --set-button-map "Kensington Kensington Slimblade Trackball" 1 2 3 4 5 6 7 8 9
+            ;;
+        "TPPS/2 IBM TrackPoint")
+            xinput --set-prop "pointer:TPPS/2 IBM TrackPoint" "libinput Accel Speed" -0.6
+            xinput --set-prop "pointer:TPPS/2 IBM TrackPoint" "libinput Natural Scrolling Enabled" 0
+            # xinput --set-prop "pointer:TPPS/2 IBM TrackPoint" "libinput Accel Profile Enabled" "0, 1"
+            ;;
+        "Generic USB K/B Mouse")
+            xinput --set-prop "pointer:Generic USB K/B Mouse" "libinput Accel Speed" 0.5
+            xinput --set-prop "pointer:Generic USB K/B Mouse" "libinput Button Scrolling Button" 3
+            xinput --set-prop "pointer:Generic USB K/B Mouse" "libinput Scroll Method Enabled" 0, 0, 1
+            ;;
+        *) echo "Cannot find corresponding device" ;;
+    esac
+done
+unset IFS

@@ -1,0 +1,145 @@
+#! /bin/sh -e
+#
+# Module-based lemonbar script for bspwm
+
+pkill -0 -u "$(id -u)" -x Xorg || {
+    echo "$(basename "$0"): No instance of X is running"
+    exit 1
+}
+
+[ -n "$DISPLAY" ] || {
+    echo "$(basename "$0"): DISPLAY is not accessible"
+    exit 1
+}
+
+# [ -n "$BSPWM_BOXPAD" ] || {
+#     echo "$(basename "$0"): BSPWM_BOXPAD is not defined"
+#     exit 1
+# }
+
+duplicate_processes_exist() {
+    for pid in $(pgrep -u "$(id -u)" -x "$(basename "$0")"); do
+        [ "$pid" != "$$" ] && {
+            return 0
+        }
+    done
+
+    return 1
+}
+
+kill_duplicate_processes() {
+    duplicate_processes_exist && {
+        for pid in $(pgrep -u "$(id -u)" -x "$(basename "$0")"); do
+            [ "$pid" != "$$" ] && {
+                kill "$pid"
+            }
+        done
+
+        return 0
+    }
+
+    return 1
+}
+
+spawnp() {
+    setsid "$@" &
+}
+
+BSPWM_BOXPAD=10
+BAR_HEIGHT="${BAR_HEIGHT:-24}"
+BAR_ULHEIGHT="${BAR_ULHEIGHT:-2}"
+BAR_BG="${BAR_BG:-#181818}"
+BAR_FG="${BAR_FG:-#e7e7e7}"
+BAR_NAME="$(basename "$0")"
+FONT_ASCII="${FONT_ASCII:-Roboto Mono:size=10:style=Bold}"
+FONT_EMOJI="${FONT_EMOJI:-Font Awesome}"
+
+generate_bar() {
+    bar_fifo="${TMPDIR:-/tmp}/bar.fifo"
+
+    trap 'trap - TERM; rm -f $bar_fifo && kill 0' INT TERM
+
+    mkfifo "$bar_fifo"
+    chmod 600 "$bar_fifo"
+
+    # module_dir="$HOME/.config/bar"
+    module_dir="/home/shelby/.local/bin/hjcmds/lemonbar/reference/arvl130bar/modules"
+    for module in "$@"; do
+        "$module_dir/$module.sh" > "$bar_fifo" &
+    done
+
+    # bspc config bottom_padding "$(( BAR_HEIGHT + BSPWM_BOXPAD ))"
+
+    monitor_count=$(xrandr | grep -w connected | awk -F'[ +]' '{print $1}' | wc -l)
+
+    while IFS='' read -r line; do
+        case "$line" in
+            D*) ncov="${line#?}" ;;
+            B*) batt="${line#?}" ;;
+            V*) volm="${line#?}" ;;
+            T*) temp="${line#?}" ;;
+            S*) wsin="${line#?}" ;;
+            F*) free="${line#?}" ;;
+            W*) wifi="${line#?}" ;;
+            C*) cldt="${line#?}" ;;
+        esac
+
+        left="${wsin}"
+        right="${batt}${volm}${temp}${ncov}${free}${wifi}${cldt}"
+
+        IFS=' '
+        for monitor_num in $(seq -s ' ' "$monitor_count"); do
+            screen="$((monitor_num-1))"
+            bar_output="$bar_output%{S${screen}}%{l} ${left}%{r}${right} "
+        done
+
+        printf "%s\n" "$bar_output"
+        unset bar_output
+    done < "$bar_fifo" | lemonbar -b \
+                            -n "$BAR_NAME" \
+                            -f "$FONT_ASCII" -f "$FONT_EMOJI" \
+                            -g "x$BAR_HEIGHT" -u "$BAR_ULHEIGHT" \
+                            -B "$BAR_BG" -F "$BAR_FG" | sh &
+
+    for wid in $(xdo id -m -a "$BAR_NAME"); do
+        xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" "$wid"
+    done
+
+    wait
+}
+
+main() {
+    [ -n "$1" ] && {
+        case "$1" in
+            --switch)
+                kill_duplicate_processes || {
+                    spawnp bar
+                    return 0
+                }
+
+                # bspc config bottom_padding "$BSPWM_BOXPAD"
+                ;;
+            --reset|--replace)
+                kill_duplicate_processes || {
+                    echo "$(basename "$0"): No running $(basename "$0") to replace"
+                    return 1
+                }
+
+                spawnp bar
+                ;;
+            *)  echo "$(basename "$0"): unrecognized option '$1'"
+                return 1
+                ;;
+        esac
+        return 0
+    }
+
+    duplicate_processes_exist && {
+        echo "$(basename "$0"): An instance of $(basename "$0") is already running."
+        return 0
+    }
+
+    generate_bar corstat battery clockdate free temp volume wifi wsindicator
+}
+
+main "$@"

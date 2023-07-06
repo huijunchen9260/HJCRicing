@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Apply commands to all the files in the subdirectory
+# Note that the option "-execdir" allows find
+# to execute command in the each subdirectory
+
+find . -type f -execdir $1 {} \;
+

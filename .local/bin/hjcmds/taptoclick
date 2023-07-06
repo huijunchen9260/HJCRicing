@@ -1,0 +1,23 @@
+#!/bin/sh
+
+nl='
+'
+name=$(xinput list --name-only | grep -E 'Synaptics|Touchpad')
+stat=$(xinput --list-props "$name")
+item="libinput Tapping Enabled"
+
+stat="${stat#*$item}" # Locate the item
+stat="${stat%%$nl*}"
+stat=${stat##"${stat%%?}"} # get the last char: 0 or 1
+
+case "$stat" in
+    0)
+        xinput set-prop "$name" "$item" 1
+        notify-send "enable tap to click"
+        ;;
+    1)
+        xinput set-prop "$name" "$item" 0
+        notify-send "disable tap to click"
+        ;;
+esac
+

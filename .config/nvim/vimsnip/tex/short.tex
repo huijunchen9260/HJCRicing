@@ -1,0 +1,47 @@
+% Source: http://tex.stackexchange.com/a/5374/23931
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\setlength{\parskip}{1em}               % paragraph spacing
+\pagenumbering{gobble}                  % no page number
+
+% \hyphenpenalty=10000 % no hyphen
+% \exhyphenpenalty=10000 % no hyphen
+\sloppy              % hyphen
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+
+\usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false,backend=biber,doi=false,url=false]{biblatex}
+\addbibresource{$BIB} % bibtex location
+\renewcommand*{\nameyeardelim}{\addcomma\space} % have comma in parencite
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, urlcolor=blue,
+    citecolor=,
+    pdftitle={HJC_Statement},
+    % pdfpagemode=FullScreen,
+}
+
+\makeatletter% since there's an at-sign (@) in the command name
+\renewcommand{\@maketitle}{%
+  \parindent=0pt% don't indent paragraphs in the title block
+  \centering
+  {\Large \bfseries\textsc{\@title}} \\
+  \vspace{5pt}
+  {\large \textit{\@author}} \\
+  \HRule \\
+  \vspace{1em}
+}
+\makeatother% resets the meaning of the at-sign (@)
+
+\title{<++>}
+\author{<+Hui-Jun Chen+>}
+
+\begin{document}
+
+\maketitle% prints the title block
+
+
+\end{document}

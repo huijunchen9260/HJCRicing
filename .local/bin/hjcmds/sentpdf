@@ -1,0 +1,29 @@
+#!/bin/sh
+# The script is to transform suckless sent presentation into pdf files
+# POSIX compliant
+
+mkdir "./Presentation"
+# Remove comments and extra blank lines
+sed "s/#.*//g" "$1" | cat -s > ./Presentation/output
+cd "./Presentation" || exit 1
+# Count how many times to loop
+looptimes=$(($(grep -cvP '\S' output)+1))
+# Count Down
+timer="5:4:3:2:1"
+for i in $(echo $timer | tr ':' '\n'); do echo "$i." && sleep 1; done
+
+# for loops to take screenshots
+i=1
+while [ "$i" -le "$looptimes" ]; do
+	maim -i "$(xdotool getactivewindow)" -m 1 pic-window-"$(date '+%y%m%d-%H%M-%S-%N').png"
+	#scrot -q 100 pic-full-"$(date '+%y%m%d-%H%M-%S-%N').png"
+	xdotool key space
+	sleep 0.5
+	i=$((i+1))
+done
+
+#Convert screenshots into pdf file
+cd ".."
+convert ./Presentation/*.png "$1".pdf
+# Remove useless screenshots
+rm -r "./Presentation"

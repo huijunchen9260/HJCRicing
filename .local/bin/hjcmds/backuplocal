@@ -1,0 +1,26 @@
+#!/bin/sh
+
+nl='
+'
+IFS="$nl"
+
+echo "backup current directory in external drive to corresponding local path"
+
+extdr=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$2=="part" && $4 !~ /\/boot|\/home$|SWAP/ && length($4)>1 {printf "%s\n",$4}')
+
+for dr in $extdr; do
+    case "$PWD" in
+        "$dr"*)
+            read -p "backup $(printf '\033[36m%s\033[0m' "$PWD") to local path $(printf '\033[36m%s\033[0m' "${PWD##$dr}")? ([y]/n) " reply && mkdir -p "${PWD##$dr}" || continue
+            case "$reply" in
+                'y'|'Y'|'')
+                    read -p "Overwrite $(printf '\033[36m%s\033[0m' "${PWD##$dr}")? (y/[n]): " ans || exit 1
+                    case "$ans" in
+                        'y'|'Y') rsync -urtvzP --delete-after "$PWD/" "${PWD##$dr}" && exit 0 ;;
+                        'n'|'N'|'') rsync -urtvzP "$PWD/" "${PWD##$dr}" && exit 0 ;;
+                    esac
+                    ;;
+            esac
+            ;;
+    esac
+done

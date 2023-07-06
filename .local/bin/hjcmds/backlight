@@ -1,0 +1,43 @@
+#!/bin/sh
+# Dependency: xrandr
+# dmenu script to set brightness
+
+# Range for light selection
+minbright=3
+maxbright=17
+
+calc() { awk "BEGIN{print $*}"; }
+
+# Get all possible displays
+allposs=$(xrandr -q | grep "connected")
+
+# Get all connected screens.
+screens=$(echo "$allposs" | awk '/ connected/ {print $1}')
+
+# Get user choice including multi-monitor and manual selection:
+chosen=$(printf "%s" "$screens" | dmenu -i -p "Select which display to adjust backlight:")
+
+brightness=$(printf "%s" "" | dmenu -i -p "type brightness ([$minbright, $maxbright]): ")
+
+currbright=$( xrandr --verbose --current | grep ^"$chosen" -A5 | tail -n1 )
+currbright="${currbright##* }"  # Get brightness level with decimal place
+
+if [ $brightness -gt $minbright ] && [ $brightness -lt $maxbright ]; then
+    xrandr --output "$chosen" --brightness $(calc $brightness/10)
+fi
+
+
+
+
+
+# brightness=$(xbacklight -get)
+# adjustment=$1
+# result=$(echo "$brightness+$adjustment" | bc -q)
+# xbacklight -set "$result"
+
+# read -r brightness < /sys/class/backlight/intel_backlight/brightness
+# read -r max_brightness < /sys/class/backlight/intel_backlight/max_brightness
+# adjustment=$1
+# result=$(echo "$brightness + (($max_brightness/100)*$adjustment)" | bc -q)
+
+# tee /sys/class/backlight/intel_backlight/brightness <<< $result

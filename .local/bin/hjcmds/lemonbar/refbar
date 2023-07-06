@@ -1,0 +1,9 @@
+#!/bin/sh
+
+case "$1" in
+    35) kill -35 $(pidof -x hjcbar.sh) ;;
+    36) kill -36 $(pidof -x hjcbar.sh) ;;
+    37) kill -37 $(pidof -x hjcbar.sh) ;;
+    38) kill -38 $(pidof -x hjcbar.sh) ;;
+    39) kill -39 $(pidof -x hjcbar.sh) ;;
+esac

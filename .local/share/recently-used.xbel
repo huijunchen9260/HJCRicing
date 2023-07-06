@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///mnt/Documents/Papers/Heathcote_Storesletten_Violante_2017_TQJE.pdf" added="2021-10-15T03:11:27.362793Z" modified="2021-10-16T00:07:47.219026Z" visited="2021-10-15T03:11:27.362794Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:groups>
+          <bookmark:group>xournal++</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="xournalpp" exec="&apos;xournalpp %u&apos;" modified="2021-10-15T03:14:08.498554Z" count="4"/>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2021-10-16T00:07:47.219014Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///mnt/Documents/Google_Drive/Ohio_related/PhD_Third_Year/CSE5523/tex/5523LN10linreg.tex" added="2021-10-15T15:42:39.390500Z" modified="2021-10-15T15:42:39.802631Z" visited="2021-10-15T15:42:39.390506Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/x-tex"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2021-10-15T15:42:39.802625Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///mnt/Documents/Papers/Loury_Kim_2018_IER.pdf" added="2021-10-15T18:06:43.975895Z" modified="2021-10-15T18:11:47.577464Z" visited="2021-10-15T18:06:43.975896Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:groups>
+          <bookmark:group>xournal++</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="xournalpp" exec="&apos;xournalpp %u&apos;" modified="2021-10-15T18:11:47.577454Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///mnt/Documents/Papers/Loury_Kim_2018_IER.xopp" added="2021-10-15T18:11:47.935677Z" modified="2021-10-16T22:49:24.804325Z" visited="2021-10-15T18:11:47.935678Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-xoj"/>
+        <bookmark:groups>
+          <bookmark:group>xournal++</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="xournalpp" exec="&apos;xournalpp %u&apos;" modified="2021-10-16T22:49:24.804319Z" count="9"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/huijunchen/mnt/CG/Ninoko/Shoujo%20Kaishun%209%20Kayoizuma%20Choukyou%20Hen.zip" added="2021-10-15T18:53:40.144530Z" modified="2021-10-15T18:53:40.722895Z" visited="2021-10-15T18:53:40.144535Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2021-10-15T18:53:40.722890Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///mnt/Documents/Google_Drive/Ohio_related/PhD_Third_Year/Research/TaxProgressivity/MarketPowerLaborIncomeTax" added="2021-10-15T20:51:50.790828Z" modified="2021-10-15T20:51:50.790852Z" visited="2021-10-15T20:51:50.790832Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="xournalpp" exec="&apos;xournalpp %u&apos;" modified="2021-10-15T20:51:50.790840Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///mnt/Documents/Google_Drive/Ohio_related/PhD_Third_Year/Research/TaxProgressivity/MarketPowerLaborIncomeTax.xopp" added="2021-10-15T20:51:51.220886Z" modified="2021-10-15T20:51:51.220909Z" visited="2021-10-15T20:51:51.220888Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-xoj"/>
+        <bookmark:groups>
+          <bookmark:group>xournal++</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="xournalpp" exec="&apos;xournalpp %u&apos;" modified="2021-10-15T20:51:51.220898Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/huijunchen/Downloads/bookmarks.html" added="2021-10-16T11:24:47.490282Z" modified="2021-10-16T11:24:47.490295Z" visited="2021-10-16T11:24:47.490284Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/html"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2021-10-16T11:24:47.490289Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

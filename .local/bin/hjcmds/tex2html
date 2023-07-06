@@ -1,0 +1,11 @@
+#!/bin/sh
+
+file=$(readlink -f "$1")
+dir=${file%/*}
+base="${file%.*}"
+ext="${file##*.}"
+
+mk4ht mzlatex "$file"
+biber "$base"
+mk4ht mzlatex "$file"
+mk4ht mzlatex "$file"

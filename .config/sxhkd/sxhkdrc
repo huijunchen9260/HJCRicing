@@ -1,0 +1,340 @@
+##############
+#  Software  #
+##############
+
+# Basic binds
+
+# Launch tabbed urxvt
+super + Return
+	$TERMINAL
+# Tabbedize windows
+# mod4 + shift + Return
+# 	tabbedize
+# # Run Terminal
+# mod4 + control + Return
+# 	tabbed -c alacritty --embed
+# App launcher
+mod4 + d
+	dmenu_run
+# File manager based on dmenufm
+mod4 + r
+	$TERMINAL -e fmawk
+# File manager based on fzf
+mod4 + control + r
+	thunar
+# Bibliography manager
+mod4 + b
+	$TERMINAL -e bib_tui.awk
+mod4 + shift + b
+	$TERMINAL -e bib.awk
+
+# Music player daemon
+mod4 + m
+	$TERMINAL -e ncmpcpp
+# Newsboat
+mod4 + control + n
+	$TERMINAL -e joplin
+	# $TERMINAL -e newsboat
+# Pulsemixer
+mod4 + control + a
+	$TERMINAL -e pulsemixer
+# Open front camera
+mod4 + control + c
+	camtoggle
+# Open tutorial videos
+mod4 + control + e
+	tutorialvids
+# Network Manager
+mod4 + control + w
+	$TERMINAL -e nmtui
+# Browser
+mod4 + w
+	$BROWSER
+# Open teximage script
+mod4 + g
+	teximage -a "new content" -o svg
+# Inkmenu
+mod4 + control + g
+	inkmenu
+# Xournalpp
+mod4 + x
+	xournalpp
+
+# Et cetera...
+mod4 + grave
+	dmenuunicode
+mod4 + Scroll_Lock
+	killall screenkey || screenkey
+mod4 + s
+	showclip
+# mod4 + x
+# 	mpc pause; pauseallmpv; i3lock -e -f -c 1d2021; xset dpms force off
+XF86LaunchA
+	xset dpms force off
+# mod1 + space
+# 	via
+# mod4 + e
+# 	~/.vim-anywhere/bin/runtex
+mod4 + control + d
+	$TERMINAL -e ncdu
+mod4 + control + m
+	manman
+mod4 + control + g
+	inkfig
+mod4 + control + n
+	$TERMINAL -e joplin
+mod4 + control + t
+	toolmenu
+
+# Recording
+Insert
+	maimpick
+# Take screenshot
+# Print
+# 	maim $HOME/Pictures/screenshots/pic-full-$(date '+%y%m%d-%H%M-%S').png
+# Pick screenshot type
+# Record audio or video
+mod4 + Insert
+	dmenurecord
+# kill active recording
+mod4 + Delete
+	dmenurecord kill
+
+###########
+#  Music  #
+###########
+
+# Pause audio
+# mod4 + {_,control +} p
+# 	lmc {toggle,pause}
+# Changes to next/previous tracks
+# mod4 + {comma,period}
+# 	lmc {prev,next}
+# Restart track
+# mod4 + control + less
+# 	lmc replay
+# Increase volume
+mod4 + {equal,plus}
+	pamixer --allow-boost -i {5, 15}
+XF86AudioRaiseVolume
+	pamixer --allow-boost -i 5
+shift+XF86AudioRaiseVolume
+	pamixer --allow-boost -i 10
+control + XF86AudioRaiseVolume
+	pamixer --allow-boost -i 1
+# Decrease volume
+mod4 {_,control +} + minus
+	pamixer --allow-boost -d {5, 15}
+XF86AudioLowerVolume
+	pamixer --allow-boost -d 5
+shift + XF86AudioLowerVolume
+	pamixer --allow-boost -d 10
+control + XF86AudioLowerVolume
+	pamixer --allow-boost -d 1
+# Mute
+XF86AudioMute
+	pamixer -t
+# Seek foward in song
+# mod4 + {_,control +} bracketright
+# 	lmc forward {10,120}
+# Seek backward in song
+# mod4 + {_,control +} bracketleft
+# 	lmc back {10,120}
+
+###############
+#  Backlight  #
+###############
+
+# Thinkpad T450s specific setting
+# See https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_T450s
+# For more information
+
+# Decrease brightness with F5 function key
+XF86MonBrightnessDown
+	xbacklight -dec 5
+	# backlight -5
+
+# Increase brightness with F6 function key
+XF86MonBrightnessUp
+	xbacklight -inc 5
+	# backlight 5
+
+# Toggle touchpad on and off with F9 function key
+mod1 + t
+	taptoclick
+
+mod1 + T
+	touchpad
+
+# ------------ #
+# XFCE related #
+# ------------ #
+
+mod4 + space
+	xfce4-popup-whiskermenu
+
+# ------------- #
+# Function keys #
+# ------------- #
+
+# Show readme
+mod4 + F1
+	toolmenu
+	# groff -mom $HOME/.local/share/larbs/readme.mom -Tpdf | zathura -
+# Screenshot
+mod4 + F2
+	flameshot gui
+# Change display
+mod4 + F3
+	displayselect
+# Hibernate
+mod4 + F4
+	prompt 'Hibernate computer?' 'sudo systemctl suspend'
+# Restart/rescan wifi/eth networks
+mod4 + F5
+	sudo -A systemctl restart NetworkManager
+# Start torrent daemon/open interface
+mod4 + F6
+	torwrap
+# toggle torrent daemon
+mod4 + F7
+	td-toggle
+# sync email
+mod4 + F8
+	maimpick
+# Mount a USB drive or Android device
+mod4 + F9
+	dmenumount
+# Unmount a USB drive or Android device
+mod4 + F10
+	dmenuumount
+# Search with Duckduckgo
+mod4 + F11
+	search
+# Network Manager interface
+mod4 + F12
+	$TERMINAL -e sudo -A nmtui
+# remap the keybinding
+control + F12
+	setbg &; remaps &
+
+# Remap to PageUp / PageDown
+# mod4, Left
+# 	xdotool key Page_Up
+# mod4, Right
+# 	xdotool key Page_Down
+
+
+#####################
+##  bspwm bindings  #
+#####################
+
+# system action
+mod4 + BackSpace
+	sysact
+# shutdown/reboot computer
+mod4 + shift + x
+	prompt "Shutdown computer?" "sudo -A shutdown -h now" # systemd
+	# prompt "Shutdown computer?" "sudo -A openrc-shutdown -p 0" # openrc
+mod4 + shift + BackSpace
+	prompt "Reboot computer?" "sudo -A shutdown -r now" # systemd
+	# prompt "Reboot computer?" "sudo -A openrc-shutdown -r 0" # openrc
+# quit/restart windows manager
+mod4 + shift + Escape
+	prompt "Quit windows manager?" "bspc quit"
+mod4 + shift + r
+	. $HOME/.config/bspwm/bspwmrc
+	# bspc wm -r; setbg &; remaps &
+
+# close and kill
+mod4 + {_,control + }q
+	bspc node -{c,k}
+
+# alternate between the tiled and monocle layout
+mod4 + t
+	bspc desktop -l next
+
+# focus the node in the given direction
+mod4 + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+mod4 + {p,n}
+	bspc monitor --focus {prev,next}
+
+mod4 + control + {h,l}
+	bspc desktop --focus {prev,next}
+
+# focus last focused window in the current desktop
+mod1 + Tab
+	bspc node -f last.window.local
+# focus the next node in the current desktop
+mod4 + Tab
+	bspc node -f next.window.local
+# focus the older or newer node in the focus history
+mod4  + control + {k,j}
+	bspc wm -h off; \
+	bspc node {older,newer} -f; \
+	bspc wm -h on
+
+# focus or send to the given desktop
+mod4 + {_,ctrl + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# move floating window
+# mod4 + {y,u,i,o}
+# 	bspc node -v {-20 0,0 20,0 -20,20 0}
+# Adjust window size
+# mod4 + {y,u,i,o}
+# 	bspc node -z {left -20 0,bottom 0 20,bottom 0 -20,left 20 0}
+# expand a window by moving one of its side outward
+# mod4 + {y,u,i,o}
+# 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0} || bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# change window size based on direction
+mod4 + y
+	case $(bspc query -T -n focused | cut -d ',' -f 22 | cut -d '"' -f 4) in \
+	    'floating') bspc node -z left -20 0 ;; \
+	    'tiled') bspc node -z left -20 0 || bspc node -z right -20 0 ;; \
+	esac
+mod4 + o
+	case $(bspc query -T -n focused | cut -d ',' -f 22 | cut -d '"' -f 4) in \
+	    'floating') bspc node -z right 20 0 ;; \
+	    'tiled') bspc node -z right 20 0 || bspc node -z left 20 0 ;; \
+	esac
+mod4 + i
+	case $(bspc query -T -n focused | cut -d ',' -f 22 | cut -d '"' -f 4) in \
+	    'floating') bspc node -z top 0 -20 ;; \
+	    'tiled') bspc node -z top 0 -20 || bspc node -z bottom 0 -20 ;; \
+	esac
+mod4 + u
+	case $(bspc query -T -n focused | cut -d ',' -f 22 | cut -d '"' -f 4) in \
+	    'floating') bspc node -z bottom 0 20 ;; \
+	    'tiled') bspc node -z bottom 0 20 || bspc node -z top 0 20 ;; \
+	esac
+
+# # contract a window by moving one of its side inward
+mod4 + control + {y,u,i,o}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# toggle hidden or sticky for floating window
+mod4 + a
+	[ -z $(bspc query -N -n .hidden) ] && bspc node -g hidden || bspc node $(bspc query -N -n .hidden | tail -n 1) -g hidden=off
+
+# toggle floating window and tiled (or monocle)
+mod4 + f
+	[ -z "$(bspc query -N -n focused.floating)" ] && bspc node focused -t floating || bspc node focused -t tiled
+
+# toggle fullscreen window and tiled (or monocle)
+# automatically hide and show polybar
+mod4 + ctrl + f
+	[ -z "$(bspc query -N -n focused.fullscreen)" ] && bspc node focused -t fullscreen || bspc node focused -t tiled
+
+# ------------------------------- #
+# tablet related: screen rotation #
+# ------------------------------- #
+
+mod4 + ctrl + {Left,Right,Up,Down}
+	tablet-rotate {right,left,normal,inverted}
+
+mod4 + ctrl + Return
+	tablet-rotate

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+printf '%s\n' $HOME/.config/nvim/snippet/* | dmenu -i -l 5 -p "Select snippet: " | xargs -I {} sed '/^$/ d; /^".*/d; s/autocmd FileType .* [a-z]noremap //g' "{}" | dmenu -i -l 5 -p "Search snippet: " | sed -E "s/^;.*; //"

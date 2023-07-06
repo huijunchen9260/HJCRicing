@@ -1,0 +1,739 @@
+[   119.747] 
+X.Org X Server 1.21.1.3
+X Protocol Version 11, Revision 0
+[   119.747] Current Operating System: Linux HJC-x220t 5.17.9-arch1-1 #1 SMP PREEMPT Wed, 18 May 2022 17:30:11 +0000 x86_64
+[   119.747] Kernel command line: BOOT_IMAGE=/vmlinuz-linux root=UUID=56a61c43-4bbe-49c9-a9e0-d8f532e1ee20 rw loglevel=3 quiet
+[   119.747]  
+[   119.747] Current version of pixman: 0.40.0
+[   119.747] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[   119.747] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[   119.748] (==) Log file: "/home/huijunchen/.local/share/xorg/Xorg.0.log", Time: Wed May 25 08:42:29 2022
+[   119.754] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[   119.755] (==) No Layout section.  Using the first Screen section.
+[   119.755] (==) No screen section available. Using defaults.
+[   119.755] (**) |-->Screen "Default Screen Section" (0)
+[   119.755] (**) |   |-->Monitor "<default monitor>"
+[   119.755] (==) No monitor specified for screen "Default Screen Section".
+	Using a default monitor configuration.
+[   119.755] (==) Automatically adding devices
+[   119.755] (==) Automatically enabling devices
+[   119.755] (==) Automatically adding GPU devices
+[   119.755] (==) Automatically binding GPU devices
+[   119.756] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[   119.756] (WW) The directory "/usr/share/fonts/misc" does not exist.
+[   119.756] 	Entry deleted from font path.
+[   119.758] (WW) `fonts.dir' not found (or not valid) in "/usr/share/fonts/TTF".
+[   119.758] 	Entry deleted from font path.
+[   119.758] 	(Run 'mkfontdir' on "/usr/share/fonts/TTF").
+[   119.758] (WW) The directory "/usr/share/fonts/OTF" does not exist.
+[   119.758] 	Entry deleted from font path.
+[   119.758] (WW) The directory "/usr/share/fonts/Type1" does not exist.
+[   119.758] 	Entry deleted from font path.
+[   119.758] (WW) The directory "/usr/share/fonts/100dpi" does not exist.
+[   119.758] 	Entry deleted from font path.
+[   119.758] (WW) The directory "/usr/share/fonts/75dpi" does not exist.
+[   119.758] 	Entry deleted from font path.
+[   119.758] (==) FontPath set to:
+	
+[   119.758] (==) ModulePath set to "/usr/lib/xorg/modules"
+[   119.758] (II) The server relies on udev to provide the list of input devices.
+	If no devices become available, reconfigure udev or disable AutoAddDevices.
+[   119.758] (II) Module ABI versions:
+[   119.758] 	X.Org ANSI C Emulation: 0.4
+[   119.758] 	X.Org Video Driver: 25.2
+[   119.758] 	X.Org XInput driver : 24.4
+[   119.758] 	X.Org Server Extension : 10.0
+[   119.759] (++) using VT number 1
+
+[   119.761] (II) systemd-logind: took control of session /org/freedesktop/login1/session/_31
+[   119.762] (II) xfree86: Adding drm device (/dev/dri/card0)
+[   119.762] (II) Platform probe for /sys/devices/pci0000:00/0000:00:02.0/drm/card0
+[   119.763] (II) systemd-logind: got fd for /dev/dri/card0 226:0 fd 13 paused 0
+[   119.769] (--) PCI:*(0@0:2:0) 8086:0126:17aa:21db rev 9, Mem @ 0xf0000000/4194304, 0xe0000000/268435456, I/O @ 0x00005000/64, BIOS @ 0x????????/131072
+[   119.770] (WW) Open ACPI failed (/var/run/acpid.socket) (No such file or directory)
+[   119.770] (II) LoadModule: "glx"
+[   119.771] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[   119.783] (II) Module glx: vendor="X.Org Foundation"
+[   119.783] 	compiled for 1.21.1.3, module version = 1.0.0
+[   119.783] 	ABI class: X.Org Server Extension, version 10.0
+[   119.783] (==) Matched intel as autoconfigured driver 0
+[   119.784] (==) Matched modesetting as autoconfigured driver 1
+[   119.784] (==) Matched fbdev as autoconfigured driver 2
+[   119.784] (==) Matched vesa as autoconfigured driver 3
+[   119.784] (==) Assigned the driver to the xf86ConfigLayout
+[   119.784] (II) LoadModule: "intel"
+[   119.784] (II) Loading /usr/lib/xorg/modules/drivers/intel_drv.so
+[   119.789] (II) Module intel: vendor="X.Org Foundation"
+[   119.789] 	compiled for 1.21.1.1, module version = 2.99.917
+[   119.789] 	Module class: X.Org Video Driver
+[   119.789] 	ABI class: X.Org Video Driver, version 25.2
+[   119.789] (II) LoadModule: "modesetting"
+[   119.789] (II) Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[   119.792] (II) Module modesetting: vendor="X.Org Foundation"
+[   119.792] 	compiled for 1.21.1.3, module version = 1.21.1
+[   119.792] 	Module class: X.Org Video Driver
+[   119.792] 	ABI class: X.Org Video Driver, version 25.2
+[   119.792] (II) LoadModule: "fbdev"
+[   119.793] (WW) Warning, couldn't open module fbdev
+[   119.793] (EE) Failed to load module "fbdev" (module does not exist, 0)
+[   119.793] (II) LoadModule: "vesa"
+[   119.793] (WW) Warning, couldn't open module vesa
+[   119.793] (EE) Failed to load module "vesa" (module does not exist, 0)
+[   119.793] (II) intel: Driver for Intel(R) Integrated Graphics Chipsets:
+	i810, i810-dc100, i810e, i815, i830M, 845G, 854, 852GM/855GM, 865G,
+	915G, E7221 (i915), 915GM, 945G, 945GM, 945GME, Pineview GM,
+	Pineview G, 965G, G35, 965Q, 946GZ, 965GM, 965GME/GLE, G33, Q35, Q33,
+	GM45, 4 Series, G45/G43, Q45/Q43, G41, B43
+[   119.793] (II) intel: Driver for Intel(R) HD Graphics
+[   119.793] (II) intel: Driver for Intel(R) Iris(TM) Graphics
+[   119.793] (II) intel: Driver for Intel(R) Iris(TM) Pro Graphics
+[   119.793] (II) modesetting: Driver for Modesetting Kernel Drivers: kms
+[   119.793] xf86EnableIO: failed to enable I/O ports 0000-03ff (Operation not permitted)
+[   119.794] (II) intel(0): Using Kernel Mode Setting driver: i915, version 1.6.0 20201103
+[   119.794] (II) intel(0): SNA compiled from 2.99.917-916-g31486f40
+[   119.811] (WW) Falling back to old probe method for modesetting
+[   119.811] (WW) VGA arbiter: cannot open kernel arbiter, no multi-card support
+[   119.811] (--) intel(0): Integrated Graphics Chipset: Intel(R) HD Graphics 3000
+[   119.811] (--) intel(0): CPU: x86-64, sse2, sse3, ssse3, sse4.1, sse4.2, avx; using a maximum of 2 threads
+[   119.811] (II) intel(0): Creating default Display subsection in Screen section
+	"Default Screen Section" for depth/fbbpp 24/32
+[   119.812] (==) intel(0): Depth 24, (--) framebuffer bpp 32
+[   119.812] (==) intel(0): RGB weight 888
+[   119.812] (==) intel(0): Default visual is TrueColor
+[   119.812] (II) intel(0): Output LVDS1 has no monitor section
+[   119.812] (**) intel(0): Found backlight control interface intel_backlight (type 'raw') for output LVDS1
+[   119.812] (II) intel(0): Enabled output LVDS1
+[   119.812] (II) intel(0): Output VGA1 has no monitor section
+[   119.812] (II) intel(0): Enabled output VGA1
+[   119.812] (II) intel(0): Output HDMI1 has no monitor section
+[   119.812] (II) intel(0): Enabled output HDMI1
+[   119.812] (II) intel(0): Output DP1 has no monitor section
+[   119.813] (II) intel(0): Enabled output DP1
+[   119.813] (II) intel(0): Output HDMI2 has no monitor section
+[   119.813] (II) intel(0): Enabled output HDMI2
+[   119.813] (II) intel(0): Output HDMI3 has no monitor section
+[   119.813] (II) intel(0): Enabled output HDMI3
+[   119.813] (II) intel(0): Output DP2 has no monitor section
+[   119.813] (II) intel(0): Enabled output DP2
+[   119.813] (II) intel(0): Output DP3 has no monitor section
+[   119.813] (II) intel(0): Enabled output DP3
+[   119.813] (--) intel(0): Using a maximum size of 256x256 for hardware cursors
+[   119.813] (II) intel(0): Output VIRTUAL1 has no monitor section
+[   119.813] (II) intel(0): Enabled output VIRTUAL1
+[   119.813] (--) intel(0): Output LVDS1 using initial mode 1366x768 on pipe 0
+[   119.813] (--) intel(0): Output VGA1 using initial mode 1920x1080 on pipe 1
+[   119.813] (==) intel(0): TearFree disabled
+[   119.813] (==) intel(0): Using gamma correction (1.0, 1.0, 1.0)
+[   119.813] (==) intel(0): DPI set to (96, 96)
+[   119.813] (II) Loading sub module "dri3"
+[   119.813] (II) LoadModule: "dri3"
+[   119.813] (II) Module "dri3" already built-in
+[   119.813] (II) Loading sub module "dri2"
+[   119.814] (II) LoadModule: "dri2"
+[   119.814] (II) Module "dri2" already built-in
+[   119.814] (II) Loading sub module "present"
+[   119.814] (II) LoadModule: "present"
+[   119.814] (II) Module "present" already built-in
+[   119.814] (II) UnloadModule: "modesetting"
+[   119.814] (II) Unloading modesetting
+[   119.817] (II) intel(0): SNA initialized with Sandybridge (gen6, gt2) backend
+[   119.817] (==) intel(0): Backing store enabled
+[   119.817] (==) intel(0): Silken mouse enabled
+[   119.817] (II) intel(0): HW Cursor enabled
+[   119.819] (==) intel(0): DPMS enabled
+[   119.819] (==) intel(0): Display hotplug detection enabled
+[   119.820] (II) intel(0): [DRI2] Setup complete
+[   119.820] (II) intel(0): [DRI2]   DRI driver: i965
+[   119.820] (II) intel(0): [DRI2]   VDPAU driver: va_gl
+[   119.820] (II) intel(0): direct rendering: DRI2 DRI3 enabled
+[   119.820] (II) intel(0): hardware support for Present enabled
+[   119.820] (II) Initializing extension Generic Event Extension
+[   119.820] (II) Initializing extension SHAPE
+[   119.820] (II) Initializing extension MIT-SHM
+[   119.821] (II) Initializing extension XInputExtension
+[   119.821] (II) Initializing extension XTEST
+[   119.821] (II) Initializing extension BIG-REQUESTS
+[   119.821] (II) Initializing extension SYNC
+[   119.821] (II) Initializing extension XKEYBOARD
+[   119.822] (II) Initializing extension XC-MISC
+[   119.822] (II) Initializing extension SECURITY
+[   119.822] (II) Initializing extension XFIXES
+[   119.822] (II) Initializing extension RENDER
+[   119.822] (II) Initializing extension RANDR
+[   119.822] (II) Initializing extension COMPOSITE
+[   119.822] (II) Initializing extension DAMAGE
+[   119.822] (II) Initializing extension MIT-SCREEN-SAVER
+[   119.822] (II) Initializing extension DOUBLE-BUFFER
+[   119.822] (II) Initializing extension RECORD
+[   119.823] (II) Initializing extension DPMS
+[   119.823] (II) Initializing extension Present
+[   119.823] (II) Initializing extension DRI3
+[   119.823] (II) Initializing extension X-Resource
+[   119.823] (II) Initializing extension XVideo
+[   119.823] (II) Initializing extension XVideo-MotionCompensation
+[   119.823] (II) Initializing extension GLX
+[   119.823] (EE) AIGLX error: dlopen of /usr/lib/dri/i965_dri.so failed (/usr/lib/dri/i965_dri.so: cannot open shared object file: No such file or directory)
+[   119.823] (EE) AIGLX error: unable to load driver i965
+[   120.112] (II) IGLX: Loaded and initialized swrast
+[   120.112] (II) GLX: Initialized DRISWRAST GL provider for screen 0
+[   120.112] (II) Initializing extension XFree86-VidModeExtension
+[   120.112] (II) Initializing extension XFree86-DGA
+[   120.112] (II) Initializing extension XFree86-DRI
+[   120.112] (II) Initializing extension DRI2
+[   120.119] (II) intel(0): switch to mode 1366x768@60.0 on LVDS1 using pipe 0, position (0, 0), rotation normal, reflection none
+[   120.126] (II) intel(0): switch to mode 1920x1080@60.0 on VGA1 using pipe 1, position (0, 0), rotation normal, reflection none
+[   120.135] (II) intel(0): Setting screen physical size to 508 x 285
+[   120.239] (II) config/udev: Adding input device Power Button (/dev/input/event2)
+[   120.239] (**) Power Button: Applying InputClass "libinput keyboard catchall"
+[   120.239] (II) LoadModule: "libinput"
+[   120.239] (II) Loading /usr/lib/xorg/modules/input/libinput_drv.so
+[   120.244] (II) Module libinput: vendor="X.Org Foundation"
+[   120.244] 	compiled for 1.21.1.3, module version = 1.2.1
+[   120.244] 	Module class: X.Org XInput Driver
+[   120.244] 	ABI class: X.Org XInput driver, version 24.4
+[   120.244] (II) Using input driver 'libinput' for 'Power Button'
+[   120.245] (II) systemd-logind: got fd for /dev/input/event2 13:66 fd 23 paused 0
+[   120.245] (**) Power Button: always reports core events
+[   120.245] (**) Option "Device" "/dev/input/event2"
+[   120.258] (II) event2  - Power Button: is tagged by udev as: Keyboard
+[   120.258] (II) event2  - Power Button: device is a keyboard
+[   120.258] (II) event2  - Power Button: device removed
+[   120.258] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXPWRBN:00/input/input2/event2"
+[   120.258] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 6)
+[   120.258] (II) event2  - Power Button: is tagged by udev as: Keyboard
+[   120.259] (II) event2  - Power Button: device is a keyboard
+[   120.259] (II) config/udev: Adding input device Video Bus (/dev/input/event7)
+[   120.259] (**) Video Bus: Applying InputClass "libinput keyboard catchall"
+[   120.259] (II) Using input driver 'libinput' for 'Video Bus'
+[   120.260] (II) systemd-logind: got fd for /dev/input/event7 13:71 fd 26 paused 0
+[   120.260] (**) Video Bus: always reports core events
+[   120.260] (**) Option "Device" "/dev/input/event7"
+[   120.261] (II) event7  - Video Bus: is tagged by udev as: Keyboard
+[   120.261] (II) event7  - Video Bus: device is a keyboard
+[   120.261] (II) event7  - Video Bus: device removed
+[   120.261] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input27/event7"
+[   120.261] (II) XINPUT: Adding extended input device "Video Bus" (type: KEYBOARD, id 7)
+[   120.262] (II) event7  - Video Bus: is tagged by udev as: Keyboard
+[   120.262] (II) event7  - Video Bus: device is a keyboard
+[   120.262] (II) config/udev: Adding input device Lid Switch (/dev/input/event0)
+[   120.262] (II) No input driver specified, ignoring this device.
+[   120.262] (II) This device may have been added with another device file.
+[   120.263] (II) config/udev: Adding input device Sleep Button (/dev/input/event1)
+[   120.263] (**) Sleep Button: Applying InputClass "libinput keyboard catchall"
+[   120.263] (II) Using input driver 'libinput' for 'Sleep Button'
+[   120.264] (II) systemd-logind: got fd for /dev/input/event1 13:65 fd 27 paused 0
+[   120.264] (**) Sleep Button: always reports core events
+[   120.264] (**) Option "Device" "/dev/input/event1"
+[   120.266] (II) event1  - Sleep Button: is tagged by udev as: Keyboard
+[   120.267] (II) event1  - Sleep Button: device is a keyboard
+[   120.267] (II) event1  - Sleep Button: device removed
+[   120.267] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00/input/input1/event1"
+[   120.267] (II) XINPUT: Adding extended input device "Sleep Button" (type: KEYBOARD, id 8)
+[   120.270] (II) event1  - Sleep Button: is tagged by udev as: Keyboard
+[   120.271] (II) event1  - Sleep Button: device is a keyboard
+[   120.274] (II) config/udev: Adding input device Lite-On Tech IBM USB Travel Keyboard with Ultra Nav (/dev/input/event11)
+[   120.274] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: Applying InputClass "libinput keyboard catchall"
+[   120.274] (II) Using input driver 'libinput' for 'Lite-On Tech IBM USB Travel Keyboard with Ultra Nav'
+[   120.275] (II) systemd-logind: got fd for /dev/input/event11 13:75 fd 28 paused 0
+[   120.275] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: always reports core events
+[   120.275] (**) Option "Device" "/dev/input/event11"
+[   120.276] (II) event11 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: is tagged by udev as: Keyboard
+[   120.277] (II) event11 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: device is a keyboard
+[   120.277] (II) event11 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: device removed
+[   120.277] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3.3/1-1.1.3.3:1.0/0003:04B3:301E.0005/input/input12/event11"
+[   120.277] (II) XINPUT: Adding extended input device "Lite-On Tech IBM USB Travel Keyboard with Ultra Nav" (type: KEYBOARD, id 9)
+[   120.278] (II) event11 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: is tagged by udev as: Keyboard
+[   120.278] (II) event11 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: device is a keyboard
+[   120.279] (II) config/udev: Adding input device Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse (/dev/input/event12)
+[   120.279] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: Applying InputClass "libinput pointer catchall"
+[   120.279] (II) Using input driver 'libinput' for 'Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse'
+[   120.280] (II) systemd-logind: got fd for /dev/input/event12 13:76 fd 29 paused 0
+[   120.280] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: always reports core events
+[   120.280] (**) Option "Device" "/dev/input/event12"
+[   120.282] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: is tagged by udev as: Mouse Pointingstick
+[   120.282] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: trackpoint multiplier is 1.50
+[   120.282] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: device is a pointer
+[   120.282] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: device removed
+[   120.282] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3.3/1-1.1.3.3:1.1/0003:04B3:301E.0006/input/input13/event12"
+[   120.282] (II) XINPUT: Adding extended input device "Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse" (type: MOUSE, id 10)
+[   120.282] (**) Option "AccelerationScheme" "none"
+[   120.282] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: (accel) selected scheme none/0
+[   120.282] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: (accel) acceleration factor: 2.000
+[   120.282] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: (accel) acceleration threshold: 4
+[   120.284] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: is tagged by udev as: Mouse Pointingstick
+[   120.284] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: trackpoint multiplier is 1.50
+[   120.284] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: device is a pointer
+[   120.285] (II) config/udev: Adding input device Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse (/dev/input/mouse6)
+[   120.285] (II) No input driver specified, ignoring this device.
+[   120.285] (II) This device may have been added with another device file.
+[   120.286] (II) config/udev: Adding input device Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control (/dev/input/event13)
+[   120.286] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: Applying InputClass "libinput keyboard catchall"
+[   120.286] (II) Using input driver 'libinput' for 'Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control'
+[   120.286] (II) systemd-logind: got fd for /dev/input/event13 13:77 fd 30 paused 0
+[   120.286] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: always reports core events
+[   120.286] (**) Option "Device" "/dev/input/event13"
+[   120.288] (II) event13 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: is tagged by udev as: Keyboard
+[   120.288] (II) event13 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: device is a keyboard
+[   120.288] (II) event13 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: device removed
+[   120.288] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3.3/1-1.1.3.3:1.1/0003:04B3:301E.0006/input/input14/event13"
+[   120.288] (II) XINPUT: Adding extended input device "Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control" (type: KEYBOARD, id 11)
+[   120.290] (II) event13 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: is tagged by udev as: Keyboard
+[   120.290] (II) event13 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: device is a keyboard
+[   120.291] (II) config/udev: Adding input device Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control (/dev/input/event14)
+[   120.291] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: Applying InputClass "libinput keyboard catchall"
+[   120.291] (II) Using input driver 'libinput' for 'Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control'
+[   120.292] (II) systemd-logind: got fd for /dev/input/event14 13:78 fd 31 paused 0
+[   120.292] (**) Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: always reports core events
+[   120.292] (**) Option "Device" "/dev/input/event14"
+[   120.293] (II) event14 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: is tagged by udev as: Keyboard
+[   120.293] (II) event14 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: device is a keyboard
+[   120.293] (II) event14 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: device removed
+[   120.293] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1.3/1-1.1.3.3/1-1.1.3.3:1.1/0003:04B3:301E.0006/input/input15/event14"
+[   120.293] (II) XINPUT: Adding extended input device "Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control" (type: KEYBOARD, id 12)
+[   120.295] (II) event14 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: is tagged by udev as: Keyboard
+[   120.295] (II) event14 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: device is a keyboard
+[   120.296] (II) config/udev: Adding input device Kensington Kensington Slimblade Trackball (/dev/input/event15)
+[   120.296] (**) Kensington Kensington Slimblade Trackball: Applying InputClass "libinput pointer catchall"
+[   120.296] (II) Using input driver 'libinput' for 'Kensington Kensington Slimblade Trackball'
+[   120.351] (II) systemd-logind: got fd for /dev/input/event15 13:79 fd 32 paused 0
+[   120.351] (**) Kensington Kensington Slimblade Trackball: always reports core events
+[   120.351] (**) Option "Device" "/dev/input/event15"
+[   120.354] (II) event15 - Kensington Kensington Slimblade Trackball: is tagged by udev as: Mouse Trackball
+[   120.355] (II) event15 - Kensington Kensington Slimblade Trackball: device is a pointer
+[   120.355] (II) event15 - Kensington Kensington Slimblade Trackball: device removed
+[   120.355] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1.4/1-1.1.4.2/1-1.1.4.2:1.0/0003:047D:2041.0007/input/input16/event15"
+[   120.355] (II) XINPUT: Adding extended input device "Kensington Kensington Slimblade Trackball" (type: MOUSE, id 13)
+[   120.355] (**) Option "AccelerationScheme" "none"
+[   120.355] (**) Kensington Kensington Slimblade Trackball: (accel) selected scheme none/0
+[   120.355] (**) Kensington Kensington Slimblade Trackball: (accel) acceleration factor: 2.000
+[   120.355] (**) Kensington Kensington Slimblade Trackball: (accel) acceleration threshold: 4
+[   120.357] (II) event15 - Kensington Kensington Slimblade Trackball: is tagged by udev as: Mouse Trackball
+[   120.357] (II) event15 - Kensington Kensington Slimblade Trackball: device is a pointer
+[   120.359] (II) config/udev: Adding input device Kensington Kensington Slimblade Trackball (/dev/input/mouse7)
+[   120.359] (II) No input driver specified, ignoring this device.
+[   120.359] (II) This device may have been added with another device file.
+[   120.360] (II) config/udev: Adding input device Lenovo ThinkPad Compact USB Keyboard with TrackPoint (/dev/input/event9)
+[   120.360] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: Applying InputClass "libinput keyboard catchall"
+[   120.360] (II) Using input driver 'libinput' for 'Lenovo ThinkPad Compact USB Keyboard with TrackPoint'
+[   120.362] (II) systemd-logind: got fd for /dev/input/event9 13:73 fd 33 paused 0
+[   120.362] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: always reports core events
+[   120.362] (**) Option "Device" "/dev/input/event9"
+[   120.365] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is tagged by udev as: Keyboard Pointingstick
+[   120.365] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is an external pointing stick
+[   120.365] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a pointer
+[   120.365] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a keyboard
+[   120.366] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device removed
+[   120.366] (II) libinput: Lenovo ThinkPad Compact USB Keyboard with TrackPoint: needs a virtual subdevice
+[   120.366] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/0003:17EF:6047.0003/input/input10/event9"
+[   120.366] (II) XINPUT: Adding extended input device "Lenovo ThinkPad Compact USB Keyboard with TrackPoint" (type: MOUSE, id 14)
+[   120.366] (**) Option "AccelerationScheme" "none"
+[   120.366] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: (accel) selected scheme none/0
+[   120.366] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: (accel) acceleration factor: 2.000
+[   120.366] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: (accel) acceleration threshold: 4
+[   120.368] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is tagged by udev as: Keyboard Pointingstick
+[   120.368] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is an external pointing stick
+[   120.368] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a pointer
+[   120.368] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a keyboard
+[   120.370] (II) config/udev: Adding input device Lenovo ThinkPad Compact USB Keyboard with TrackPoint (/dev/input/event10)
+[   120.370] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: Applying InputClass "libinput pointer catchall"
+[   120.370] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: Applying InputClass "libinput keyboard catchall"
+[   120.370] (II) Using input driver 'libinput' for 'Lenovo ThinkPad Compact USB Keyboard with TrackPoint'
+[   120.371] (II) systemd-logind: got fd for /dev/input/event10 13:74 fd 34 paused 0
+[   120.371] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: always reports core events
+[   120.371] (**) Option "Device" "/dev/input/event10"
+[   120.373] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is tagged by udev as: Keyboard Mouse Pointingstick
+[   120.374] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is an external pointing stick
+[   120.374] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a pointer
+[   120.374] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a keyboard
+[   120.374] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device removed
+[   120.374] (II) libinput: Lenovo ThinkPad Compact USB Keyboard with TrackPoint: needs a virtual subdevice
+[   120.374] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.1/0003:17EF:6047.0004/input/input11/event10"
+[   120.374] (II) XINPUT: Adding extended input device "Lenovo ThinkPad Compact USB Keyboard with TrackPoint" (type: MOUSE, id 15)
+[   120.374] (**) Option "AccelerationScheme" "none"
+[   120.374] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: (accel) selected scheme none/0
+[   120.374] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: (accel) acceleration factor: 2.000
+[   120.374] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: (accel) acceleration threshold: 4
+[   120.376] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is tagged by udev as: Keyboard Mouse Pointingstick
+[   120.377] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is an external pointing stick
+[   120.377] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a pointer
+[   120.377] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device is a keyboard
+[   120.378] (II) config/udev: Adding input device Lenovo ThinkPad Compact USB Keyboard with TrackPoint (/dev/input/mouse5)
+[   120.378] (II) No input driver specified, ignoring this device.
+[   120.378] (II) This device may have been added with another device file.
+[   120.379] (II) config/udev: Adding input device Integrated Camera: Integrated C (/dev/input/event6)
+[   120.379] (**) Integrated Camera: Integrated C: Applying InputClass "libinput keyboard catchall"
+[   120.379] (II) Using input driver 'libinput' for 'Integrated Camera: Integrated C'
+[   120.380] (II) systemd-logind: got fd for /dev/input/event6 13:70 fd 35 paused 0
+[   120.380] (**) Integrated Camera: Integrated C: always reports core events
+[   120.380] (**) Option "Device" "/dev/input/event6"
+[   120.382] (II) event6  - Integrated Camera: Integrated C: is tagged by udev as: Keyboard
+[   120.382] (II) event6  - Integrated Camera: Integrated C: device is a keyboard
+[   120.382] (II) event6  - Integrated Camera: Integrated C: device removed
+[   120.382] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.6/1-1.6:1.0/input/input26/event6"
+[   120.382] (II) XINPUT: Adding extended input device "Integrated Camera: Integrated C" (type: KEYBOARD, id 16)
+[   120.384] (II) event6  - Integrated Camera: Integrated C: is tagged by udev as: Keyboard
+[   120.384] (II) event6  - Integrated Camera: Integrated C: device is a keyboard
+[   120.385] (II) config/udev: Adding input device HDA Intel PCH Mic (/dev/input/event18)
+[   120.385] (II) No input driver specified, ignoring this device.
+[   120.385] (II) This device may have been added with another device file.
+[   120.386] (II) config/udev: Adding input device HDA Intel PCH Dock Mic (/dev/input/event19)
+[   120.386] (II) No input driver specified, ignoring this device.
+[   120.386] (II) This device may have been added with another device file.
+[   120.386] (II) config/udev: Adding input device HDA Intel PCH Dock Headphone (/dev/input/event20)
+[   120.386] (II) No input driver specified, ignoring this device.
+[   120.386] (II) This device may have been added with another device file.
+[   120.387] (II) config/udev: Adding input device HDA Intel PCH Headphone (/dev/input/event21)
+[   120.387] (II) No input driver specified, ignoring this device.
+[   120.387] (II) This device may have been added with another device file.
+[   120.388] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=3 (/dev/input/event22)
+[   120.388] (II) No input driver specified, ignoring this device.
+[   120.388] (II) This device may have been added with another device file.
+[   120.388] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=7 (/dev/input/event23)
+[   120.388] (II) No input driver specified, ignoring this device.
+[   120.388] (II) This device may have been added with another device file.
+[   120.389] (II) config/udev: Adding input device HDA Intel PCH HDMI/DP,pcm=8 (/dev/input/event24)
+[   120.389] (II) No input driver specified, ignoring this device.
+[   120.389] (II) This device may have been added with another device file.
+[   120.390] (II) config/udev: Adding input device Wacom ISDv4 E6 Pen (/dev/input/event3)
+[   120.390] (**) Wacom ISDv4 E6 Pen: Applying InputClass "libinput tablet catchall"
+[   120.390] (II) Using input driver 'libinput' for 'Wacom ISDv4 E6 Pen'
+[   120.448] (II) systemd-logind: got fd for /dev/input/event3 13:67 fd 36 paused 0
+[   120.448] (**) Wacom ISDv4 E6 Pen: always reports core events
+[   120.448] (**) Option "Device" "/dev/input/event3"
+[   120.452] (II) event3  - Wacom ISDv4 E6 Pen: is tagged by udev as: Tablet
+[   120.523] (II) event3  - Wacom ISDv4 E6 Pen: device is a tablet
+[   120.523] (II) event3  - Wacom ISDv4 E6 Pen: device removed
+[   120.523] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.5/2-1.5:1.0/0003:056A:00E6.0001/input/input19/event3"
+[   120.523] (II) XINPUT: Adding extended input device "Wacom ISDv4 E6 Pen" (type: TABLET, id 17)
+[   120.525] (II) event3  - Wacom ISDv4 E6 Pen: is tagged by udev as: Tablet
+[   120.558] (II) event3  - Wacom ISDv4 E6 Pen: device is a tablet
+[   120.559] (II) config/udev: Adding input device Wacom ISDv4 E6 Pen (/dev/input/mouse0)
+[   120.559] (II) No input driver specified, ignoring this device.
+[   120.559] (II) This device may have been added with another device file.
+[   120.560] (II) config/udev: Adding input device Wacom ISDv4 E6 Finger (/dev/input/event4)
+[   120.560] (**) Wacom ISDv4 E6 Finger: Applying InputClass "libinput touchscreen catchall"
+[   120.560] (**) Wacom ISDv4 E6 Finger: Applying InputClass "libinput tablet catchall"
+[   120.560] (II) Using input driver 'libinput' for 'Wacom ISDv4 E6 Finger'
+[   120.618] (II) systemd-logind: got fd for /dev/input/event4 13:68 fd 38 paused 0
+[   120.618] (**) Wacom ISDv4 E6 Finger: always reports core events
+[   120.618] (**) Option "Device" "/dev/input/event4"
+[   120.619] (II) event4  - Wacom ISDv4 E6 Finger: is tagged by udev as: Touchscreen Tablet
+[   120.619] (II) event4  - Wacom ISDv4 E6 Finger: device is a touch device
+[   120.619] (II) event4  - Wacom ISDv4 E6 Finger: device removed
+[   120.619] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.5/2-1.5:1.1/0003:056A:00E6.0002/input/input23/event4"
+[   120.619] (II) XINPUT: Adding extended input device "Wacom ISDv4 E6 Finger" (type: TOUCHSCREEN, id 18)
+[   120.619] (**) Option "AccelerationScheme" "none"
+[   120.619] (**) Wacom ISDv4 E6 Finger: (accel) selected scheme none/0
+[   120.619] (**) Wacom ISDv4 E6 Finger: (accel) acceleration factor: 2.000
+[   120.619] (**) Wacom ISDv4 E6 Finger: (accel) acceleration threshold: 4
+[   120.621] (II) event4  - Wacom ISDv4 E6 Finger: is tagged by udev as: Touchscreen Tablet
+[   120.621] (II) event4  - Wacom ISDv4 E6 Finger: device is a touch device
+[   120.621] (II) config/udev: Adding input device Wacom ISDv4 E6 Finger (/dev/input/mouse1)
+[   120.621] (II) No input driver specified, ignoring this device.
+[   120.621] (II) This device may have been added with another device file.
+[   120.622] (II) config/udev: Adding input device AT Translated Set 2 keyboard (/dev/input/event8)
+[   120.622] (**) AT Translated Set 2 keyboard: Applying InputClass "libinput keyboard catchall"
+[   120.622] (II) Using input driver 'libinput' for 'AT Translated Set 2 keyboard'
+[   120.624] (II) systemd-logind: got fd for /dev/input/event8 13:72 fd 39 paused 0
+[   120.624] (**) AT Translated Set 2 keyboard: always reports core events
+[   120.624] (**) Option "Device" "/dev/input/event8"
+[   120.625] (II) event8  - AT Translated Set 2 keyboard: is tagged by udev as: Keyboard
+[   120.625] (II) event8  - AT Translated Set 2 keyboard: device is a keyboard
+[   120.626] (II) event8  - AT Translated Set 2 keyboard: device removed
+[   120.626] (**) Option "config_info" "udev:/sys/devices/platform/i8042/serio0/input/input8/event8"
+[   120.626] (II) XINPUT: Adding extended input device "AT Translated Set 2 keyboard" (type: KEYBOARD, id 19)
+[   120.626] (II) event8  - AT Translated Set 2 keyboard: is tagged by udev as: Keyboard
+[   120.626] (II) event8  - AT Translated Set 2 keyboard: device is a keyboard
+[   120.628] (II) config/udev: Adding input device SynPS/2 Synaptics TouchPad (/dev/input/event16)
+[   120.628] (**) SynPS/2 Synaptics TouchPad: Applying InputClass "libinput touchpad catchall"
+[   120.628] (II) Using input driver 'libinput' for 'SynPS/2 Synaptics TouchPad'
+[   120.630] (II) systemd-logind: got fd for /dev/input/event16 13:80 fd 40 paused 0
+[   120.630] (**) SynPS/2 Synaptics TouchPad: always reports core events
+[   120.630] (**) Option "Device" "/dev/input/event16"
+[   120.631] (II) event16 - SynPS/2 Synaptics TouchPad: is tagged by udev as: Touchpad
+[   120.632] (II) event16 - SynPS/2 Synaptics TouchPad: device is a touchpad
+[   120.632] (II) event16 - SynPS/2 Synaptics TouchPad: device removed
+[   120.632] (**) Option "config_info" "udev:/sys/devices/platform/i8042/serio1/input/input17/event16"
+[   120.632] (II) XINPUT: Adding extended input device "SynPS/2 Synaptics TouchPad" (type: TOUCHPAD, id 20)
+[   120.633] (**) Option "AccelerationScheme" "none"
+[   120.633] (**) SynPS/2 Synaptics TouchPad: (accel) selected scheme none/0
+[   120.633] (**) SynPS/2 Synaptics TouchPad: (accel) acceleration factor: 2.000
+[   120.633] (**) SynPS/2 Synaptics TouchPad: (accel) acceleration threshold: 4
+[   120.634] (II) event16 - SynPS/2 Synaptics TouchPad: is tagged by udev as: Touchpad
+[   120.635] (II) event16 - SynPS/2 Synaptics TouchPad: device is a touchpad
+[   120.636] (II) config/udev: Adding input device SynPS/2 Synaptics TouchPad (/dev/input/mouse8)
+[   120.636] (II) No input driver specified, ignoring this device.
+[   120.636] (II) This device may have been added with another device file.
+[   120.636] (II) config/udev: Adding input device TPPS/2 IBM TrackPoint (/dev/input/event17)
+[   120.636] (**) TPPS/2 IBM TrackPoint: Applying InputClass "libinput pointer catchall"
+[   120.636] (II) Using input driver 'libinput' for 'TPPS/2 IBM TrackPoint'
+[   120.637] (II) systemd-logind: got fd for /dev/input/event17 13:81 fd 41 paused 0
+[   120.637] (**) TPPS/2 IBM TrackPoint: always reports core events
+[   120.637] (**) Option "Device" "/dev/input/event17"
+[   120.638] (II) event17 - TPPS/2 IBM TrackPoint: is tagged by udev as: Mouse Pointingstick
+[   120.638] (II) event17 - TPPS/2 IBM TrackPoint: device is a pointer
+[   120.640] (II) event17 - TPPS/2 IBM TrackPoint: device removed
+[   120.640] (**) Option "config_info" "udev:/sys/devices/platform/i8042/serio1/serio2/input/input18/event17"
+[   120.640] (II) XINPUT: Adding extended input device "TPPS/2 IBM TrackPoint" (type: MOUSE, id 21)
+[   120.640] (**) Option "AccelerationScheme" "none"
+[   120.640] (**) TPPS/2 IBM TrackPoint: (accel) selected scheme none/0
+[   120.640] (**) TPPS/2 IBM TrackPoint: (accel) acceleration factor: 2.000
+[   120.640] (**) TPPS/2 IBM TrackPoint: (accel) acceleration threshold: 4
+[   120.640] (II) event17 - TPPS/2 IBM TrackPoint: is tagged by udev as: Mouse Pointingstick
+[   120.641] (II) event17 - TPPS/2 IBM TrackPoint: device is a pointer
+[   120.643] (II) config/udev: Adding input device TPPS/2 IBM TrackPoint (/dev/input/mouse9)
+[   120.643] (II) No input driver specified, ignoring this device.
+[   120.643] (II) This device may have been added with another device file.
+[   120.645] (II) config/udev: Adding input device ThinkPad Extra Buttons (/dev/input/event5)
+[   120.645] (**) ThinkPad Extra Buttons: Applying InputClass "libinput keyboard catchall"
+[   120.645] (II) Using input driver 'libinput' for 'ThinkPad Extra Buttons'
+[   120.646] (II) systemd-logind: got fd for /dev/input/event5 13:69 fd 42 paused 0
+[   120.646] (**) ThinkPad Extra Buttons: always reports core events
+[   120.646] (**) Option "Device" "/dev/input/event5"
+[   120.647] (II) event5  - ThinkPad Extra Buttons: is tagged by udev as: Keyboard Switch
+[   120.647] (II) event5  - ThinkPad Extra Buttons: device is a keyboard
+[   120.647] (II) event5  - ThinkPad Extra Buttons: device is a switch device
+[   120.647] (II) event5  - ThinkPad Extra Buttons: device removed
+[   120.647] (**) Option "config_info" "udev:/sys/devices/platform/thinkpad_acpi/input/input25/event5"
+[   120.647] (II) XINPUT: Adding extended input device "ThinkPad Extra Buttons" (type: KEYBOARD, id 22)
+[   120.648] (II) event5  - ThinkPad Extra Buttons: is tagged by udev as: Keyboard Switch
+[   120.648] (II) event5  - ThinkPad Extra Buttons: device is a keyboard
+[   120.648] (II) event5  - ThinkPad Extra Buttons: device is a switch device
+[   120.668] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: Applying InputClass "libinput keyboard catchall"
+[   120.668] (II) Using input driver 'libinput' for 'Lenovo ThinkPad Compact USB Keyboard with TrackPoint'
+[   120.668] (II) systemd-logind: returning pre-existing fd for /dev/input/event9 13:73
+[   120.668] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: always reports core events
+[   120.668] (**) Option "Device" "/dev/input/event9"
+[   120.668] (II) libinput: Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is a virtual subdevice
+[   120.668] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.0/0003:17EF:6047.0003/input/input10/event9"
+[   120.668] (II) XINPUT: Adding extended input device "Lenovo ThinkPad Compact USB Keyboard with TrackPoint" (type: KEYBOARD, id 23)
+[   120.669] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: Applying InputClass "libinput pointer catchall"
+[   120.669] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: Applying InputClass "libinput keyboard catchall"
+[   120.669] (II) Using input driver 'libinput' for 'Lenovo ThinkPad Compact USB Keyboard with TrackPoint'
+[   120.669] (II) systemd-logind: returning pre-existing fd for /dev/input/event10 13:74
+[   120.669] (**) Lenovo ThinkPad Compact USB Keyboard with TrackPoint: always reports core events
+[   120.669] (**) Option "Device" "/dev/input/event10"
+[   120.669] (II) libinput: Lenovo ThinkPad Compact USB Keyboard with TrackPoint: is a virtual subdevice
+[   120.669] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.2/1-1.2:1.1/0003:17EF:6047.0004/input/input11/event10"
+[   120.669] (II) XINPUT: Adding extended input device "Lenovo ThinkPad Compact USB Keyboard with TrackPoint" (type: KEYBOARD, id 24)
+[   120.786] (II) intel(0): EDID vendor "LGD", prod id 728
+[   120.786] (II) intel(0): Printing DDC gathered Modelines:
+[   120.786] (II) intel(0): Modeline "1366x768"x0.0   75.20  1366 1414 1478 1582  768 772 779 792 +hsync -vsync (47.5 kHz eP)
+[   128.137] (II) intel(0): resizing framebuffer to 1920x1200
+[   128.153] (II) intel(0): switch to mode 1920x1200@59.9 on DP2 using pipe 0, position (0, 0), rotation normal, reflection none
+[   131.997] (II) intel(0): resizing framebuffer to 2560x1440
+[   132.036] (II) intel(0): switch to mode 2560x1440@60.0 on DP2 using pipe 0, position (0, 0), rotation normal, reflection none
+[   487.558] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 31ms, your system is too slow
+[   508.357] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 33ms, your system is too slow
+[   511.245] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 35ms, your system is too slow
+[   551.077] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 26ms, your system is too slow
+[   611.300] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 26ms, your system is too slow
+[   611.301] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[  5099.103] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 22ms, your system is too slow
+[  6078.593] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 36ms, your system is too slow
+[  6452.750] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 34ms, your system is too slow
+[  6454.591] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[  6680.205] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 35ms, your system is too slow
+[  6680.205] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[  8758.604] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 24ms, your system is too slow
+[  8788.691] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 25ms, your system is too slow
+[ 10073.187] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 24ms, your system is too slow
+[ 10368.585] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 21ms, your system is too slow
+[ 10409.856] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 30ms, your system is too slow
+[ 10409.856] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[ 12577.231] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 25ms, your system is too slow
+[ 12997.373] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 23ms, your system is too slow
+[ 13205.211] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 29ms, your system is too slow
+[ 13209.379] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 30ms, your system is too slow
+[ 14198.541] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 35ms, your system is too slow
+[ 14198.541] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[ 16540.478] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 25ms, your system is too slow
+[ 18151.252] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 26ms, your system is too slow
+[ 18448.242] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 26ms, your system is too slow
+[ 18563.129] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 24ms, your system is too slow
+[ 18589.841] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 32ms, your system is too slow
+[ 18589.841] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[ 20335.742] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 34ms, your system is too slow
+[ 20445.573] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 28ms, your system is too slow
+[ 20787.099] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 31ms, your system is too slow
+[ 20814.619] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[ 20883.267] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 21ms, your system is too slow
+[ 20883.267] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[ 21208.304] (II) event15 - Kensington Kensington Slimblade Trackball: device removed
+[ 21208.375] (II) config/udev: removing device Kensington Kensington Slimblade Trackball
+[ 21208.376] (**) Option "fd" "32"
+[ 21208.376] (II) UnloadModule: "libinput"
+[ 21208.376] (II) systemd-logind: releasing fd for 13:79
+[ 21208.956] (II) intel(0): EDID vendor "DEL", prod id 16573
+[ 21208.956] (II) intel(0): Using hsync ranges from config file
+[ 21208.956] (II) intel(0): Using vrefresh ranges from config file
+[ 21208.956] (II) intel(0): Printing DDC gathered Modelines:
+[ 21208.956] (II) intel(0): Modeline "3840x2160"x0.0  533.25  3840 3888 3920 4000  2160 2163 2168 2222 +hsync -vsync (133.3 kHz eP)
+[ 21208.957] (II) intel(0): Modeline "3840x2160"x0.0  262.75  3840 3888 3920 4000  2160 2163 2168 2191 +hsync -vsync (65.7 kHz e)
+[ 21208.957] (II) intel(0): Modeline "2560x1440"x0.0  241.50  2560 2608 2640 2720  1440 1443 1448 1481 +hsync -vsync (88.8 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1920x1080"x0.0  148.50  1920 2008 2052 2200  1080 1084 1089 1125 +hsync +vsync (67.5 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1280x720"x0.0   74.25  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1920x1080"x0.0  148.50  1920 2448 2492 2640  1080 1084 1089 1125 +hsync +vsync (56.2 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1920x1080"x0.0   74.25  1920 2558 2602 2750  1080 1084 1089 1125 +hsync +vsync (27.0 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1920x1080i"x0.0   74.25  1920 2008 2052 2200  1080 1084 1094 1125 interlace +hsync +vsync (33.8 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1920x1080i"x0.0   74.25  1920 2448 2492 2640  1080 1084 1094 1125 interlace +hsync +vsync (28.1 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1280x720"x0.0   74.25  1280 1720 1760 1980  720 725 730 750 +hsync +vsync (37.5 kHz e)
+[ 21208.957] (II) intel(0): Modeline "720x576"x0.0   27.00  720 732 796 864  576 581 586 625 -hsync -vsync (31.2 kHz e)
+[ 21208.957] (II) intel(0): Modeline "720x480"x0.0   27.00  720 736 798 858  480 489 495 525 -hsync -vsync (31.5 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1440x576i"x0.0   27.00  1440 1464 1590 1728  576 580 586 625 interlace -hsync -vsync (15.6 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1440x480i"x0.0   27.00  1440 1478 1602 1716  480 488 494 525 interlace -hsync -vsync (15.7 kHz e)
+[ 21208.957] (II) intel(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[ 21208.957] (II) intel(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[ 21208.957] (II) intel(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[ 21208.957] (II) intel(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1280x1024"x0.0  135.00  1280 1296 1440 1688  1024 1025 1028 1066 +hsync +vsync (80.0 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[ 21208.957] (II) intel(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1920x1200"x0.0  193.25  1920 2056 2256 2592  1200 1203 1209 1245 -hsync +vsync (74.6 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1680x1050"x0.0  146.25  1680 1784 1960 2240  1050 1053 1059 1089 -hsync +vsync (65.3 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1600x1200"x0.0  162.00  1600 1664 1856 2160  1200 1201 1204 1250 +hsync +vsync (75.0 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1280x1024"x0.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1280x800"x0.0   83.50  1280 1352 1480 1680  800 803 809 831 -hsync +vsync (49.7 kHz e)
+[ 21208.957] (II) intel(0): Modeline "1152x864"x0.0  108.00  1152 1216 1344 1600  864 865 868 900 +hsync +vsync (67.5 kHz e)
+[ 57100.763] (II) config/udev: Adding input device Kensington Kensington Slimblade Trackball (/dev/input/mouse2)
+[ 57100.763] (II) No input driver specified, ignoring this device.
+[ 57100.763] (II) This device may have been added with another device file.
+[ 57100.862] (II) config/udev: Adding input device Kensington Kensington Slimblade Trackball (/dev/input/event15)
+[ 57100.862] (**) Kensington Kensington Slimblade Trackball: Applying InputClass "libinput pointer catchall"
+[ 57100.862] (II) Using input driver 'libinput' for 'Kensington Kensington Slimblade Trackball'
+[ 57100.918] (II) systemd-logind: got fd for /dev/input/event15 13:79 fd 65 paused 0
+[ 57100.918] (**) Kensington Kensington Slimblade Trackball: always reports core events
+[ 57100.918] (**) Option "Device" "/dev/input/event15"
+[ 57100.920] (II) event15 - Kensington Kensington Slimblade Trackball: is tagged by udev as: Mouse Trackball
+[ 57100.920] (II) event15 - Kensington Kensington Slimblade Trackball: device is a pointer
+[ 57100.921] (II) event15 - Kensington Kensington Slimblade Trackball: device removed
+[ 57100.921] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1a.0/usb1/1-1/1-1.1/1-1.1.4/1-1.1.4.2/1-1.1.4.2:1.0/0003:047D:2041.0008/input/input35/event15"
+[ 57100.921] (II) XINPUT: Adding extended input device "Kensington Kensington Slimblade Trackball" (type: MOUSE, id 13)
+[ 57100.921] (**) Option "AccelerationScheme" "none"
+[ 57100.921] (**) Kensington Kensington Slimblade Trackball: (accel) selected scheme none/0
+[ 57100.921] (**) Kensington Kensington Slimblade Trackball: (accel) acceleration factor: 2.000
+[ 57100.921] (**) Kensington Kensington Slimblade Trackball: (accel) acceleration threshold: 4
+[ 57100.928] (II) event15 - Kensington Kensington Slimblade Trackball: is tagged by udev as: Mouse Trackball
+[ 57100.928] (II) event15 - Kensington Kensington Slimblade Trackball: device is a pointer
+[ 58778.866] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 24ms, your system is too slow
+[ 87069.073] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 34ms, your system is too slow
+[ 87143.433] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 21ms, your system is too slow
+[ 87181.392] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[ 87286.832] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 36ms, your system is too slow
+[ 87324.439] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 21ms, your system is too slow
+[ 87324.439] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[ 96002.008] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 30ms, your system is too slow
+[103759.002] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 22ms, your system is too slow
+[108299.903] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 33ms, your system is too slow
+[108408.542] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 32ms, your system is too slow
+[113409.776] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 33ms, your system is too slow
+[113411.432] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 33ms, your system is too slow
+[113557.087] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 28ms, your system is too slow
+[113621.183] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[113653.950] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 24ms, your system is too slow
+[113653.955] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[134019.441] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[134021.777] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 36ms, your system is too slow
+[173559.608] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 28ms, your system is too slow
+[174154.364] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[177384.438] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 35ms, your system is too slow
+[178259.586] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 29ms, your system is too slow
+[179293.387] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 21ms, your system is too slow
+[179871.960] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 34ms, your system is too slow
+[183533.131] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 25ms, your system is too slow
+[183614.650] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 21ms, your system is too slow
+[183773.794] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 31ms, your system is too slow
+[183780.450] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[183794.754] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 28ms, your system is too slow
+[183794.754] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[190787.051] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 36ms, your system is too slow
+[190873.259] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 31ms, your system is too slow
+[190931.626] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 28ms, your system is too slow
+[191100.641] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 23ms, your system is too slow
+[192348.762] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 27ms, your system is too slow
+[192348.762] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[197384.755] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 21ms, your system is too slow
+[197450.579] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 24ms, your system is too slow
+[197607.337] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 33ms, your system is too slow
+[197758.696] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 32ms, your system is too slow
+[198092.806] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: client bug: event processing lagging behind by 35ms, your system is too slow
+[198092.806] (EE) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: WARNING: log rate limit exceeded (5 msgs per 60min). Discarding future messages.
+[235372.315] (**) Option "fd" "23"
+[235372.325] (II) event2  - Power Button: device removed
+[235372.328] (**) Option "fd" "26"
+[235372.328] (II) event7  - Video Bus: device removed
+[235372.328] (**) Option "fd" "27"
+[235372.328] (II) event1  - Sleep Button: device removed
+[235372.328] (**) Option "fd" "28"
+[235372.328] (II) event11 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav: device removed
+[235372.328] (**) Option "fd" "29"
+[235372.328] (II) event12 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Mouse: device removed
+[235372.328] (**) Option "fd" "30"
+[235372.328] (II) event13 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav System Control: device removed
+[235372.328] (**) Option "fd" "31"
+[235372.328] (II) event14 - Lite-On Tech IBM USB Travel Keyboard with Ultra Nav Consumer Control: device removed
+[235372.328] (**) Option "fd" "33"
+[235372.328] (**) Option "fd" "34"
+[235372.328] (**) Option "fd" "35"
+[235372.328] (II) event6  - Integrated Camera: Integrated C: device removed
+[235372.328] (**) Option "fd" "36"
+[235372.328] (II) event3  - Wacom ISDv4 E6 Pen: device removed
+[235372.328] (**) Option "fd" "38"
+[235372.328] (II) event4  - Wacom ISDv4 E6 Finger: device removed
+[235372.328] (**) Option "fd" "39"
+[235372.329] (II) event8  - AT Translated Set 2 keyboard: device removed
+[235372.329] (**) Option "fd" "40"
+[235372.329] (II) event16 - SynPS/2 Synaptics TouchPad: device removed
+[235372.329] (**) Option "fd" "41"
+[235372.329] (II) event17 - TPPS/2 IBM TrackPoint: device removed
+[235372.329] (**) Option "fd" "42"
+[235372.329] (II) event5  - ThinkPad Extra Buttons: device removed
+[235372.329] (**) Option "fd" "33"
+[235372.329] (II) event9  - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device removed
+[235372.329] (**) Option "fd" "34"
+[235372.329] (II) event10 - Lenovo ThinkPad Compact USB Keyboard with TrackPoint: device removed
+[235372.329] (**) Option "fd" "65"
+[235372.329] (II) event15 - Kensington Kensington Slimblade Trackball: device removed
+[235372.344] (II) UnloadModule: "libinput"
+[235372.344] (II) systemd-logind: releasing fd for 13:79
+[235372.387] (II) UnloadModule: "libinput"
+[235372.387] (II) systemd-logind: not releasing fd for 13:74, still in use
+[235372.387] (II) UnloadModule: "libinput"
+[235372.387] (II) systemd-logind: not releasing fd for 13:73, still in use
+[235372.388] (II) UnloadModule: "libinput"
+[235372.388] (II) systemd-logind: releasing fd for 13:69
+[235372.389] (II) UnloadModule: "libinput"
+[235372.389] (II) systemd-logind: releasing fd for 13:81
+[235372.389] (II) UnloadModule: "libinput"
+[235372.389] (II) systemd-logind: releasing fd for 13:80
+[235372.390] (II) UnloadModule: "libinput"
+[235372.391] (II) systemd-logind: releasing fd for 13:72
+[235372.391] (II) UnloadModule: "libinput"
+[235372.391] (II) systemd-logind: releasing fd for 13:68
+[235372.392] (II) UnloadModule: "libinput"
+[235372.392] (II) systemd-logind: releasing fd for 13:67
+[235372.392] (II) UnloadModule: "libinput"
+[235372.392] (II) systemd-logind: releasing fd for 13:70
+[235372.393] (II) UnloadModule: "libinput"
+[235372.393] (II) systemd-logind: releasing fd for 13:74
+[235372.394] (II) UnloadModule: "libinput"
+[235372.394] (II) systemd-logind: releasing fd for 13:73
+[235372.394] (II) UnloadModule: "libinput"
+[235372.394] (II) systemd-logind: releasing fd for 13:78
+[235372.395] (II) UnloadModule: "libinput"
+[235372.395] (II) systemd-logind: releasing fd for 13:77
+[235372.395] (II) UnloadModule: "libinput"
+[235372.395] (II) systemd-logind: releasing fd for 13:76
+[235372.396] (II) UnloadModule: "libinput"
+[235372.396] (II) systemd-logind: releasing fd for 13:75
+[235372.397] (II) UnloadModule: "libinput"
+[235372.397] (II) systemd-logind: releasing fd for 13:65
+[235372.398] (II) UnloadModule: "libinput"
+[235372.398] (II) systemd-logind: releasing fd for 13:71
+[235372.400] (II) UnloadModule: "libinput"
+[235372.400] (II) systemd-logind: releasing fd for 13:66
+[235372.557] (II) Server terminated successfully (0). Closing log file.

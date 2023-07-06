@@ -1,0 +1,17 @@
+#!/bin/sh
+
+## get the number part of the filename
+
+originalnum=$(expr match "$1" '[^0-9]*\([0-9]\+\).*')
+prepaddednum=$(echo "$originalnum" | sed 's/^[0]*//g')
+filetype=$(echo "$1" | awk -F '.' '{print $NF}')
+paddednum=$(printf "%03d" "$prepaddednum")
+## remove the leading zeros to avoid octal error in filename with '08' and '09'
+if [ "$originalnum" = "$paddednum" ]; then
+	echo "$1: file name do not change"
+else
+	newname="$paddednum.$filetype"
+	mv $1 $newname
+	echo "$1: file name changed to $newname"
+fi
+

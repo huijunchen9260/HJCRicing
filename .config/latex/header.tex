@@ -1,0 +1,25 @@
+%\documentclass{article} %虽然加了注释号，但请注意这一行绝对不能注释掉！因为pandoc后生成的tex文件已含有此句
+\usepackage{fontspec}  %加這個就可以設定字體
+\usepackage{xeCJK}
+\setmainfont[Scale=1.2]{TeX Gyre Termes}
+\setCJKmainfont[Scale=1.2]{WenQuanYi Zen Hei}
+\renewcommand{\baselinestretch}{1.1}
+\CJKsetecglue{} %設定中英混雜時不會讓英文後面多空一格
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt %這兩行一定要加，中文才能自動換行
+\usepackage{parskip}
+\setlength{\parindent}{0in} %讓開頭不擡頭
+\setlength{\parskip}{1em} %讓空一行就等於分段
+
+\usepackage[pagestyles]{titlesec} %讓我可以利用下方的程式碼來自訂section等等的格式
+
+%%%%%%%%下方的程式碼可以自定
+%\titleformat{\part}{\Huge\scshape\filcenter}{}{1em}{}
+\titleformat{\section}{\LARGE\bfseries\raggedright}{\thesection}{1em}{}[{\titlerule[1pt]}]
+\titlespacing{\section}{0pt}{2.5em}{1em}
+\titleformat{\subsection}{\Large\bfseries\itshape\raggedright}{\thesubsection}{1em}{\underline}%[\rule{3cm}{.2pt}]
+\titlespacing{\subsection}{0pt}{2em}{0.5em}
+\titleformat{\subsubsection}{\large\bfseries\itshape\raggedright}{\thesubsubsection}{1em}{}%[\rule{3cm}{.2pt}]
+\titlespacing{\subsubsection}{0pt}{1.5em}{0.5em}
+
+%%%%%%%%上方的程式碼可以自定

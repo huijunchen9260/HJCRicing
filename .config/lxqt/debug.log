@@ -1,0 +1,69 @@
+2020-10-20 21:56:05.184 (0x7ffff021b800) Debug: New PolkitAgentListener  0x5619d77dfc00
+2020-10-20 21:56:05.185 (0x7ffff021b800) Debug: Adding new listener  PolkitQt1::Agent::Listener(0x7ffff021b810) for  0x5619d77dfc00
+2020-10-20 21:56:05.671 (0x7ffc29011c70) Debug: ()
+2020-10-20 21:56:05.734 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 21:56:05.734 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 21:56:06.357 (0x7ffc29011c70) Debug: WinIdChange 1200008 handle QWidgetWindow(0x559553a35620, name="LXQtPanel panel1Window") QScreen(0x559552fbf6d0, name="eDP1")
+2020-10-20 21:56:06.392 (0x7ffc29011c70) Debug: Systray started
+2020-10-20 21:56:06.518 (0x7fffb11c3350) Debug: BatteryChanged discharging: false chargeLevel: 96.1988 actionTime: QTime(Invalid)
+2020-10-20 21:56:06.524 (0x7fffb11c3350) Debug: Inhibit got: 28
+2020-10-20 21:56:06.721 (0x7fffb11c3350) Debug: Starting idlenesswatcher
+2020-10-20 21:56:07.505 (0x7ffc29011c70) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 21:56:07.505 (0x7ffc29011c70) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 21:56:13.073 (0x7ffc29011c70) Warning: QXcbConnection: XCB error: 3 (BadWindow), sequence: 1714, resource id: 31457287, major code: 18 (ChangeProperty), minor code: 0
+2020-10-20 21:56:18.701 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/qterminal.desktop"
+2020-10-20 21:56:32.800 (0x7ffc51df7e60) Debug: Oooook! Expecting instance of notification, got: 0
+2020-10-20 21:57:23.924 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 21:57:23.924 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:12:53.853 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/qterminal.desktop"
+2020-10-20 22:18:45.094 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/qterminal.desktop"
+2020-10-20 22:18:53.246 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/qterminal.desktop"
+2020-10-20 22:18:56.471 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/pcmanfm-qt.desktop"
+2020-10-20 22:22:19.888 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/pcmanfm-qt.desktop"
+2020-10-20 22:22:20.999 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/pcmanfm-qt.desktop"
+2020-10-20 22:22:27.258 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/qterminal.desktop"
+2020-10-20 22:26:37.463 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/pcmanfm-qt.desktop"
+2020-10-20 22:30:24.719 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/pcmanfm-qt.desktop"
+2020-10-20 22:53:28.409 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/pcmanfm-qt.desktop"
+2020-10-20 22:53:53.821 (0x7ffc29011c70) Warning: QXcbConnection: XCB error: 3 (BadWindow), sequence: 46981, resource id: 16777582, major code: 18 (ChangeProperty), minor code: 0
+2020-10-20 22:53:53.821 (0x7ffc29011c70) Warning: QXcbConnection: XCB error: 3 (BadWindow), sequence: 46983, resource id: 16777554, major code: 18 (ChangeProperty), minor code: 0
+2020-10-20 22:53:54.806 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/pcmanfm-qt.desktop"
+2020-10-20 22:55:51.594 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:55:51.595 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:56:06.540 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:56:06.540 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:56:53.025 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:56:53.025 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:57:15.116 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:57:15.117 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:58:02.531 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 22:58:02.531 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:06:22.693 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:06:22.695 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:15:13.264 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/qterminal.desktop"
+2020-10-20 23:25:01.480 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:25:01.483 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:30:47.822 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:30:47.823 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:30:53.481 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:30:53.481 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:31:04.050 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:31:04.050 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:31:48.083 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:31:48.114 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:32:32.561 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:32:32.562 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:32:41.561 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:32:41.561 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:32:56.145 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:32:56.146 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:40:01.479 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:40:01.479 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:45:37.507 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:45:37.566 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:48:05.548 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:48:05.548 (0x7fffdc688220) Warning: Cannot open file '/usr/share/icons/Humanity/devices/48/printer.svg', because: No such file or directory
+2020-10-20 23:50:21.246 (0x7ffc29011c70) Warning: QXcbConnection: XCB error: 3 (BadWindow), sequence: 22135, resource id: 62914566, major code: 3 (GetWindowAttributes), minor code: 0
+2020-10-20 23:50:21.375 (0x7ffc29011c70) Warning: QXcbConnection: XCB error: 3 (BadWindow), sequence: 22136, resource id: 62914566, major code: 2 (ChangeWindowAttributes), minor code: 0
+2020-10-21 00:10:35.695 (0x7ffc29011c70) Debug: execAction "/usr/share/applications/qterminal.desktop"
+2020-10-21 00:27:33.032 (0x7ffc29011c70) Warning: QXcbConnection: XCB error: 3 (BadWindow), sequence: 45584, resource id: 16778281, major code: 18 (ChangeProperty), minor code: 0

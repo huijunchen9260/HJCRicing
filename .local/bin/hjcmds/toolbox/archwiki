@@ -1,0 +1,3 @@
+#!/bin/sh
+
+find /usr/share/doc/arch-wiki/html/en -type f | awk -F '/' '{print $NF}' | dmenu -i -l 10 -p "Choose Arch Wiki:" | xargs -I {} find /usr/share/doc/arch-wiki/html/en -name "{}" | xargs -I {} xdg-open "{}"

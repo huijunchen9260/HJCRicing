@@ -1,0 +1,11 @@
+#!/bin/sh
+
+bar_fifo=/tmp/bar_fifo
+
+delim=' | '
+
+
+[ -e "$bar_fifo" ] && rm "$bar_fifo"
+mkfifo "$bar_fifo"
+
+

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# nl='
+# '
+# IFS="$nl"
+# CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/tablet-rotate.cache"
+# data=$(cat "$CACHE" 2>/dev/null)
+# for line in $data; do
+#     eval "$line";
+# done
+
+xinput map-to-output "$touch_input" "$display"
+xinput map-to-output "$stylus_input_tip" "$display"
+xinput map-to-output "$stylus_input_eraser" "$display"

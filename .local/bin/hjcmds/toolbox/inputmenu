@@ -1,0 +1,16 @@
+#!/bin/sh
+
+list="$(xinput --list | sed "s/^[^a-zA-Z]*//g; s/\t/  /g" | dmenu -i -l 10 -p "Choose device:")"
+IFS='
+'
+[ -z $list ] && exit
+id=$(printf '%s' "$list" | cut -d '=' -f 2 | cut -d ' ' -f 1)
+props=$(xinput list-props "$id" | sed "1 d; s/\t//g; s/ (/ - /g; s/):.*//g" | dmenu -i -l 10 -p "Choose properties ")
+[ -z $props ] && exit
+propID=${props##* - }
+propName=${props%% - *}
+propValue=$(dmenu -i -p "Choose value: $propName" <&-)
+[ -z $propValue ] && exit
+unset IFS
+xinput set-prop $id $propID $propValue || exit
+

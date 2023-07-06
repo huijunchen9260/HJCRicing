@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rsync -urvP /run/media/huijunchen/HJC/HJCRicing/* ~/HJCRicing
+rsync -urvP /run/media/huijunchen/HJC/Documents/* ~/Documents

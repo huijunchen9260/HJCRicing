@@ -1,0 +1,2 @@
+#!/bin/sh
+man -k . | dmenu -i -l 10 | awk '{print $1}' | xargs -r man -Tpdf | zathura -

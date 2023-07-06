@@ -1,0 +1,99 @@
+\documentclass[12pt]{article}
+\usepackage{fontspec}  %加這個就可以設定字體
+\usepackage{xeCJK}  %讓中英文字體分開設置
+\setmainfont[Scale=1.2]{TeX Gyre Termes}
+% \setCJKmainfont[Scale=1.2]{Kaiti TC}    %設定中文為系統上的字型，而英文不去更動，使用原TeX字型
+\renewcommand{\baselinestretch}{1.1}
+\usepackage{ruby}
+\CJKsetecglue{} %設定中英混雜時不會讓英文後面多空一格
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt %這兩行一定要加，中文才能自動換行
+\usepackage{hyperref} %讓latex可以超連結
+\usepackage[a4paper, margin=.8in]{geometry} %設定紙張大小與邊界
+\usepackage{enumitem}
+%讓列舉可以使用英文字列舉，在\begin{enumerate}後面加上[label = (\Alph*)]
+\usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false, backend=biber]{biblatex}
+
+ %讓latex可以使用bibtex
+\addbibresource{/home/shelby/Documents/LaTeX/uni.bib}
+
+\usepackage{parskip}
+\setlength{\parindent}{0in} %讓開頭不擡頭
+\setlength{\parskip}{1em} %讓空一行就等於分段
+
+\usepackage{color, soul} %可使用highlight指令：\hl
+\sethlcolor{yellow} %讓中文可以highlight的方法：\hl{\mbox{你想要highlight的部分}}
+
+\usepackage[pagestyles]{titlesec} %讓我可以利用下方的程式碼來自訂section等等的格式
+
+%%%%%%%%下方的程式碼可以自定
+\titleformat{\part}{\Huge\scshape\filcenter}{}{1em}{}
+\titleformat{\section}{\large\bfseries\raggedright}{}{0em}{}[{\titlerule[1pt]}]
+\titlespacing{\section}{0pt}{1pt}{0pt}
+\titleformat{\subsection}{\large\bfseries\raggedright}{}{0em}{\underline}%[\rule{3cm}{.2pt}]
+%\titlespacing{\subsection}{0pt}{7pt}{7pt}
+%%%%%%%%上方的程式碼可以自定
+
+\renewcommand{\rubysep}{0.1ex}
+\title{\vspace{-3ex}\textbf{Statement of Purpose}\vspace{-3ex}} % Title
+\author{\textit{Shelby Hui-Jun Chen} | \textit{Applying for Economics Ph.D}}
+\date{\vspace{-6ex}}
+
+\newcommand{\school}{<++>}
+\newcommand{\profA}{\textbf{Professor \href{<++>}{<++>}<++>}}
+\newcommand{\profB}{\textbf{Professor \href{<++>}{<++>}<++>}}
+\newcommand{\profC}{\textbf{Professor \href{<++>}{<++>}<++>}}
+
+
+
+
+
+%\usepackage[none]{hyphenat}
+
+\begin{document}
+\maketitle % Print the title section
+% 用\section*來得到沒有編號的section
+\hrulefill\\
+\textbf{I am applying to the Economics PhD program at \school{} to broaden and deepen my understanding on Industrial Organization and International Economics. I am especially interested in utilizing both theoretical and empirical approach to investigate topic related to multi-product firms as well as R\&D portfolio}
+
+My interests in applied microeconomic start from the time when I majored in Economics at National Tsing Hua University (NTHU).
+With my passion and dedicated work, I had got A or A+ in over 20 courses offered by Department of Economics during my bachelor, and eventually granted Phi Tau Phi Honorary Membership for maintaining one percent GPA.
+Both the courses and rewards strengthen my determination to Economics research.
+Moreover, I was inspired by professor Stephen Jui-Hsien Chou, and realized that building an economic model and clarifying the relationship between economics components have become my ideal career.
+Therefore, I had joined Prof. Chou's project for developing economics models.
+The research experience and theoretical knowledge encouraged me to pursue a Ph.D degree to explore more.
+
+In my thesis, I investigated the R\&D portfolio choices of multi-product firms, and its effect toward the society.
+My model presents a multi-product duopoly which both firms produce two products with both horizontal and vertical product differentiation, and each product has inter-firm R\&D spillover effects as well as different levels of initial quality.
+The products with higher initial quality are called core product, while that with lower initial quality are non-core product.
+Whether firm will hone its core product or mend non-core product, and the consequence of this decision toward society are the major concern of this thesis.
+\textcite{lin_effects_2013}, one of the traditional multi-product literature under process R\&D, concludes that firm will always specialize in its core product.
+However, our model predicts that firms under product R\&D tend to invent more on non-core product if marginal cost is small enough and the degree of horizontal product differentiation is high enough.
+Also, \textcite{lin_effects_2013} suggests that firms will always specialize on core product, while my thesis indicates the possibility for firm to specialize on non-core product.
+Beyond the literature, I figure out the spillover effects determine whether R\&D investments are substitute or complement.
+Without R\&D spillover, R\&D in the same market are substitute, while that in different market are complement.
+That is to say, when one firm increases its R\&D investment in one market, the rival will decrease the R\&D in this market, and fight back in the other market by increasing its R\&D investment.
+On the other hand, with high R\&D spillover, R\&D investment works to the exact opposite.
+In the same market, products become similar substitute, while in the other market they become complement.
+
+My efforts on Economics do not limit to my theoretical thesis, but also on one government project and empirical studies, which further intensify my urgent needs for Ph.D training.
+During my junior in NTHU as an undergraduate, I applied and eventually won the chance to complete the project offered by Ministry of Science and Technology (MOST), the governing agency for academy in Taiwan.
+My MOST project mainly discusses merger under Stackelberg competition.
+I assume that leaders own first-mover advantage, while followers gain low-cost advantage.
+In other words, merger between leader and follower is the trade-off between two advantages.
+I conclude that such merger may eventually prefers low-cost advantage and becomes a follower.
+This interesting and counterintuitive result inspires me to understand how fascinating Economics is, and further strengthens my pursue toward Ph.D degree.
+With this passion in mind, I became the intern in Industrial Economics and Knowledge Center to identify the key factors contributing to the electricity usage of impoverished family, and eventually assisted them to cut the electricity fee.
+This internship gave me a quick glance to the empirical research, and taught me the importance of empirical and econometric training through awkward and inexplicable correlation in the regression.
+Therefore, after entering the graduate school, I started my exploration of econometric studies.
+I became enthusiastic in econometric courses, which led me to attend the summer school held by Shanghai Academy of Social Sciences.
+The summer school invited many world-renowned scholars to teach advanced theory and application of econometric and statistics, enabling me to view econometrics in scholars' point of view.
+Based on the experience above, I was able to present at the econometric section in Taiwan Economics Research, one of the largest conference in Taiwan.
+
+I anticipate to join the Department of Economics at \school{}, and I believe that the Economics PhD program at \school{} could provide me with best theoretical and empirical training that I need to become an academically prepared Economist.
+In the future, I envisage my research going beyond the scope of the oligopoly and theoretical setting by adding two main areas of current literature: (1) the monopolistic competition studies of R\&D portfolio and spillover effect from multi-product firm (for the existing theoretical literature, see \textcite{feenstra_optimal_2007} and \textcite{ushchev_multi-product_2017}), and (2) empirical research for investigating the R\&D portfolio and spillover effect for multi-product (for empirical literature about R\&D spillover, see \textcite{bloom_identifying_2013}, \textcite{chin_patent_2006-1}; for that about multi-product firm, see \textcite{bernard_multiple-product_2010}).
+If I admitted, I would love to work with \profA{}.
+<++>
+Also, \profB{}'s work on <++> and \profC{}'s work on <++> .I would be honored to have them as my mentors.
+
+\end{document}

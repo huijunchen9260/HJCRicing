@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# show ⌨️  if internal keyboard is enabled.
+# show ⚔️  if internal keyboard is disabled.
+
+case $BLOCK_BUTTON in
+    1) internalkeytoggle; pkill -RTMIN+15 dwmblocks ;;
+    3) notify-send "💻 enable internal keyboard
+❌ disable internal keyboard"
+    ;;
+esac
+
+nl='
+'
+name=$(xinput list --name-only | grep 'AT')
+stat=$(xinput --list-props "$name")
+
+stat=${stat#*$nl} # "Device Enabled" in the second line
+stat=${stat%%$nl*}
+stat=${stat##"${stat%%?}"} # get the last char: 0 or 1
+
+case "$stat" in
+    0) printf "%s" '❌'  ;;
+    1) printf "%s" '💻' ;;
+esac

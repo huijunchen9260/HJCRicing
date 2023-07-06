@@ -1,0 +1,17 @@
+#!/bin/sh
+
+read -p "Total printing page: " max
+read -p "Page per side: " mod
+
+list=$(
+    for i in $(seq $max); do
+	[ $((i%$mod)) -eq 0 ] && printf '%s\n ' "$i" || printf '%s, ' "$i"
+    done
+)
+
+evenpage=$(printf '%s' "$list" | sed -n 'n;p' | tr '\n' ',' | sed "s/^ //")
+oddpage=$(printf '%s' "$list" | sed -n 'p;n' | tr '\n' ',')
+
+printf '%s\n' "print EVEN pages in REVERSE order first: " "${evenpage%,*}" "print ODD pages in NORMAL order later:" "${oddpage%,*}"
+
+

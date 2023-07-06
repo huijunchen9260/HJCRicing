@@ -1,0 +1,13 @@
+# Uniblocks configuration
+
+# Tag,Script,Interval (0 for manually updated modules)
+
+time, modules time, 1m
+volume, modules volume, 0
+system, modules system, 1
+weather, modules weather, 0
+battery, modules battery, 5s
+network, modules network, 5s
+groups, modules groups, 0
+music, modules music, 0
+musictime, modules musictime, 1

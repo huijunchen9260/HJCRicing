@@ -1,0 +1,90 @@
+#!/usr/bin/sh
+
+## Source: https://wiki.ubuntu.com/X/InputCoordinateTransformation
+## Math source: https://en.wikipedia.org/wiki/Transformation_matrix#Affine_transformations
+
+switch() {
+    notify-send "$1"
+    echo "$1"
+    xinput set-prop --type=float "$stylus_input_tip" "$ctm" $2
+    xinput set-prop --type=float "$stylus_input_eraser" "$ctm" $2
+    xinput set-prop --type=float "$touch_input" "$ctm" $2
+
+    xrandr --output "$display" --rotate $3
+}
+
+nl='
+'
+IFS="$nl"
+
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/tablet-rotate.cache"
+data=$(cat "$CACHE" 2>/dev/null)
+
+case "$data" in
+    "")
+        xrandr -q | grep " connected" | awk '{printf "[%d] %s\n", ++i, $1}'
+        read -p "Set up display, enter number: " chosen || exit 1
+        display=$(xrandr -q | grep " connected" | awk -v chosen=$chosen '{if (++i == chosen) { printf "%s", $1 } }')
+
+        xinput --list --name-only | awk '{printf "[%d] %s\n", ++i, $0}'
+        read -p "Set up touch screen, enter number: " chosen || exit 1
+        touch_input="$(xinput --list --name-only | awk -v chosen=$chosen '{if (++i == chosen) {printf "%s\n", $0 } }')"
+        read -p "Set up stylus input tip, enter number: " chosen || exit 1
+        stylus_input_tip="$(xinput --list --name-only | awk -v chosen=$chosen '{if (++i == chosen) {printf "%s\n", $0 } }')"
+        read -p "Set up stylus input eraser, enter number: " chosen || exit 1
+        stylus_input_eraser="$(xinput --list --name-only | awk -v chosen=$chosen '{if (++i == chosen) {printf "%s\n", $0 } }')"
+        printf '%s\n%s\n%s\n%s\n' "display='$display'" "touch_input='$touch_input'" "stylus_input_tip='$stylus_input_tip'" "stylus_input_eraser='$stylus_input_eraser'" > "$CACHE"
+
+        ;;
+    *)
+        for line in $data; do
+            eval "$line";
+        done
+        ;;
+esac
+
+unset IFS
+
+ctm="Coordinate Transformation Matrix"
+
+# Turns coordinates on their heads
+inversion_matrix="-1 0 1.005 0 -1.01 1 0 0 1" # inverted
+## The above inversion matrix is the correction for the
+## cursor of pen too left-down
+# inversion_matrix="-1 0 1 0 -1 1 0 0 1" # inverted
+# inversion_matrix="0 -1 1 1 0 0 0 0 1" # left
+
+left_rotate_matrix="0 -1 1 1 0 0 0 0 1"
+
+right_rotate_matrix="0 1 0 -1 0 1 0 0 1"
+
+# Leaves coordinates as they are
+# identity_matrix="1.01 0 0 0 1.01 0 0 0 1"
+identity_matrix="1 0 0 0 1 0 0 0 1"
+
+# The current screen rotation: One of "normal", "inverted", "left", "right"
+cur_rotation=$(xrandr -q --verbose | grep "$display")
+cur_rotation=${cur_rotation% \(*}
+cur_rotation=${cur_rotation#*\) }
+
+echo "Let's rotate the screen"
+echo "Current rotation is $cur_rotation"
+
+case "$1" in
+    '')
+        case "$cur_rotation" in
+            'normal') switch "Invert the screen and the inputs for touch and stylus" "$inversion_matrix" "inverted" ;;
+            *) switch "Return the screen and the inputs to normal" "$identity_matrix" "normal" ;;
+        esac
+        ;;
+    "normal") switch "rotate screen and inputs to normal" "$identity_matrix" "normal" ;;
+    "inverted") switch "rotate screen and inputs to inverted" "$inversion_matrix" "inverted" ;;
+    "left") switch "rotate screen and inputs to left" "$left_rotate_matrix" "left" ;;
+    "right") switch "rotate screen and inputs to right" "$right_rotate_matrix" "right" ;;
+esac
+
+xinput map-to-output "$touch_input" "$display"
+xinput map-to-output "$stylus_input_tip" "$display"
+xinput map-to-output "$stylus_input_eraser" "$display"
+
+# . tablet-map-output

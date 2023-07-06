@@ -1,0 +1,9 @@
+{
+	"$schema": "https://joplinapp.org/schema/settings.json",
+	"locale": "en_US",
+	"api.token": "f08aebe311ceb9fc141c22a45f37c91facaaeec144621f342ba3400a80c7f0908bc6b7bc8689802b91b3d7f508e030da11718e5b4ec536fb3b1790b74df159c1",
+	"markdown.plugin.softbreaks": false,
+	"markdown.plugin.typographer": false,
+	"sync.target": 3,
+	"style.editor.contentMaxWidth": 600
+}

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+nl='
+'
+name=$(xinput list --name-only | grep -E 'Finger|ELAN')
+stat=$(xinput --list-props "$name")
+
+stat=${stat#*$nl} # "Device Enabled" in the second line
+stat=${stat%%$nl*}
+stat=${stat##"${stat%%?}"} # get the last char: 0 or 1
+case "$stat" in
+    0) xinput --enable "$name" >&2 ;;
+    1) xinput --disable "$name" >&2 ;;
+esac

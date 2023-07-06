@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# automatically upload to github repository after all setting is done
+# $1 is the commit content
+# $2 is the local repository
+
+
+cd "$2"
+git add --all
+git commit -m "$1"
+git push origin master

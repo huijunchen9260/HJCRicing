@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pkill -f "entr compile" && exit
+echo "$1" | entr compile "$1"

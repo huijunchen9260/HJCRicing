@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/huijunchen/.config/autostart'
+let g:netrw_dirhist_1='/home/huijunchen/HJCRicing/.config/nvim'
+let g:netrw_dirhist_0='/home/huijunchen/HJCRicing/.config'
+let g:netrw_dirhist_9='/home/huijunchen/HJCRicing'
+let g:netrw_dirhist_8='/home/huijunchen/Testing/apps/pxltrm'
+let g:netrw_dirhist_7='/home/huijunchen'
+let g:netrw_dirhist_6='/home/huijunchen/.local/bin/hjapps/shbib'
+let g:netrw_dirhist_5='/home/huijunchen/.config/LyX'
+let g:netrw_dirhist_4='/home/huijunchen/.local/bin/hjapps'
+let g:netrw_dirhist_3='/home/huijunchen/HJCRicing'

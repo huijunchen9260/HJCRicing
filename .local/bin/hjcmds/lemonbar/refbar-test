@@ -1,0 +1,9 @@
+#!/bin/sh
+
+case "$1" in
+    1) pkill -1 hjcbar-test.sh ;;
+    3) pkill -3 hjcbar-test.sh ;;
+    6) pkill -6 hjcbar-test.sh ;;
+    14) pkill -14 hjcbar-test.sh ;;
+    15) pkill -15 hjcbar-test.sh ;;
+esac

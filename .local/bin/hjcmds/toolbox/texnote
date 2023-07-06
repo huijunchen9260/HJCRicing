@@ -1,0 +1,32 @@
+#!/bin/sh
+# Dependency: pdftoppm
+
+
+TEMPLATEPATH="$HOME/Documents/LaTeX/note.tex"
+TMPFILE_DIR="/tmp/texnote"
+TMPNAME="$TMPFILE_DIR/doc-$(date +"%y%m%d-%H%M-%S%N")"
+tex2png () {
+	$TERMINAL -e "$EDITOR $1.tex"
+	cd "$TMPFILE_DIR" && pdflatex "$1.tex" "$1.pdf" && texclear "$1.tex"
+	# pdftoppm -r 300 -png -singlefile "$1.pdf" "$1"
+	convert -alpha "$2" -density 1200 "$1.pdf" -quality 300 "$1.png"
+	# Use -r for resolution; -singlefile to not add digits to filename
+	xclip -selection clipboard -t image/png -i "$1.png"
+}
+
+[ ! -d "/tmp/texnote" ] && mkdir -p "/tmp/texnote"
+
+
+EqGraph () {
+    alpha=$(printf '%s\n' "on" "off" | dmenu -i -p "Alpha value?")
+    choice=$(printf '%s\n' /tmp/texnote/*.tex | cut -d '/' -f 4 | sort -r | dmenu -i -l 10 -p "Edit which equation?" | cut -d '.' -f 1)
+    if [ -z "$choice" ]; then
+	    cp "$TEMPLATEPATH" "$TMPNAME.tex"
+	    $TERMINAL -e $EDITOR "$TMPNAME.tex"
+	    tex2png "$TMPNAME.tex" "$alpha"
+    else
+	    tex2png "$TMPFILE_DIR/$choice" "$alpha"
+    fi
+}
+
+EqGraph

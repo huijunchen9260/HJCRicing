@@ -1,0 +1,20 @@
+#!/bin/sh
+
+nl='
+'
+name=$(xinput list --name-only | grep -E 'Synaptics|Touchpad')
+stat=$(xinput --list-props "$name")
+
+stat=${stat#*$nl} # "Device Enabled" in the second line
+stat=${stat%%$nl*}
+stat=${stat##"${stat%%?}"} # get the last char: 0 or 1
+case "$stat" in
+    0)
+        xinput --enable "$name" >&2
+        notify-send "enable touchpad"
+        ;;
+    1)
+        xinput --disable "$name" >&2
+        notify-send "disable touchpad"
+        ;;
+esac

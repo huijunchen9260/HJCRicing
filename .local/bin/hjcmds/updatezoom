@@ -1,0 +1,16 @@
+#!/bin/bash
+#script to check for upstream update and update/install it if required.
+currentV=$(pacman -Q -i zoom | grep Version | cut -d':' -f2 | cut -d' ' -f2)
+echo "current version is: $currentV"
+downV=$(curl -s 'https://zoom.us/support/download' -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0' -H 'Accept: text/html' -H 'Accept-Language: en-US,en;q=0.5' | pcregrep --om-separator=. -o1 -o2 "([0-9\.]*)\s\(([0-9]*)\)" | head -1)
+downV="${downV}-1"
+echo "latest  version is: $downV"
+
+if [[ "$currentV" = "$downV" ]] ; then
+    notify-send "no update available for zoom $currentV -- $downV"
+else
+  echo installing the latest version $downV
+    notify-send "updating zoom to $downV"
+    curl -L "https://zoom.us/client/latest/zoom_x86_64.pkg.tar.xz" -o ~/Downloads/zoom_x86_64.pkg.tar.xz
+    sudo pacman -U ~/Downloads/zoom_x86_64.pkg.tar.xz
+fi

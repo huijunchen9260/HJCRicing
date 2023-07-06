@@ -1,0 +1,42 @@
+\documentclass[17pt]{extarticle}
+% \usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false,backend=biber,doi=false,url=false]{biblatex}
+% \addbibresource{$BIB} % bibtex location
+% \renewcommand*{\nameyeardelim}{\addcomma\space} % have comma in parencite
+\usepackage{natbib}
+\usepackage[left=.8in, right=.8in, top = .8in, bottom = 1in]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{xcolor}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\hyphenpenalty=1000
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\allowdisplaybreaks % let derivations break across pages
+
+%%% beamer style beamerbutton for section reference
+\usepackage[most]{tcolorbox}
+\definecolor{beamerblue}{RGB}{153,153,217}
+\newtcbox{\inlinebox}[1][]{beamer,
+                           box align=base,
+                           % nobeforeafter,
+                           colback=beamerblue,
+                           size=small,
+                           boxrule=0pt,
+                           left=2pt, right=2pt,
+                           boxsep=4pt,
+                           arc=5pt,
+                           fontupper=\color{white},
+                           #1}
+\newcommand{\jump}[2]{\inlinebox{\hypersetup{hidelinks}\hyperref[#1]{#2}}}
+
+\begin{document}
+
+<++>
+
+\appendix
+
+\bibliographystyle{$BIB_STYLE}
+\bibliography{$BIBFILE}
+
+\end{document}

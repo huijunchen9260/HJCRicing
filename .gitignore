@@ -1,0 +1,12 @@
+virtualbox/*
+.config/julia/*
+<<<<<<< HEAD
+<<<<<<< HEAD
+.local/src/*
+=======
+# .local/src/*
+>>>>>>> de137af (delete intel-fortran)
+=======
+# .local/src/*
+>>>>>>> de137af (delete intel-fortran)
+.local/share/nvim/*

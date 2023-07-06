@@ -1,0 +1,597 @@
+priority -50
+# extends texmath
+
+global !p
+
+def create_table(snip):
+	rows = snip.buffer[snip.line].split('x')[0]
+	cols = snip.buffer[snip.line].split('x')[1]
+
+	int_val = lambda string: int(''.join(s for s in string if s.isdigit()))
+
+	rows = int_val(rows)
+	cols = int_val(cols)
+
+	offset = cols + 1
+	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+
+	snip.buffer[snip.line] = ''
+
+	final_str = old_spacing + "\\begin{tabular}{|" + "|".join(['$' + str(i + 1) for i in range(cols)]) + "|}\n"
+
+	for i in range(rows):
+		final_str += old_spacing + '\t'
+		final_str += " & ".join(['$' + str(i * cols + j + offset) for j in range(cols)])
+
+		final_str += " \\\\\\\n"
+
+	final_str += old_spacing + "\\end{tabular}\n$0"
+
+	snip.expand_anon(final_str)
+
+def add_row(snip):
+	row_len = int(''.join(s for s in snip.buffer[snip.line] if s.isdigit()))
+	old_spacing = snip.buffer[snip.line][:snip.buffer[snip.line].rfind('\t') + 1]
+
+	snip.buffer[snip.line] = ''
+
+	final_str = old_spacing
+	final_str += " & ".join(['$' + str(j + 1) for j in range(row_len)])
+	final_str += " \\\\\\"
+
+	snip.expand_anon(final_str)
+endglobal
+
+global !p
+def fix_indent(snip):
+    vim.eval('feedkeys("\<c-f>")')
+endglobal
+
+# post_expand "fix_indent(snip)"
+snippet li "Individual item" b
+\item $0
+endsnippet
+
+snippet extend_template "LaTeX template from Prof Schuler" b
+\documentclass[12pt]{article}
+
+\usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false,backend=biber,doi=false,url=false]{biblatex}
+\addbibresource{$BIB} % bibtex location
+\renewcommand*{\nameyeardelim}{\addcomma\space} % have comma in parencite
+
+\usepackage{xcolor}
+ \usepackage{amsmath}
+\newcommand{\tuple}[1]{ \langle #1 \rangle }
+%\usepackage{automata}
+\usepackage{times}
+\usepackage{hyperref}
+\usepackage{ltablex}
+
+\usepackage{vmargin}
+\setpapersize{USletter}
+\setmarginsrb{1.0in}{1.0in}{1.0in}{0.6in}{0pt}{0pt}{0pt}{0.4in}
+
+% HOW TO USE THE ABOVE:
+%\setmarginsrb{leftmargin}{topmargin}{rightmargin}{bottommargin}{headheight}{headsep}{footheight}{footskip}
+%\raggedbottom
+% paragraphs indent & skip:
+\parindent  0.3cm
+\parskip    -0.01cm
+
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+
+% hyphenation:
+\sloppy
+
+% notes-style paragraph spacing and indentation:
+\usepackage{parskip}
+\setlength{\parindent}{0cm}
+
+% let derivations break across pages
+\allowdisplaybreaks
+
+\def\blue{\color{blue}}
+\def\orange{\color{orange}}
+\newcommand{\freq}[1]{{\bf \sf F}(#1)}
+\newcommand{\datafreq}[2]{{{\bf \sf F}_{#1}(#2)}}
+
+\def\qqquad{\quad\qquad}
+\def\qqqquad{\qquad\qquad}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setcounter{section}{$2}
+\centerline{\huge\bf $1 \thesection}
+\smallskip
+\centerline{\LARGE ${3:Hui-Jun Chen}}
+
+\medskip
+
+\tableofcontents
+
+\printbibliography
+
+\end{document}
+endsnippet
+
+snippet template "Basic LaTeX template" b
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+\usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false, backend=biber]{biblatex}
+\addbibresource{$BIB}
+
+\graphicspath{ {./figures} }
+
+\newcommand{\inkfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\title{$3}
+\author{${4:\textit{Hui-Jun Chen}}}
+${5:\date{\today}}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet environment "Environment" b
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{remark}[1][Remark]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{homework}[1][Homework]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+endsnippet
+
+snippet math "Some special math" b
+% Big dot
+\renewcommand*{\dot}[1]{%
+    \overset{\bullet}{#1}
+}
+endsnippet
+
+snippet xetemplate "Basic XeLaTeX template" b
+% !TEX program = xelatex
+\documentclass[a4paper]{article}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+	\setmainfont[Scale=1.2]{${1:TeX Gyre Termes}}
+	\setCJKmainfont[Scale=1.2]{${2:WenQuanYi Zen Hei}}
+	\CJKsetecglue{}
+	\XeTeXlinebreaklocale "zh"
+	\XeTeXlinebreakskip = 0pt plus 1pt
+
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+\usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false, backend=biber]{biblatex}
+\addbibresource{$BIB}
+
+\newcommand{\inkfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+
+\title{$3}
+\author{${4:\textit{Hui-Jun Chen}}}
+${5:\date{\today}}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}
+endsnippet
+
+snippet beamer "Beamer with takahashi method" b
+\documentclass{beamer}
+\usefonttheme[onlymath]{serif}
+\usetheme[numbering=fraction, progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb, amsthm}
+
+\usepackage[style=authoryear,maxbibnames=9,maxcitenames=2,uniquelist=false,backend=biber,doi=false,url=false]{biblatex}
+\renewcommand*{\nameyeardelim}{\addcomma\space} % have comma in parencite
+\addbibresource{$BIB} % bibtex location
+%%% Small bibliography slide
+\setbeamertemplate{bibliography item}[triangle]
+\makeatletter
+\newcommand{\srcsize}{\@setfontsize{\srcsize}{6.5pt}{6.5pt}}
+\makeatother
+\renewcommand*{\bibfont}{\srcsize}
+
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\graphicspath{ {./figures} }
+\newcommand{\inkfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+%%%%%% Template
+\usepackage{hyperref}
+\definecolor{links}{HTML}{2A1B81}
+
+%% beaver (red) style:
+% \usecolortheme{beaver}
+% \setbeamercolor{block body}{bg=gray!30!white}
+% \setbeamercolor{block title}{bg=darkred!70, fg=black!2}
+% \hypersetup{colorlinks=true,allcolors=red}
+
+%% seahorse style:
+\usecolortheme{seahorse}
+\setbeamercolor{block body}{bg=mDarkTeal!30}
+\setbeamercolor{block title}{bg=mDarkTeal,fg=black!2}
+\hypersetup{colorlinks=true,allcolors=links}
+%%%%%% Template
+
+\pdfsuppresswarningpagegroup=1
+
+\title{$3}
+\author{${4:\textit{Hui-Jun Chen}}}
+\institute{The Ohio State University}
+${5:\date{\today}}
+
+\begin{document}
+
+\maketitle
+
+% \frame{%
+%    \maketitle
+%    \begin{center}
+%        \includegraphics
+%			[width=0.2\textwidth]
+%			{./figures/Ohio_State_University_seal}
+%    \end{center}
+% }
+
+
+$0
+
+
+\metroset{numbering=none}
+\printbibliography[heading=none]
+% \begin{frame}[allowframebreaks, noframenumbering]
+%     \frametitle{References}
+%     \printbibliography[heading=none]
+% \end{frame}
+
+\end{document}
+endsnippet
+
+snippet taka "takahashi command" b
+\takahashi{
+\stack{
+
+	$1
+
+}
+}
+
+$0
+endsnippet
+
+snippet frame "Beamer frame" b
+
+\begin{frame}{${1:${VISUAL:frame title}}}
+\label{slide:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+    $3
+\end{frame}
+$0
+endsnippet
+
+snippet dialogue "preamble for dia command" b
+
+\usepackage{enumitem}
+\usepackage{xparse}
+\DeclareDocumentCommand \dia { o m } {%
+    \begin{itemize}[%
+        ,label=\IfNoValueTF {#1} {---}{#1:}
+        ,nosep % optional
+        ]
+        \item #2
+    \end{itemize}%
+    }
+
+endsnippet
+
+snippet dia "dialogue" b
+\dia[$1]{$2}
+
+$0
+endsnippet
+
+snippet note "Use latex to do note" b
+\documentclass[preview]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb, amsthm}
+
+\begin{document}
+$0
+\end{document}
+endsnippet
+
+# snippet "b(egin)?" "begin{} / end{}" br
+# \begin{${1:something}}
+# 	${0:${VISUAL}}
+# \end{$1}
+# endsnippet
+
+snippet abs "abstract environment"
+\begin{abstract}
+	$0
+\end{abstract}
+endsnippet
+
+snippet tab "tabular / array environment" b
+\begin{${1:t}${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${2:c}}
+$0${2/(?<=.)(c|l|r)|./(?1: & )/g}
+\end{$1${1/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+endsnippet
+
+pre_expand "create_table(snip)"
+snippet "gentab(\d+)x(\d+)" "Generate table of *width* by *height*" r
+endsnippet
+
+pre_expand "add_row(snip)"
+snippet "tr(\d+)" "Add table row of dimension ..." r
+endsnippet
+
+snippet table "Table environment" b
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:${2/\W+/-/g}}}
+	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
+	$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
+	\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
+\end{table}
+endsnippet
+
+# snippet fig "Figure environment" b
+# \begin{figure}[${1:htpb}]
+# 	\centering
+# 	${2:\includegraphics[width=0.8\textwidth]{$3}}
+# 	\caption{${4:$3}}
+# 	\label{fig:${5:${3/\W+/-/g}}}
+# \end{figure}
+# endsnippet
+
+snippet inkfig "Figure environment" b
+\begin{figure}[${3:ht}]
+	\centering
+	\inkfig[$2]{${4:${1/\W+/-/g}}}
+	\caption{${1:${VISUAL}}}
+	\label{fig:${5:${1/\W+/-/g}}}
+\end{figure}
+endsnippet
+
+# post_expand "fix_indent(snip)"
+# snippet enum "Enumerate" b
+# \begin{enumerate}
+# 	\item $0
+# \end{enumerate}
+# endsnippet
+
+# post_expand "fix_indent(snip)"
+# snippet item "Itemize" b
+# \begin{itemize}
+# 	\item $0
+# \end{itemize}
+# endsnippet
+
+# post_expand "fix_indent(snip)"
+# snippet desc "Description" b
+# \begin{description}
+# 	\item[$1] $0
+# \end{description}
+# endsnippet
+
+# snippet li "Individual item" b
+# \item $0
+# endsnippet
+
+snippet cha "Chapter" b
+\chapter{${1:chapter name}}%
+\label{cha:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+$0
+endsnippet
+
+# snippet sec "Section" b
+# \section{${1:${VISUAL:section name}}}%
+# \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+# $0
+# endsnippet
+
+# snippet sec* "Section" b
+# \section*{${1:${VISUAL:section name}}}%
+# \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+# ${0}
+# endsnippet
+
+
+# snippet sub "Subsection" b
+# \subsection{${1:${VISUAL:subsection name}}}%
+# \label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+# $0
+# endsnippet
+
+# snippet sub* "Subsection" b
+# \subsection*{${1:${VISUAL:subsection name}}}%
+# \label{sub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+# ${0}
+# endsnippet
+
+# snippet ssub "Subsubsection" b
+# \subsubsection{${1:${VISUAL:subsubsection name}}}%
+# \label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+# $0
+# endsnippet
+
+# snippet ssub* "Subsubsection" b
+# \subsubsection*{${1:${VISUAL:subsubsection name}}}%
+# \label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+# ${0}
+# endsnippet
+
+snippet par "Paragraph" b
+\paragraph{${1:${VISUAL:paragraph name}}}%
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+$0
+endsnippet
+
+snippet subp "Subparagraph" b
+\subparagraph{${1:${VISUAL:subparagraph name}}}%
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+$0
+endsnippet
+
+snippet ac "Acroynm normal" b
+\ac{${1:acronym}}
+$0
+endsnippet
+
+snippet acl "Acroynm expanded" b
+\acl{${1:acronym}}
+$0
+endsnippet
+
+
+
+snippet ni "Non-indented paragraph" b
+\noindent
+$0
+endsnippet
+
+snippet column "column environment" b
+\begin{columns}
+	\begin{column}{${1:0.5}\textwidth}
+		$3
+	\end{column}
+	\begin{column}{${2:0.5}\textwidth}
+		$4
+	\end{column}
+\end{columns}
+endsnippet
+
+snippet pac "Package" b
+\usepackage`!p snip.rv='[' if t[1] else ""`${1:options}`!p snip.rv = ']' if t[1] else ""`{${2:package}}$0
+endsnippet
+
+snippet lp "Long parenthesis"
+\left(${1:${VISUAL:contents}}\right)$0
+endsnippet
+
+snippet "mint(ed)?( (\S+))?" "Minted code typeset" br
+\begin{listing}
+\begin{minted}[linenos,numbersep=5pt,frame=lines,framesep=2mm]{${1:`!p
+snip.rv = match.group(3) if match.group(2) is not None else "language"`}}
+${2:${VISUAL:code}}
+\end{minted}
+\caption{${3:caption name}}
+\label{lst:${4:${3/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+\end{listing}
+
+$0
+endsnippet
+
+
+################
+#  Text style  #
+################
+
+snippet it "italic text" iw
+ \textit{${1:${VISUAL}}}$0
+endsnippet
+
+
+snippet bf "bold text" iw
+ \textbf{${1:${VISUAL}}}$0
+endsnippet
+
+snippet tt "code text" iw
+ \texttt{${1:${VISUAL}}}$0
+endsnippet
+
+snippet col "colored text" iw
+ \textcolor{${1:red}}{${2:${VISUAL}}}$0
+endsnippet
+
+# Reference
+
+snippet rn "(reference)" iw
+(\ref{$1})$0
+endsnippet
+
+snippet ct "cite" iw
+\textcite{$1}$0
+endsnippet
+
+snippet pt "cite" iw
+\parencite{$1}$0
+endsnippet
+
+# Footnote
+
+snippet fn "footnote" iw
+\footnote{$1}$0
+endsnippet
+
+
+
+# vim:ft=snippets:
