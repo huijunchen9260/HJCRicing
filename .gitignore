@@ -1,6 +1,5 @@
 virtualbox/*
 .config/julia/*
-<<<<<<< HEAD
-<<<<<<< HEAD
 .local/src/*
 .local/share/nvim/*
+.config/mpd/log
