@@ -16,9 +16,9 @@ super + Return
 # App launcher
 mod4 + d
 	dmenu_run
-# File manager based on dmenufm
+# File manager based on fm.awk
 mod4 + r
-	$TERMINAL -e fmawk
+	cd "$(cat -u ~/.cache/lastpath)" || cd "$HOME" && "$TERMINAL" -e fmawk
 # File manager based on fzf
 mod4 + control + r
 	thunar

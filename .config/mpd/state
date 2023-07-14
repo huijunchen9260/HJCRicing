@@ -1,21 +1,9 @@
 sw_volume: 84
 audio_device_state:1:alsa for audio soundcard
 audio_device_state:1:toggle_visualizer
-<<<<<<< HEAD
-<<<<<<< HEAD
-state: play
-current: 1826
-time: 149.873000
-=======
 state: pause
-current: 1826
-time: 37.730000
->>>>>>> de137af (delete intel-fortran)
-=======
-state: pause
-current: 1826
-time: 37.730000
->>>>>>> de137af (delete intel-fortran)
+current: 1829
+time: 280.057000
 random: 0
 repeat: 1
 single: 1

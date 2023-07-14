@@ -397,34 +397,15 @@ c: ## install c
 
 fortran: ## install gfortran and intel fortran
 	$(PACMAN) gcc-$@
-<<<<<<< HEAD
-<<<<<<< HEAD
-	./.local/src/fortran/l_fortran-compiler_p_2022.0.2.83_offline.sh
-=======
->>>>>>> de137af (delete intel-fortran)
-=======
->>>>>>> de137af (delete intel-fortran)
 
 
 .ONESHELL:
 matlab: ## MANUALLY install matlab
 	$(AUR) libxcrypt-compat
 	[ ! -d matlab_R2022b_glnxa64 ] && \
-<<<<<<< HEAD
-<<<<<<< HEAD
-		mkdir ./.local/src/matlab_R2022b_glnxa64 && \
-		unzip -X -K -d "./.local/src/matlab_R2022b_glnxa64" "./.local/src/matlab_R2022b_glnxa64.zip" && \
-		cd "./.local/src/matlab_R2022b_glnxa64" && \
-=======
 		mkdir ${HOME}/HJCsrc/matlab_R2022b_glnxa64 && \
 		unzip -X -K -d "${HOME}/HJCsrc/matlab_R2022b_glnxa64" "${HOME}/HJCsrc/matlab_R2022b_glnxa64.zip" && \
 		cd "${HOME}/HJCsrc/matlab_R2022b_glnxa64" && \
->>>>>>> de137af (delete intel-fortran)
-=======
-		mkdir ${HOME}/HJCsrc/matlab_R2022b_glnxa64 && \
-		unzip -X -K -d "${HOME}/HJCsrc/matlab_R2022b_glnxa64" "${HOME}/HJCsrc/matlab_R2022b_glnxa64.zip" && \
-		cd "${HOME}/HJCsrc/matlab_R2022b_glnxa64" && \
->>>>>>> de137af (delete intel-fortran)
 		cd bin/glnxa64 && \
 		mkdir exclude && \
 		mv libfreetype.so.6 exclude/ && \
@@ -500,18 +481,9 @@ latex: mjcli ## install latex system
 	$(PACMAN) biber texlive texlive-lang texlive-langextra texlive-bibtexextra
 	$(AUR) mathpix-snipping-tool
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 html: ## html generation from markdown
 	$(PACMAN) lowdown
 
->>>>>>> de137af (delete intel-fortran)
-=======
-html: ## html generation from markdown
-	$(PACMAN) lowdown
-
->>>>>>> de137af (delete intel-fortran)
 .ONESHELL:
 shell: ## install shell I need
 	$(PACMAN) zsh bash
@@ -592,18 +564,7 @@ all: aur pacman init allinstall
 update: ## Update arch linux packages and save packages cache 3 generations
 	$(AUR)yu; paccache -ruk0
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-allinstall: IME browser shell megasync mtools zoom remarkable virtualbox neovim pdf peek misc sound image video terminal latex clipboard core proglang desktop
-=======
-=======
->>>>>>> de137af (delete intel-fortran)
 manual: matlab ## install matlab and intel fortran
 	${HOME}/HJCsrc/fortran/l_fortran-compiler_p_2022.0.2.83_offline.sh
 
 allinstall: IME browser shell megasync mtools zoom remarkable virtualbox neovim pdf peek misc sound image video terminal latex clipboard core proglang desktop manual
-<<<<<<< HEAD
->>>>>>> de137af (delete intel-fortran)
-=======
->>>>>>> de137af (delete intel-fortran)
-

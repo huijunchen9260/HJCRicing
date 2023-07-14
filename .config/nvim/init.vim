@@ -143,7 +143,7 @@ autocmd BufWritePost config.def.h !rm ./config.h; sudo make install
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 
-" autocmd VimLeave *.tex !texclear %
+autocmd VimLeave *.tex !texclear %
 
 
 " Vim-repeat
